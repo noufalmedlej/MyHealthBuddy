@@ -1,0 +1,93 @@
+{
+  "project_info": {
+    "project_number": "556593284891",
+    "firebase_url": "https://myhealthbuddy-baceb.firebaseio.com",
+    "project_id": "myhealthbuddy-baceb",
+    "storage_bucket": "myhealthbuddy-baceb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:556593284891:android:82b8a754e206776bb135be",
+        "android_client_info": {
+          "package_name": "com.example.myhealthbuddy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "556593284891-a9h4b6rfh6qheb6dvggea6rh06ve32de.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.myhealthbuddy",
+            "certificate_hash": "aee5a5f9aa5e59afda4fce3470a87745bf47739e"
+          }
+        },
+        {
+          "client_id": "556593284891-0jerm6q2lflee17nkdmi6uigplj04ifk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.myhealthbuddy",
+            "certificate_hash": "a919b69216a04e4d6c497d250682e66b7f806afb"
+          }
+        },
+        {
+          "client_id": "556593284891-0qg7kiqi8vrjjcoslo88rdv5cnngb86k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBbmbXw5UQPyeefk_Z3cG8749R51MR3hJA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "556593284891-0qg7kiqi8vrjjcoslo88rdv5cnngb86k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:556593284891:android:f74139a59cb4169fb135be",
+        "android_client_info": {
+          "package_name": "com.example.myhealthbuddyadmin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "556593284891-04t6ntmdbv3dj3gfmcsqm5borh4eb708.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.myhealthbuddyadmin",
+            "certificate_hash": "a919b69216a04e4d6c497d250682e66b7f806afb"
+          }
+        },
+        {
+          "client_id": "556593284891-0qg7kiqi8vrjjcoslo88rdv5cnngb86k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBbmbXw5UQPyeefk_Z3cG8749R51MR3hJA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "556593284891-0qg7kiqi8vrjjcoslo88rdv5cnngb86k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
