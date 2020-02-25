@@ -46,7 +46,7 @@ DatabaseReference Userref;
         UserPhone=findViewById(R.id.phone);
 
         regBtn = findViewById(R.id.regBtn);
-        login =findViewById(R.id.login);
+        login =findViewById(R.id.loginn);
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -93,7 +93,7 @@ DatabaseReference Userref;
         }*/
     }
 
-    private void CreateUserAccount(String email,final String nid,final String password,final String name,final String phone) {
+    private void CreateUserAccount(final String email,final String nid,final String password,final String name,final String phone) {
 
         mAuth.createUserWithEmailAndPassword(email,password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -104,8 +104,9 @@ DatabaseReference Userref;
 
                             showMessage("registered successfully");
                             Currentuser=mAuth.getCurrentUser().getUid();
-                            Userref= FirebaseDatabase.getInstance().getReference().child("Users").child(Currentuser);
+                            Userref= FirebaseDatabase.getInstance().getReference().child("Patients").child(Currentuser);
                             HashMap userMap=new HashMap();
+                            userMap.put("email",email);
                             userMap.put("name",name);
                             userMap.put("national ID",nid);
                             userMap.put("phone",phone);
