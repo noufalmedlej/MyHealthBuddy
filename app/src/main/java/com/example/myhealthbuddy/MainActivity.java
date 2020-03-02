@@ -64,7 +64,8 @@ public class MainActivity extends AppCompatActivity {
                 {
                     SendUserToSetUpActivity();
                 }
-
+                Intent intent=new Intent(MainActivity.this, HomePage.class);
+                startActivity(intent);
             }
 
             @Override

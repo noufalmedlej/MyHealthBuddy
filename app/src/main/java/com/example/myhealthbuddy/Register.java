@@ -84,13 +84,13 @@ DatabaseReference Userref;
     @Override
     protected void onStart() {
         super.onStart();
-        // FirebaseUser currentUser=mAuth.getCurrentUser();
-        /* if (currentUser!=null)
+         FirebaseUser currentUser=mAuth.getCurrentUser();
+         if (currentUser!=null)
         {
 
             SendUserToMainActivity();
 
-        }*/
+        }
     }
 
     private void CreateUserAccount(final String email,final String nid,final String password,final String name,final String phone) {
@@ -139,12 +139,12 @@ DatabaseReference Userref;
 
         Toast.makeText(getApplicationContext(), message,Toast.LENGTH_LONG).show();
     }
-    /*private void sendUserToSetUpActivity(){
-        Intent setupintent=new Intent(Register.this,SetUpActivity.class);
+    private void sendUserToSetUpActivity(){
+        Intent setupintent=new Intent(Register.this,HomePage.class);
         setupintent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(setupintent);
         finish();
-    }*/
+    }
 
     private void SendUserToMainActivity(){
         Intent mainintent =new Intent(Register.this,MainActivity.class);

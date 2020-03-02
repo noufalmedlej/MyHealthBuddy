@@ -113,10 +113,10 @@ String email="";
     }
 
     private void SendUserToMainActivity(){
-       /* Intent mainintent =new Intent(SigninActivity.this,MainActivity.class);
+       Intent mainintent =new Intent(SigninActivity.this,HomePage.class);
         mainintent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(mainintent);
-        finish();*/
+        finish();
 
     }
 
