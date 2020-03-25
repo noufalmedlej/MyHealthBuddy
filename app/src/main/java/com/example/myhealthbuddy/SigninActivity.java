@@ -49,7 +49,7 @@ public class SigninActivity  extends AppCompatActivity {
             final String Password = Pass.getText().toString();
 
             if( ID.isEmpty() || Password.isEmpty()||ID.length()!=10){
-                showMessage("Please Verify All Fields");
+                showMessage("Please Verify All Field");
             }
             else{
                 signin(ID,Password);
