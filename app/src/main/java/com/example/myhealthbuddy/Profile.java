@@ -61,7 +61,7 @@ public class Profile extends AppCompatActivity {
                 name.setText(dataSnapshot.child("name").getValue().toString());
                 mail.setText(dataSnapshot.child("email").getValue().toString());
                 phone.setText(dataSnapshot.child("phone").getValue().toString());
-                nid.setText(dataSnapshot.child("national ID").getValue().toString());
+                nid.setText(dataSnapshot.child("national_id").getValue().toString());
             }
 
             @Override

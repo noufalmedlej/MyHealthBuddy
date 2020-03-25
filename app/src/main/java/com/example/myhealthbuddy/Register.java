@@ -108,7 +108,7 @@ DatabaseReference Userref;
                             HashMap userMap=new HashMap();
                             userMap.put("email",email);
                             userMap.put("name",name);
-                            userMap.put("national ID",nid);
+                            userMap.put("national_id",nid);
                             userMap.put("phone",phone);
                             Userref.updateChildren(userMap).addOnCompleteListener(new OnCompleteListener() {
                                 @Override

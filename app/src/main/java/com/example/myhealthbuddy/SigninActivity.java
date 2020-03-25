@@ -83,7 +83,7 @@ dbref.addValueEventListener(new ValueEventListener() {
 String email="";
         for (DataSnapshot postsnapshot : dataSnapshot.getChildren()) {
             String key = postsnapshot.getKey();
-            if((dataSnapshot.child(key).child("national ID").getValue().equals(ID))){
+            if((dataSnapshot.child(key).child("national_id").getValue().equals(ID))){
              email = dataSnapshot.child(key).child("email").getValue().toString();
             mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
