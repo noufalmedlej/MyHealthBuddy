@@ -29,7 +29,7 @@ public class Settings extends AppCompatActivity {
             }
         });
        Button logout = findViewById(R.id.logout);
-       Button reset = findViewById(R.id.reset);
+       Button reset = findViewById(R.id.reset1);
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

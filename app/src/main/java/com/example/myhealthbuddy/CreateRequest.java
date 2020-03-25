@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -19,6 +20,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -39,6 +41,7 @@ public class CreateRequest extends AppCompatActivity {
     private DatePickerDialog.OnDateSetListener mDatasetListner;
     private String doctorid,note,date;
     private String currentUser;
+    BottomNavigationView bottomnav;
 
 
     private DatabaseReference patientRef,docsref,reqRef;
@@ -55,6 +58,16 @@ public class CreateRequest extends AppCompatActivity {
         docId=(EditText)findViewById(R.id.DocId);
         dat=(TextView)findViewById(R.id.Date);
         not=(EditText)findViewById(R.id.Notes);
+
+        bottomnav =  findViewById(R.id.bottom_navigation);
+        bottomnav.setSelectedItemId(R.id.nav_request);
+        bottomnav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                UserMenuSelector(menuItem);
+                return false;
+            }
+        });
 
         dat.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -80,7 +93,7 @@ public class CreateRequest extends AppCompatActivity {
             }
         };
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
         //databaseref
@@ -208,6 +221,21 @@ public class CreateRequest extends AppCompatActivity {
     private void sendUserToMainActivity(){
         Intent mainIntent=new Intent(CreateRequest.this,HomePage.class);
         startActivity(mainIntent);
+    }
+
+    private void UserMenuSelector(MenuItem item) {
+        switch (item.getItemId()){
+
+            case R.id.nav_home:
+                Intent intenthome=new Intent(CreateRequest.this, HomePage.class);
+                startActivity(intenthome);
+                break;
+
+            case R.id.nav_person:
+                Intent intentsearch=new Intent(CreateRequest.this, Profile.class);
+                startActivity(intentsearch);
+                break;
+        }
     }
 
 

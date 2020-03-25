@@ -19,10 +19,13 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class Profile extends AppCompatActivity {
-    protected void onCreate(Bundle savedInstanceState) {
 
+
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profile);
+
+
         BottomNavigationView bottomnav;
         bottomnav = (BottomNavigationView) findViewById(R.id.bottom_navigation);
         bottomnav.setSelectedItemId(R.id.nav_person);
@@ -33,7 +36,9 @@ public class Profile extends AppCompatActivity {
                 return false;
             }
         });
-        TextView set = findViewById(R.id.textView5);
+
+
+        Button set = findViewById(R.id.textView5);
         set.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -74,7 +79,15 @@ public class Profile extends AppCompatActivity {
     private void UserMenuSelector(MenuItem item) {
         switch (item.getItemId()){
 
+            case R.id.nav_request:
+                Intent intentrequest=new Intent(Profile.this, CreateRequest.class);
+                startActivity(intentrequest);
+                break;
+
             case R.id.nav_home:
                 Intent intentsearch=new Intent(Profile.this, HomePage.class);
                 startActivity(intentsearch);
-                break;}}}
+                break;
+        }
+    }
+}

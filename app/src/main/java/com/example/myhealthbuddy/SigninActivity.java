@@ -22,25 +22,34 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class SigninActivity  extends AppCompatActivity {
+
     private EditText uid,Pass;
     private Button regBtn;
     private Button login;
     DatabaseReference Userref;
-     FirebaseAuth mAuth;
- String Currentuser;
+    FirebaseAuth mAuth;
+    String Currentuser;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
+
+
         uid = findViewById(R.id.uid);
         Pass = findViewById(R.id.password);
-        regBtn = findViewById(R.id.reg);
         login = findViewById(R.id.login);
+
+
+        regBtn = findViewById(R.id.reg);
         regBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(SigninActivity.this, Register.class));
-}});
-    mAuth = FirebaseAuth.getInstance();
+            }
+        });
+
+
+        mAuth = FirebaseAuth.getInstance();
         login.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {

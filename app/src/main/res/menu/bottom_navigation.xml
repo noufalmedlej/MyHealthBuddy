@@ -9,4 +9,14 @@
         android:id="@+id/nav_person"
         android:icon="@drawable/person"
         android:title="ملفي الشخصي" />
+
+    <item
+        android:id="@+id/nav_request"
+        android:icon="@drawable/calendarr"
+        android:title="طلب" />
+
+    <item
+        android:id="@+id/nav_not"
+        android:icon="@drawable/notify"
+        android:title="اشعارات" />
 </menu>
