@@ -80,6 +80,8 @@ public class CreateRequest extends AppCompatActivity {
             }
         };
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
 
         //databaseref
         patientRef= FirebaseDatabase.getInstance().getReference().child("Patients");
@@ -164,7 +166,7 @@ public class CreateRequest extends AppCompatActivity {
                     String patientID=dataSnapshot.child("national_id").getValue().toString();
 
                     // check if there is a request before
-                    
+
                     HashMap reqmap=new HashMap();
                     reqmap.put("patient_id",patientID);
                     reqmap.put("date",date);
