@@ -3,6 +3,8 @@ package com.example.myhealthbuddy;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -19,8 +21,8 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class HomePage extends AppCompatActivity {
+    Button reqbtn;
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
     setContentView(R.layout.homepage);
     final TextView name= findViewById(R.id.name);
@@ -34,6 +36,7 @@ public class HomePage extends AppCompatActivity {
                 return false;
             }
         });
+
     String current= FirebaseAuth.getInstance().getCurrentUser().getUid();
    DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Patients").child(current).child("name");
    ref.addValueEventListener(new ValueEventListener() {
@@ -48,6 +51,15 @@ public class HomePage extends AppCompatActivity {
 
        }
    });
+        reqbtn=findViewById(R.id.Requestbtn);
+        reqbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentreq=new Intent(HomePage.this, CreateRequest.class);
+                startActivity(intentreq);
+
+            }
+        });
 
 }
     private void UserMenuSelector(MenuItem item) {
