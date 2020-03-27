@@ -118,7 +118,7 @@ public class CreateRequest extends AppCompatActivity {
         doctorid=docId.getText().toString();
         note=not.getText().toString();
         date=dat.getText().toString();
-        if(doctorid.isEmpty()||date.isEmpty()) {
+        if(doctorid.isEmpty()||date.equals("SelectDate")) {
             Toast.makeText(getApplicationContext(),"Please enter doctor's ID and date of the session",Toast.LENGTH_SHORT).show();
         }
 
@@ -180,7 +180,7 @@ public class CreateRequest extends AppCompatActivity {
 
                     // check if there is a request before
 
-                    HashMap reqmap=new HashMap();
+                    final HashMap reqmap=new HashMap();
                     reqmap.put("patient_id",patientID);
                     reqmap.put("date",date);
                     reqmap.put("doctor_id",doctorid);
@@ -190,20 +190,40 @@ public class CreateRequest extends AppCompatActivity {
 
 
 
-                    String key=patientID+doctorid+date.replace("/","")+type;
+                    final String key=patientID+doctorid+date.replace("/","_")+type;
 
-                    reqRef.child(key).updateChildren(reqmap).addOnCompleteListener(new OnCompleteListener() {
+                    reqRef.child(key).addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
-                        public void onComplete(@NonNull Task task) {
-                            if(task.isSuccessful()){
-                                Toast.makeText(CreateRequest.this, "Request sent", Toast.LENGTH_SHORT).show();
-                                sendUserToMainActivity();
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            if(dataSnapshot.exists()){
+                                Toast.makeText(CreateRequest.this, "You already have a request...", Toast.LENGTH_SHORT).show();
+                                return;
+
                             }
-                            else{
-                                Toast.makeText(CreateRequest.this, "Error", Toast.LENGTH_SHORT).show();
+                            else {
+                                reqRef.child(key).updateChildren(reqmap).addOnCompleteListener(new OnCompleteListener() {
+                                    @Override
+                                    public void onComplete(@NonNull Task task) {
+                                        if(task.isSuccessful()){
+                                            Toast.makeText(CreateRequest.this, "Request sent", Toast.LENGTH_SHORT).show();
+                                            sendUserToMainActivity();
+                                        }
+                                        else{
+                                            Toast.makeText(CreateRequest.this, "Error", Toast.LENGTH_SHORT).show();
+                                        }
+                                    }
+                                });
+
                             }
                         }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                        }
                     });
+
+
 
 
 
