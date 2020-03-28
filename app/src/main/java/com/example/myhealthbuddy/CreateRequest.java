@@ -187,6 +187,7 @@ public class CreateRequest extends AppCompatActivity {
                     if(!note.isEmpty())
                     reqmap.put("notes",note);
                     reqmap.put("type",type);
+                    reqmap.put("patient_uid",currentUser);
 
 
 
