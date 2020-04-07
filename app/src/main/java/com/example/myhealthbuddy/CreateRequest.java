@@ -193,7 +193,7 @@ public class CreateRequest extends AppCompatActivity {
 
                     final String key=patientID+doctorid+date.replace("/","_")+type;
 
-                    reqRef.child(key).addListenerForSingleValueEvent(new ValueEventListener() {
+                    reqRef.child("PendingRequests").child(key).addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                             if(dataSnapshot.exists()){
@@ -202,7 +202,7 @@ public class CreateRequest extends AppCompatActivity {
 
                             }
                             else {
-                                reqRef.child(key).updateChildren(reqmap).addOnCompleteListener(new OnCompleteListener() {
+                                reqRef.child("PendingRequests").child(key).updateChildren(reqmap).addOnCompleteListener(new OnCompleteListener() {
                                     @Override
                                     public void onComplete(@NonNull Task task) {
                                         if(task.isSuccessful()){
