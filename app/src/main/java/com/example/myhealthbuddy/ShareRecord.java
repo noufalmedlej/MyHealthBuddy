@@ -39,10 +39,12 @@ public class ShareRecord extends AppCompatActivity {
     private DatePickerDialog.OnDateSetListener mDatasetListner;
     private String recordId, HCPuID ,HCPID;
     private String currentUser;
+    //need check
     BottomNavigationView bottomnav;
     private TextView t1;
 
     private DatabaseReference patienstRef,docsRef,sharRef,recordRef;
+
     private FirebaseAuth mAuth;
 
 
