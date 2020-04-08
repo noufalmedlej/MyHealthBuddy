@@ -23,6 +23,7 @@ public class HomePage extends AppCompatActivity {
     Button reqbtn;
     ImageView img;
     BottomNavigationView bottomnav;
+    Button btn ;
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,6 +67,18 @@ public class HomePage extends AppCompatActivity {
 
        }
    });
+
+
+        btn = (Button)findViewById(R.id.button);
+        btn.setOnClickListener(new View.OnClickListener() {
+                                   @Override
+                                   public void onClick(View v) {
+                                       Intent intent = new Intent(HomePage.this, ChooseDocToShareWith.class);
+                                       startActivity(intent);
+                                   }
+                               }
+        );
+
         /*reqbtn=findViewById(R.id.Requestbtn);
         reqbtn.setOnClickListener(new View.OnClickListener() {
             @Override
