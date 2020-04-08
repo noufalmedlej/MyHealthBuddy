@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ChooseDocToShareWith"
+    android:background="#ffffff">
+
+    <include
+        android:id="@+id/viewHiveToolBar"
+        layout="@layout/toolbar"
+        android:layout_width="413dp"
+        android:layout_height="82dp" />
+
+    <EditText
+        android:id="@+id/SearchHCPInput"
+        android:layout_width="367dp"
+        android:layout_height="42dp"
+        android:layout_marginBottom="580dp"
+        android:background="@drawable/login_style"
+        android:ems="10"
+        android:hint="Health Care Provider ID .."
+        android:imeOptions="actionSearch"
+        android:inputType="textPersonName"
+        android:lines="1"
+        android:maxLines="1"
+        android:padding="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/viewHiveToolBar"
+        app:layout_constraintVertical_bias="0.259" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/d_bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        android:background="?android:attr/windowBackground"
+        />
+
+
+    <ImageButton
+        android:id="@+id/searchHCPbutton"
+        android:layout_width="39dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="27dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@android:drawable/ic_menu_search"
+        android:src="@drawable/search"
+        app:layout_constraintBottom_toTopOf="@+id/HCPresult"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/SearchHCPInput"
+        app:layout_constraintTop_toBottomOf="@+id/viewHiveToolBar"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:menu="@menu/bottom_navigation" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/HCPresult"
+        android:layout_width="394dp"
+        android:layout_height="498dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.47"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/viewHiveToolBar" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
