@@ -9,15 +9,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Register"></activity>
-        <activity android:name=".SigninActivity"/>
-        <activity android:name=".HomePage"/>
-        <activity android:name=".Profile"/>
-        <activity android:name=".CreateRequest"/>
-        <activity android:name=".ResetPassword"/>
-        <activity android:name=".ViewAllRecord"/>
-        <activity android:name=".Settings"/>
-        <activity android:name=".EditProfile"/>
+        <activity
+            android:name=".ViewRequests"
+            android:label="@string/title_activity_view_requests"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".Register" />
+        <activity android:name=".SigninActivity" />
+        <activity android:name=".HomePage" />
+        <activity android:name=".Profile" />
+        <activity android:name=".CreateRequest" />
+        <activity android:name=".ResetPassword" />
+        <activity android:name=".ViewAllRecord" />
+        <activity android:name=".Settings" />
+        <activity android:name=".EditProfile" />
+        <activity android:name=".ChooseDocToShareWith"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,8 +30,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
     </application>
 
 </manifest>

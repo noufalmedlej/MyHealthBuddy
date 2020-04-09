@@ -129,27 +129,40 @@
         android:id="@+id/imageView8"
         android:layout_width="26dp"
         android:layout_height="21dp"
-        android:layout_marginStart="92dp"
-        android:layout_marginLeft="92dp"
+        android:layout_marginStart="88dp"
+        android:layout_marginLeft="88dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginRight="4dp"
         android:layout_marginBottom="20dp"
         app:layout_constraintBottom_toTopOf="@+id/DocId"
         app:layout_constraintEnd_toStartOf="@+id/Date"
-        app:layout_constraintHorizontal_bias="0.852"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/radioGroup"
-        app:layout_constraintVertical_bias="0.704"
+        app:layout_constraintVertical_bias="0.705"
         app:srcCompat="@drawable/calendarr" />
 
     <TextView
         android:id="@+id/Date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="160dp"
-        android:layout_marginRight="160dp"
-        android:text="SelectDate"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="52dp"
+        android:layout_marginRight="52dp"
+        android:text="Select Date Of Appointment"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Type of record:"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/radioGroup"
+        app:layout_constraintTop_toBottomOf="@+id/viewHiveToolBar"
+        tools:layout_editor_absoluteX="43dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

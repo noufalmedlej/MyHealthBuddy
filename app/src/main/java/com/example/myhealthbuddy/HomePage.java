@@ -94,7 +94,7 @@ public class HomePage extends AppCompatActivity {
         switch (item.getItemId()){
 
             case R.id.nav_request:
-                Intent intentrequest=new Intent(HomePage.this, CreateRequest.class);
+                Intent intentrequest=new Intent(HomePage.this, ViewRequests.class);
                 startActivity(intentrequest);
                 break;
 

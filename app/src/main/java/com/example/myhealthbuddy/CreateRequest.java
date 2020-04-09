@@ -30,6 +30,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
 
@@ -68,6 +69,8 @@ public class CreateRequest extends AppCompatActivity {
                     return false;
                 }
         });
+
+
 
         dat.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -118,18 +121,15 @@ public class CreateRequest extends AppCompatActivity {
         doctorid=docId.getText().toString();
         note=not.getText().toString();
         date=dat.getText().toString();
-        if(doctorid.isEmpty()||date.equals("SelectDate")) {
-            Toast.makeText(getApplicationContext(),"Please enter doctor's ID and date of the session",Toast.LENGTH_SHORT).show();
-        }
-
-        else {
-
+        if(doctorid.length()==7&&!date.equals("Select Date Of Appointment")) {
             Query query = docsref.orderByChild("id").equalTo(doctorid);
             query.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                     if(dataSnapshot.exists()){
-                        createreq(doctorid,date,note);
+                        String doctoruid =dataSnapshot.getValue().toString();
+                        doctoruid=doctoruid.substring(1,doctoruid.indexOf("="));
+                        createreq(doctoruid,doctorid,date,note);
 
                     }
                     else {
@@ -143,11 +143,19 @@ public class CreateRequest extends AppCompatActivity {
 
                 }
             });
+        }
+
+        else {
+            Toast.makeText(getApplicationContext(),"Please enter doctor's ID and date of the session",Toast.LENGTH_SHORT).show();
+
 
         }
     }
 
-    private void createreq(final String doctorid, final String date, final String note){
+    private void createreq(final String doctoruid, final String doctorid, final String date, final String note){
+        Calendar calfordate=Calendar.getInstance();
+        SimpleDateFormat currentDate=new SimpleDateFormat("dd/MM/yyyy");
+        final String Datecreated=currentDate.format(calfordate.getTime());
 
         patientRef.child(currentUser).addValueEventListener(new ValueEventListener() {
             @Override
@@ -188,6 +196,8 @@ public class CreateRequest extends AppCompatActivity {
                     reqmap.put("notes",note);
                     reqmap.put("type",type);
                     reqmap.put("patient_uid",currentUser);
+                    reqmap.put("doctor_uid",doctoruid);
+                    reqmap.put("request_date",Datecreated);
 
 
 

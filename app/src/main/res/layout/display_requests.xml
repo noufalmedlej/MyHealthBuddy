@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="10dp">
+
+
+        <RelativeLayout
+            android:layout_width="370dp"
+            android:layout_height="116dp"
+            android:layout_margin="5dp"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/display_request_daterequest"
+                android:layout_width="74dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textView17"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_gravity="right"
+                android:layout_marginStart="2dp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginTop="3dp"
+                android:text="Date"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView17"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/display_request_image"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_marginStart="2dp"
+                android:layout_marginLeft="2dp"
+                android:layout_marginTop="2dp"
+                android:text="Requested at:"
+                android:textColor="#131010"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/display_request_name"
+                android:layout_width="217dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:layout_gravity="right"
+                android:layout_marginStart="1dp"
+                android:layout_marginLeft="1dp"
+                android:layout_marginTop="6dp"
+                android:layout_marginEnd="13dp"
+                android:layout_marginRight="13dp"
+                android:layout_marginBottom="89dp"
+                android:layout_toEndOf="@+id/textView2"
+                android:layout_toRightOf="@+id/textView2"
+                android:text="Doctor Name"
+                android:textAlignment="textStart"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                tools:ignore="RtlCompat" />
+
+            <TextView
+                android:id="@+id/display_request_id"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_gravity="right"
+                android:layout_marginStart="3dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginTop="33dp"
+                android:layout_toEndOf="@+id/textView4"
+                android:layout_toRightOf="@+id/textView4"
+                android:text=" ID  "
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/display_request_type"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_gravity="right"
+                android:layout_marginStart="3dp"
+                android:layout_marginLeft="3dp"
+                android:layout_marginTop="58dp"
+                android:layout_toEndOf="@+id/textView11"
+                android:layout_toRightOf="@+id/textView11"
+                android:text="Type"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/display_request_Date"
+                android:layout_width="110dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_gravity="right"
+                android:layout_marginStart="6dp"
+                android:layout_marginLeft="6dp"
+                android:layout_marginTop="85dp"
+                android:layout_toEndOf="@+id/textView12"
+                android:layout_toRightOf="@+id/textView12"
+                android:text="Date"
+                android:textSize="16dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="56dp"
+                android:layout_height="21dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="6dp"
+                android:layout_marginLeft="6dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="90dp"
+                android:layout_toEndOf="@+id/display_request_image"
+                android:layout_toRightOf="@+id/display_request_image"
+                android:text="Name: "
+                android:textColor="#131010"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="22dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="6dp"
+                android:layout_marginLeft="6dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="64dp"
+                android:layout_toEndOf="@+id/display_request_image"
+                android:layout_toRightOf="@+id/display_request_image"
+                android:text="ID:"
+                android:textColor="#050101"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="wrap_content"
+                android:layout_height="22dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="6dp"
+                android:layout_marginLeft="6dp"
+                android:layout_marginTop="57dp"
+                android:layout_marginBottom="37dp"
+                android:layout_toEndOf="@+id/display_request_image"
+                android:layout_toRightOf="@+id/display_request_image"
+                android:text="Type:"
+                android:textColor="#050101"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="wrap_content"
+                android:layout_height="22dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="84dp"
+                android:layout_marginBottom="10dp"
+                android:layout_toEndOf="@+id/display_request_image"
+                android:layout_toRightOf="@+id/display_request_image"
+                android:text="Appointment date:"
+                android:textColor="#050101"
+                android:textSize="18sp" />
+
+            <ImageView
+                android:id="@+id/display_request_image"
+                android:layout_width="86dp"
+                android:layout_height="70dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="0dp"
+                android:layout_marginLeft="0dp"
+                android:layout_marginTop="0dp"
+                app:srcCompat="@drawable/blood" />
+
+
+        </RelativeLayout>
+
+
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>
