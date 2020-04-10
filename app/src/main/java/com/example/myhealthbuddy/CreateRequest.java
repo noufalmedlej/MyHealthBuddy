@@ -169,19 +169,19 @@ public class CreateRequest extends AppCompatActivity {
                     RadioButton mreports=(RadioButton)findViewById(R.id.mreport);
                     String type="";
                     if(vsighn.isChecked())
-                        type="vitalsigns";
+                        type="Vital Signs";
                     else
                     if(pres.isChecked())
-                        type="prescription";
+                        type="Prescription";
                     else
                     if(radreports.isChecked())
-                        type="Radiologyreport";
+                        type="Radiology Report";
                     else
                     if(labreport.isChecked())
-                        type="labreport";
+                        type="Lab Report";
                     else
                     if(mreports.isChecked())
-                        type="medicalreport";
+                        type="Medical Report";
 
 
                     String patientID=dataSnapshot.child("national_id").getValue().toString();
