@@ -1,36 +1,34 @@
 package com.example.myhealthbuddy;
-
-
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.PhoneAuthCredential;
+import com.google.firebase.auth.PhoneAuthProvider;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.database.DatabaseError;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
-
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
+import androidx.annotation.NonNull;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
-import java.util.HashMap;
 
 public class Register extends AppCompatActivity {
 
 
 
-    private EditText UserEmail,UserNID, userPassword, userPassword2,userName,UserPhone;
+    public EditText UserEmail,UserNID, userPassword, userPassword2,userName,UserPhone;
     private Button regBtn;
-
+    private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks;
     private Button login;
-DatabaseReference Userref;
+    DatabaseReference Userref;
     private FirebaseAuth mAuth;
     private String Currentuser;
     @Override
@@ -43,18 +41,16 @@ DatabaseReference Userref;
         userPassword2 = findViewById(R.id.pass2);
         userName = findViewById(R.id.name);
         UserNID = findViewById(R.id.ID);
-        UserPhone=findViewById(R.id.phone);
+        UserPhone = findViewById(R.id.phone);
 
         regBtn = findViewById(R.id.regBtn);
-        login =findViewById(R.id.loginn);
+        login = findViewById(R.id.loginn);
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(Register.this, SigninActivity.class));
             }
         });
-
-        mAuth = FirebaseAuth.getInstance();
 
         regBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,71 +64,69 @@ DatabaseReference Userref;
                 final String phone= UserPhone.getText().toString();
 
 
+
                 if( Email.isEmpty() || Password.isEmpty() || Password2.isEmpty() || NID.isEmpty() || NID.length()<10 || NID.length()>10 || !Password.equals(Password2)){
                     showMessage("Please Verify All Fields");
+                    return;
 
                 }
-                else {
-
-                    CreateUserAccount(Email,NID,Password,Name,phone);
-
+                if (phone.isEmpty()|| phone.length()<9 || phone.length()>9) {
+                    UserPhone.setError("Phone number is not valid");
+                    UserPhone.requestFocus();
+                    return;
                 }
-            }
-        });
+
+                final String phonee="+966"+phone;
+                DatabaseReference authentication= FirebaseDatabase.getInstance("https://mockup-8ca7f.firebaseio.com").getReference().child("info");
+                authentication.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        for (DataSnapshot postsnapshot : dataSnapshot.getChildren()) {
+                            String key1 = postsnapshot.getKey();
+                            if((key1.equals(NID))) {
+                                if ((dataSnapshot.child(key1).child("phone").getValue().equals(phonee))){
+                                    System.out.println(key1);
+                                    System.out.println(dataSnapshot.child(key1).child("phone").getValue());
+                                    Intent intent = new Intent(Register.this, Authenticate.class);
+                                    Bundle extras = new Bundle();
+                                    extras.putString("phone", phonee);
+                                    extras.putString("NID", NID);
+                                    extras.putString("name", Name);
+                                    extras.putString("email", Email);
+                                    extras.putString("p1", Password);
+                                    extras.putString("p2", Password2);
+                                    intent.putExtras(extras);
+                                    startActivity(intent);
+                                }}
+                        }
+
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+                        showMessage("يرجى التحقق من بياناتك");
+                    }
+                });
+
+            }});
+
     }
-
     @Override
-    protected void onStart() {
+    protected void onStart(){
         super.onStart();
-         FirebaseUser currentUser=mAuth.getCurrentUser();
-         if (currentUser!=null)
+        mAuth = FirebaseAuth.getInstance();
+        FirebaseUser currentUser=mAuth.getCurrentUser();
+        if (currentUser!=null)
         {
 
             SendUserToMainActivity();
 
         }
-    }
-
-    private void CreateUserAccount(final String email,final String nid,final String password,final String name,final String phone) {
-
-        mAuth.createUserWithEmailAndPassword(email,password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            //sendUserToSetUpActivity();
-
-                            showMessage("registered successfully");
-                            Currentuser=mAuth.getCurrentUser().getUid();
-                            Userref= FirebaseDatabase.getInstance().getReference().child("Patients").child(Currentuser);
-                            HashMap userMap=new HashMap();
-                            userMap.put("email",email);
-                            userMap.put("name",name);
-                            userMap.put("national_id",nid);
-                            userMap.put("phone",phone);
-                            Userref.updateChildren(userMap).addOnCompleteListener(new OnCompleteListener() {
-                                @Override
-                                public void onComplete(@NonNull Task task) {
-
-                                    if (task.isSuccessful()){
-                                        Toast.makeText(Register.this, "Account created", Toast.LENGTH_LONG).show();
-                                    }
-
-                                    else{
-                                        Toast.makeText(Register.this, "Something went wrong", Toast.LENGTH_SHORT).show();
-                                    }
-
-                                }
-                            });
-                        }
-                        else
-                            showMessage("Account Creation Failed" + task.getException().getMessage());
-                    }
-                });
-
-
 
     }
+
+
+
 
     // method to show a message
     private void showMessage(String message) {

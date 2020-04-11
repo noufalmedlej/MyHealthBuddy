@@ -18,6 +18,7 @@
         <activity android:name=".HomePage" />
         <activity android:name=".Profile" />
         <activity android:name=".CreateRequest" />
+        <activity android:name=".Authenticate" />
         <activity android:name=".ResetPassword" />
         <activity android:name=".ViewAllRecord" />
         <activity android:name=".Settings" />
