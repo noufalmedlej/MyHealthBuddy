@@ -3,6 +3,8 @@ package com.example.myhealthbuddy;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.FirebaseOptions;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.auth.FirebaseAuth;
@@ -30,6 +32,21 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_main);
+        FirebaseOptions options = new FirebaseOptions.Builder()
+                .setProjectId("mockup-8ca7f")
+                .setApplicationId("1:255823988018:android:d1a0bd9c52ae1f1cca432b")
+                .setApiKey("AIzaSyCiao8oyDgOwWAZN9CCq2iNGfaTEtSfYfE")
+                // setDatabaseURL(...)
+                .build();
+        // [END firebase_options]
+
+        // [START firebase_secondary]
+        // Initialize with secondary app
+        FirebaseApp.initializeApp(this /* Context */, options, "secondary");
+
+        // Retrieve secondary FirebaseApp
+        FirebaseApp secondary = FirebaseApp.getInstance("secondary");
+        // [END firebase_secondary]
         mAuth=FirebaseAuth.getInstance();
         UsersRef= FirebaseDatabase.getInstance().getReference().child("Patients");
 
