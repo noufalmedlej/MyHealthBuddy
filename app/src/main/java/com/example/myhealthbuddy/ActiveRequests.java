@@ -1,5 +1,6 @@
 package com.example.myhealthbuddy;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -95,6 +96,16 @@ public class ActiveRequests extends Fragment {
                             public void onCancelled(@NonNull DatabaseError databaseError) {
                             }
                         });
+                        final String RequestKey = getRef(i).getKey();
+                        requestsActiveViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Intent ClickRequest = new Intent(ActiveRequests.this.getActivity(), ViewRequestDetails.class);
+                                ClickRequest.putExtra("Type","PendingRequests");
+                                ClickRequest.putExtra("RequestKey",RequestKey);
+                                startActivity(ClickRequest);
+                            }
+                        });
                     }
 
                 };
@@ -114,16 +125,16 @@ public class ActiveRequests extends Fragment {
             ImageView imageView=(ImageView)mView.findViewById(R.id.display_request_image);
             TextView t=(TextView)mView.findViewById(R.id.display_request_type);
             t.setText(type);
-            if(type.equals("medicalreport")){
+            if(type.equals("Medical Report")){
                 imageView.setImageResource(R.drawable.report);
             }
-            if(type.equals("Radiologyreport")){
+            if(type.equals("Radiology Report")){
                 imageView.setImageResource(R.drawable.nuclear);
             }
-            if(type.equals("prescription")){
+            if(type.equals("Prescription")){
                 imageView.setImageResource(R.drawable.pills);
             }
-            if(type.equals("vitalsigns")){
+            if(type.equals("Vital Signs")){
                 imageView.setImageResource(R.drawable.cardiogram);
             }
 
