@@ -8,16 +8,16 @@
     android:background="#ffffff">
 
 
-      <FrameLayout
-        android:id="@+id/frameLayout"
-        android:layout_width="357dp"
-        android:layout_height="241dp"
-        android:layout_marginBottom="400dp"
-        android:background="@drawable/bourder"
-        app:layout_constraintBottom_toBottomOf="@+id/bottom_navigation"
-        app:layout_constraintEnd_toEndOf="parent"
+    <FrameLayout
+      android:id="@+id/frameLayout"
+      android:layout_width="357dp"
+      android:layout_height="241dp"
+      android:layout_marginBottom="444dp"
+      android:background="@drawable/bourder"
+      app:layout_constraintBottom_toBottomOf="@+id/bottom_navigation"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="parent"></FrameLayout>
-
 
     <Button
         android:id="@+id/editbut"
@@ -47,8 +47,10 @@
         android:tint="#784D7A"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.87"
         app:srcCompat="@drawable/setting2" />
 
     <Button
@@ -253,7 +255,7 @@
         android:tint="#784D7A"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.222"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"

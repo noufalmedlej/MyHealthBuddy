@@ -47,4 +47,7 @@ dependencies {
     implementation 'com.firebaseui:firebase-ui-database:2.1.1'
     implementation 'com.android.support:cardview-v7:29.0.0'
     implementation 'com.android.support:design:29.0.0'
+
+    implementation 'androidx.gridlayout:gridlayout:1.0.0'
 }
+

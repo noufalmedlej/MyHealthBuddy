@@ -7,23 +7,6 @@
     tools:context=".CreateRequest"
     android:background="#ffffff">
 
-    <Button
-        android:id="@+id/sendreq"
-        android:layout_width="286dp"
-        android:layout_height="53dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginBottom="96dp"
-        android:background="@drawable/login_btn"
-        android:text="Send Request"
-        android:textAllCaps="true"
-        android:textColor="#ffffff"
-        android:textSize="18dp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Notes" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
@@ -38,131 +21,166 @@
     <include
         android:id="@+id/viewHiveToolBar"
         layout="@layout/toolbar"
-        android:layout_width="412dp"
-        android:layout_height="59dp"
+        android:layout_width="416dp"
+        android:layout_height="166dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/DocId"
-        android:layout_width="286dp"
-        android:layout_height="53dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
-        android:background="@drawable/login_style"
-        android:ems="10"
-        android:hint="Doctor's ID"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Date" />
-
-    <EditText
-        android:id="@+id/Notes"
-        android:layout_width="286dp"
-        android:layout_height="53dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
-        android:background="@drawable/login_style"
-        android:ems="10"
-        android:hint="Notes"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/DocId" />
-
-    <RadioGroup
-        android:id="@+id/radioGroup"
-        android:layout_width="325dp"
-        android:layout_height="165dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginRight="40dp"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="354dp"
+        android:layout_height="518dp"
+        android:orientation="vertical"
+        app:cardCornerRadius="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/viewHiveToolBar">
+        app:layout_constraintTop_toTopOf="parent">
 
-        <RadioButton
-            android:id="@+id/vsigns"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:checked="true"
-            android:text="Vital Signs" />
 
-        <RadioButton
-            android:id="@+id/pres"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Prescriptions" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="518dp"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:orientation="vertical"
+            android:padding="17dp">
 
-        <RadioButton
-            android:id="@+id/radreports"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Radiology report" />
 
-        <RadioButton
-            android:id="@+id/labreports"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Lab results" />
+            <TextView
+                android:id="@+id/date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Type of record:"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toTopOf="@+id/radioGroup"
+                app:layout_constraintTop_toBottomOf="@+id/viewHiveToolBar"
+                tools:layout_editor_absoluteX="43dp" />
 
-        <RadioButton
-            android:id="@+id/mreport"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Medical reports" />
-    </RadioGroup>
+            <RadioGroup
+                android:id="@+id/radioGroup"
+                android:layout_width="325dp"
+                android:layout_height="165dp"
+                android:layout_margin="7dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/viewHiveToolBar">
 
-    <ImageView
-        android:id="@+id/imageView8"
-        android:layout_width="26dp"
-        android:layout_height="21dp"
-        android:layout_marginStart="88dp"
-        android:layout_marginLeft="88dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginRight="4dp"
-        android:layout_marginBottom="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/DocId"
-        app:layout_constraintEnd_toStartOf="@+id/Date"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup"
-        app:layout_constraintVertical_bias="0.705"
-        app:srcCompat="@drawable/calendarr" />
+                <RadioButton
+                    android:id="@+id/vsigns"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="Vital Signs" />
+
+                <RadioButton
+                    android:id="@+id/pres"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Prescriptions" />
+
+                <RadioButton
+                    android:id="@+id/radreports"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Radiology report" />
+
+                <RadioButton
+                    android:id="@+id/labreports"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Lab results" />
+
+                <RadioButton
+                    android:id="@+id/mreport"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Medical reports" />
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/Date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Select Date Of Appointment"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+
+            <ImageView
+                android:id="@+id/imageView8"
+                android:layout_width="26dp"
+                android:layout_height="21dp"
+                android:layout_margin="7dp"
+                app:layout_constraintBottom_toTopOf="@+id/DocId"
+                app:layout_constraintEnd_toStartOf="@+id/Date"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/radioGroup"
+                app:layout_constraintVertical_bias="0.705"
+                app:srcCompat="@drawable/calendarr" />
+
+            <EditText
+                android:id="@+id/DocId"
+                android:layout_width="286dp"
+                android:layout_height="53dp"
+                android:layout_margin="7dp"
+                android:background="@drawable/login_style"
+                android:ems="10"
+                android:hint="Doctor's ID"
+                android:inputType="textPersonName"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.491"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Date" />
+
+            <EditText
+                android:id="@+id/Notes"
+                android:layout_width="286dp"
+                android:layout_height="53dp"
+                android:layout_margin="7dp"
+                android:background="@drawable/login_style"
+                android:ems="10"
+                android:hint="Notes"
+                android:inputType="textPersonName"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.491"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/DocId" />
+
+
+            <Button
+                android:id="@+id/sendreq"
+                android:layout_width="286dp"
+                android:layout_height="53dp"
+                android:layout_margin="7dp"
+                android:background="@drawable/login_btn"
+                android:text="Send Request"
+                android:textAllCaps="true"
+                android:textColor="#ffffff"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.496"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Notes" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
 
     <TextView
-        android:id="@+id/Date"
+        android:id="@+id/textView21"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="52dp"
-        android:layout_marginRight="52dp"
-        android:text="Select Date Of Appointment"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
-
-    <TextView
-        android:id="@+id/date"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="Type of record:"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/radioGroup"
-        app:layout_constraintTop_toBottomOf="@+id/viewHiveToolBar"
-        tools:layout_editor_absoluteX="43dp" />
+        android:text="Send Request"
+        android:textColor="#ffffff"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/cardView"
+        app:layout_constraintEnd_toEndOf="@+id/viewHiveToolBar"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.706" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

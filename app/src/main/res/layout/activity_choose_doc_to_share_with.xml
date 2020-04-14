@@ -13,6 +13,21 @@
         android:layout_width="413dp"
         android:layout_height="82dp" />
 
+    <TextView
+        android:id="@+id/textView20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="اختر الطبيب"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/recordShareList"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.95"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/viewHiveToolBar"
+        app:layout_constraintVertical_bias="0.428" />
+
     <EditText
         android:id="@+id/SearchHCPInput"
         android:layout_width="367dp"
@@ -64,7 +79,6 @@
         app:layout_constraintStart_toEndOf="@+id/SearchHCPInput"
         app:layout_constraintTop_toBottomOf="@+id/viewHiveToolBar"
         app:layout_constraintVertical_bias="1.0" />
-
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/HCPresult"

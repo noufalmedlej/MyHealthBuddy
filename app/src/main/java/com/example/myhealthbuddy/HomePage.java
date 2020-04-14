@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -20,9 +21,13 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class HomePage extends AppCompatActivity {
+    Button reqbtn;
+  //  ImageView img;
     Button selectbtn;
     ImageView img;
     BottomNavigationView bottomnav;
+    Button btn ;
+    CardView img1;
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,8 +48,8 @@ public class HomePage extends AppCompatActivity {
             }
     });
 
-    img = findViewById(R.id.imageView6);
-    img.setOnClickListener(new View.OnClickListener() {
+    img1 = findViewById(R.id.pillscard);
+    img1.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
           Intent intentRecord=new Intent(HomePage.this, ViewAllRecord.class);
