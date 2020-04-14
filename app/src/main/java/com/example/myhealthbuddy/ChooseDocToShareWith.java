@@ -34,7 +34,7 @@ import java.util.ArrayList;
 
 public class ChooseDocToShareWith extends AppCompatActivity {
 
-    private BottomNavigationView bottomnav;
+
     private ImageButton searchbtn;
     private EditText searchInpuText;
     private RecyclerView SearchResultList;

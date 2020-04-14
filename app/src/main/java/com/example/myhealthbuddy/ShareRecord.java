@@ -32,7 +32,6 @@ public class ShareRecord extends AppCompatActivity {
     ArrayList<String> CkList;
 
     //need check
-    BottomNavigationView bottomnav;
     private TextView Ids,HCPIDText;
 
     private DatabaseReference patienstRef,docsRef,sharRef,recordRef;
@@ -44,14 +43,7 @@ public class ShareRecord extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_share_record);
 
-        bottomnav = findViewById(R.id.bottom_navigation);
-        bottomnav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                UserMenuSelector(menuItem);
-                return false;
-            }
-        });
+
 
         CkList =(ArrayList<String>)getIntent().getExtras().get("list");
 
@@ -194,21 +186,6 @@ public class ShareRecord extends AppCompatActivity {
     private void sendUserToMainActivity(){
         Intent mainIntent=new Intent(ShareRecord.this,HomePage.class);
         startActivity(mainIntent);
-    }
-
-    private void UserMenuSelector(MenuItem item) {
-        switch (item.getItemId()){
-
-            case R.id.nav_home:
-                Intent intenthome=new Intent(ShareRecord.this, HomePage.class);
-                startActivity(intenthome);
-                break;
-
-            case R.id.nav_person:
-                Intent intentsearch=new Intent(ShareRecord.this, Profile.class);
-                startActivity(intentsearch);
-                break;
-        }
     }
 
 
