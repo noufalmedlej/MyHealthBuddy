@@ -230,19 +230,14 @@
         app:layout_constraintVertical_bias="0.142" />
 
     <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="55dp"
-        android:layout_marginLeft="55dp"
-        android:layout_marginTop="27dp"
-        android:layout_marginEnd="57dp"
-        android:layout_marginRight="57dp"
-        android:layout_marginBottom="39dp"
-        android:text="searchToShare"
+        android:id="@+id/selectbtn"
+        android:layout_width="149dp"
+        android:layout_height="34dp"
+        android:layout_marginEnd="244dp"
+        android:layout_marginRight="244dp"
+        android:layout_marginBottom="48dp"
+        android:text="Share Record "
         app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
-        app:layout_constraintEnd_toStartOf="@+id/imageView11"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -28,16 +28,13 @@
         app:menu="@menu/bottom_navigation" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/HCPText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="84dp"
-        android:layout_marginLeft="84dp"
-        android:layout_marginTop="93dp"
-        android:layout_marginEnd="269dp"
-        android:layout_marginRight="269dp"
-        android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="100dp"
+        android:text="Health care provider ID :"
+        app:layout_constraintEnd_toStartOf="@+id/HCPID"
+        app:layout_constraintHorizontal_bias="0.153"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/viewHiveToolBar" />
 
@@ -45,18 +42,72 @@
         android:id="@+id/sharebtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="118dp"
-        android:layout_marginLeft="118dp"
-        android:layout_marginTop="206dp"
-        android:layout_marginEnd="205dp"
-        android:layout_marginRight="205dp"
-        android:layout_marginBottom="252dp"
+        android:layout_marginStart="76dp"
+        android:layout_marginLeft="76dp"
+        android:layout_marginBottom="96dp"
         android:text="Share"
         app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/HCPID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="176dp"
+        android:layout_marginRight="176dp"
+        android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintTop_toBottomOf="@+id/viewHiveToolBar" />
+
+    <TextView
+        android:id="@+id/RecordsIDText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="6dp"
+        android:layout_marginLeft="6dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="64dp"
+        android:layout_marginRight="64dp"
+        android:text="Record Selected:"
+        app:layout_constraintEnd_toStartOf="@+id/RecordsID"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/HCPText" />
+
+    <TextView
+        android:id="@+id/RecordsID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="176dp"
+        android:layout_marginRight="176dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/HCPID" />
+
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="98dp"
+        android:layout_marginLeft="98dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="125dp"
+        android:layout_marginRight="125dp"
+        android:text="Share Preview"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/viewHiveToolBar" />
+
+    <Button
+        android:id="@+id/CancelShare"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="96dp"
+        android:text="Cancel"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/sharebtn" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

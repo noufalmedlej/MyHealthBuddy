@@ -2,19 +2,11 @@ package com.example.myhealthbuddy;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
-import android.app.DatePickerDialog;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.DatePicker;
-import android.widget.EditText;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,22 +21,21 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.Calendar;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class ShareRecord extends AppCompatActivity {
 
-    private Button share;
-
-    private DatePickerDialog.OnDateSetListener mDatasetListner;
-    private String recordId, HCPuID ,HCPID;
+    private Button share,cancel;
+    private String recordId, HCPuID ,HCPID,allIds="";
     private String currentUser;
+    ArrayList<String> CkList;
+
     //need check
     BottomNavigationView bottomnav;
-    private TextView t1;
+    private TextView Ids,HCPIDText;
 
     private DatabaseReference patienstRef,docsRef,sharRef,recordRef;
-
     private FirebaseAuth mAuth;
 
 
@@ -62,13 +53,19 @@ public class ShareRecord extends AppCompatActivity {
             }
         });
 
-
+        CkList =(ArrayList<String>)getIntent().getExtras().get("list");
 
         HCPuID =getIntent().getExtras().get("HCPuID").toString();
         HCPID= getIntent().getExtras().get("HCPID").toString();
-        t1= findViewById(R.id.textView);
-        t1.setText(HCPID);
+        Ids= findViewById(R.id.RecordsID);
+        HCPIDText=findViewById(R.id.HCPID);
 
+        // viewing list of record ids before share
+        for(String tmp: CkList){
+            allIds= allIds+"\n"+tmp;
+        }
+        Ids.setText(allIds);
+        HCPIDText.setText(HCPID);
 
         //database Ref
         patienstRef= FirebaseDatabase.getInstance().getReference().child("Patients");
@@ -79,13 +76,23 @@ public class ShareRecord extends AppCompatActivity {
         currentUser=mAuth.getCurrentUser().getUid();
 
 
-        //share button
+        //share and Cancel button
         share= findViewById(R.id.sharebtn);
+        cancel=findViewById(R.id.CancelShare);
 
         share.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               validate();
+                for(String tmp: CkList){
+                    validate(tmp);
+                }
+            }
+        });
+
+        cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sendUserToMainActivity();
             }
         });
 
@@ -93,17 +100,8 @@ public class ShareRecord extends AppCompatActivity {
 
     }
 
-    private void validate(){
-       // HCPID ,currentUser,
-       recordId="114717951";
+    private void validate(final String recordId ){
 
-        /*
-        if(HCPID.isEmpty()||date.equals("SelectDate")) {
-            Toast.makeText(getApplicationContext(),"Please enter doctor's ID and date of the session",Toast.LENGTH_SHORT).show();
-        }
-
-        else {
-*/
             Query query = recordRef.child(recordId);
             query.addValueEventListener(new ValueEventListener() {
                 @Override

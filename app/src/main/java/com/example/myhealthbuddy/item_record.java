@@ -1,25 +1,35 @@
 package com.example.myhealthbuddy;
 
-public class item_record {
+
+import java.security.PublicKey;
+
+public class item_record  {
 
     public String date;
-    public String did;
     public String file;
-    public String pid;
     public String rid;
     public String time;
+    public String doctorName;
+    public String patientName;
+    public boolean ck;
+    public String did ;
+    public String hname;
+
+
 
     public item_record() {
 
     }
 
-    public item_record(String date, String did, String file, String pid, String rid, String time) {
+    public item_record(String date, String file, String rid, String time,String doctorName,String patientName,boolean ck) {
         this.date = date;
-        this.did = did;
         this.file = file;
-        this.pid = pid;
         this.rid = rid;
         this.time = time;
+        this.doctorName=doctorName;
+        this.patientName=patientName;
+        this.ck=ck;
+
     }
 
     public String getDate() {
@@ -30,28 +40,12 @@ public class item_record {
         this.date = date;
     }
 
-    public String getDid() {
-        return did;
-    }
-
-    public void setDid(String did) {
-        this.did = did;
-    }
-
     public String getFile() {
         return file;
     }
 
     public void setFile(String file) {
         this.file = file;
-    }
-
-    public String getPid() {
-        return pid;
-    }
-
-    public void setPid(String pid) {
-        this.pid = pid;
     }
 
     public String getRid() {
@@ -68,5 +62,46 @@ public class item_record {
 
     public void setTime(String time) {
         this.time = time;
+    }
+
+
+    public String getDoctorName() {
+        return doctorName;
+    }
+
+    public void setDoctorName(String doctorName) {
+        this.doctorName = doctorName;
+    }
+
+    public String getPatientName() {
+        return patientName;
+    }
+
+    public void setPatientName(String patientName) {
+        this.patientName = patientName;
+    }
+
+    public boolean isCk() {
+        return ck;
+    }
+
+    public void setCk(boolean ck) {
+        this.ck = ck;
+    }
+
+    public String getDid() {
+        return did;
+    }
+
+    public void setDid(String did) {
+        this.did = did;
+    }
+
+    public String getHname() {
+        return hname;
+    }
+
+    public void setHname(String hname) {
+        this.hname = hname;
     }
 }

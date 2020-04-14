@@ -8,7 +8,7 @@ buildscript {
             url 'https://maven.google.com/'
             name 'Google'
         }
-        
+
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.5.1'
@@ -24,10 +24,9 @@ allprojects {
         google()
         jcenter()
         maven {
-            url 'https://maven.google.com/'
-            name 'Google'
+            url "https://maven.google.com"
         }
-        
+
     }
 }
 

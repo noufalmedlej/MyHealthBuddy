@@ -30,6 +30,8 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
+
 public class ChooseDocToShareWith extends AppCompatActivity {
 
     private BottomNavigationView bottomnav;
@@ -39,8 +41,6 @@ public class ChooseDocToShareWith extends AppCompatActivity {
     private DatabaseReference allUsersdatabaseRef;
     private FirebaseAuth mAuth;
     String currentUserid;
-    //public static final String HCPkey="com.example.myhealthbuddy.HCPkey";
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -103,7 +103,7 @@ public class ChooseDocToShareWith extends AppCompatActivity {
 
 
     public void SearchMethod(String SearchBoxInput) {
-        if (SearchBoxInput.length() == 7) {
+        if (SearchBoxInput.length() == 7 ) {
             Toast.makeText(this, "جاري البحث..", Toast.LENGTH_LONG).show();
             Query searchHCPInfiQuere = allUsersdatabaseRef.orderByChild("id").startAt(SearchBoxInput).endAt(SearchBoxInput + "\uf8ff");
             FirebaseRecyclerAdapter<HCPsResult, SearchViweHolder> FirebaseRecycleAdapter
@@ -130,6 +130,8 @@ public class ChooseDocToShareWith extends AppCompatActivity {
                             Intent intent = new Intent(ChooseDocToShareWith.this, ShareRecord.class);
                             intent.putExtra("HCPuID", HCPuId);
                             intent.putExtra("HCPID",HCPID);
+                            ArrayList<item_record>  CkList=(ArrayList<item_record> ) getIntent().getExtras().get("list");
+                            intent.putExtra("list",CkList);
                             startActivity(intent);
                         }
                     });
@@ -139,6 +141,7 @@ public class ChooseDocToShareWith extends AppCompatActivity {
         } else
             Toast.makeText(this, "الرجاء ادخال رقم صحيح ", Toast.LENGTH_LONG).show();
     }
+
 
 
 public static class SearchViweHolder extends RecyclerView.ViewHolder {
@@ -199,6 +202,8 @@ public class SampleRecycler extends RecyclerView.Adapter<SampleHolder> {
 
     @Override
     public void onBindViewHolder(SampleHolder holder, int position) {
+
+
 
     }
 

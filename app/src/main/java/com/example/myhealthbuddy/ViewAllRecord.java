@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -25,6 +26,7 @@ public class ViewAllRecord extends AppCompatActivity {
     String currentPatienid, HospitalID, HospitalName;
     RecyclerView RecordList;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,9 +42,6 @@ public class ViewAllRecord extends AppCompatActivity {
         myRecycler.setLayoutManager(new LinearLayoutManager(this));
         RecordList.setLayoutManager(new LinearLayoutManager(this));
         //Toast.makeText(this, HID, Toast.LENGTH_LONG).show();
-
-
-
 
         Browse();
     }
@@ -90,6 +89,8 @@ public class ViewAllRecord extends AppCompatActivity {
 
                         recordViweHolder.setDoctorName(Doctor_Name);
                         recordViweHolder.setHospitalName( GetHospitalName());
+
+
                     }
 
                     @Override
@@ -113,7 +114,7 @@ public class ViewAllRecord extends AppCompatActivity {
                     }
                 });
 
-
+                recordViweHolder.setCk(true);
 
 
 
@@ -151,6 +152,15 @@ public class ViewAllRecord extends AppCompatActivity {
             myDate.setText(Date);
         }
 
+
+        public void setCk(boolean ck) {
+
+            CheckBox b =(CheckBox) mViwe.findViewById(R.id.chk);
+            b.setVisibility(View.INVISIBLE);
+            b.setEnabled(false);
+        }
+
+
     }
 
     public String GetHospitalName(){
@@ -159,8 +169,8 @@ public class ViewAllRecord extends AppCompatActivity {
         HospitalRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                 HospitalName =dataSnapshot.child("Name").getValue().toString();
-               // recordViweHolder.setHospitalName(HospitalName);
+                HospitalName =dataSnapshot.child("Name").getValue().toString();
+                // recordViweHolder.setHospitalName(HospitalName);
             }
 
             @Override
