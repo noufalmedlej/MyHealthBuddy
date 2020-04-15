@@ -134,6 +134,7 @@ public class ShareRecord extends AppCompatActivity {
                     reqmap.put("record_id",recordId);
                     reqmap.put("patient_id",patientID);
                     reqmap.put("patient_uid",currentUser);
+                    reqmap.put("shareid",currentUser+HCPuID);
 
                     final String key=patientID+HCPID+recordId;
 

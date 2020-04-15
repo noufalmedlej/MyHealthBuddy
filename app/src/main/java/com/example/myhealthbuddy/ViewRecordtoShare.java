@@ -55,6 +55,7 @@ public class ViewRecordtoShare extends AppCompatActivity {
         RecordList.setHasFixedSize(true);
         mLayoutManager=new LinearLayoutManager(this);
         RecordList.setLayoutManager(mLayoutManager);
+        CkList=new ArrayList<>();
 
 
         //Toast.makeText(this, HID, Toast.LENGTH_LONG).show();
@@ -100,7 +101,7 @@ public class ViewRecordtoShare extends AppCompatActivity {
                 intent.putExtra("list",CkList);
                 startActivity(intent); }
                 else{
-                    Toast.makeText(ViewRecordtoShare.this, "No record selected ",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(ViewRecordtoShare.this, "الرجاء اختيار تقرير ..  ",Toast.LENGTH_SHORT).show();
                 }
                 //sent to other Activity
             }
