@@ -86,7 +86,7 @@ public class Authenticate extends AppCompatActivity{
 
         // signInWithCredential(credential);
     }
-
+//never used
     private void signInWithCredential(PhoneAuthCredential credential) {
         mAuth.signInWithCredential(credential)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
