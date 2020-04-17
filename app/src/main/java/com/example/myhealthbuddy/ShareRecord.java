@@ -4,15 +4,13 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
+
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -27,12 +25,12 @@ import java.util.HashMap;
 public class ShareRecord extends AppCompatActivity {
 
     private Button share,cancel;
-    private String recordId, HCPuID ,HCPID,allIds="";
+    private String HCPuID ,HCPID,HCPName,allIds="";
     private String currentUser;
     ArrayList<String> CkList;
 
     //need check
-    private TextView Ids,HCPIDText;
+    private TextView Ids,HCPIDText,hcpName;
 
     private DatabaseReference patienstRef,docsRef,sharRef,recordRef;
     private FirebaseAuth mAuth;
@@ -49,15 +47,22 @@ public class ShareRecord extends AppCompatActivity {
 
         HCPuID =getIntent().getExtras().get("HCPuID").toString();
         HCPID= getIntent().getExtras().get("HCPID").toString();
+        HCPName=getIntent().getExtras().get("HCPName").toString();
+
+
         Ids= findViewById(R.id.RecordsID);
         HCPIDText=findViewById(R.id.HCPID);
+        hcpName=findViewById(R.id.hcpName);
 
         // viewing list of record ids before share
         for(String tmp: CkList){
-            allIds= allIds+"\n"+tmp;
+            allIds= allIds+"\n"+tmp+"\n";
         }
         Ids.setText(allIds);
         HCPIDText.setText(HCPID);
+        hcpName.setText(HCPName);
+
+
 
         //database Ref
         patienstRef= FirebaseDatabase.getInstance().getReference().child("Patients");
@@ -66,6 +71,7 @@ public class ShareRecord extends AppCompatActivity {
         recordRef= FirebaseDatabase.getInstance().getReference().child("Records");
         mAuth= FirebaseAuth.getInstance();
         currentUser=mAuth.getCurrentUser().getUid();
+
 
 
         //share and Cancel button

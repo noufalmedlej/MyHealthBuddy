@@ -14,6 +14,7 @@ public class item_record  {
     public boolean ck;
     public String did ;
     public String hname;
+    public int type;
 
 
 
@@ -21,7 +22,7 @@ public class item_record  {
 
     }
 
-    public item_record(String date, String file, String rid, String time,String doctorName,String patientName,boolean ck) {
+    public item_record(String date, String file, String rid, String time,String doctorName,String patientName,boolean ck, int type) {
         this.date = date;
         this.file = file;
         this.rid = rid;
@@ -29,6 +30,7 @@ public class item_record  {
         this.doctorName=doctorName;
         this.patientName=patientName;
         this.ck=ck;
+        this.type=type;
 
     }
 
@@ -103,5 +105,13 @@ public class item_record  {
 
     public void setHname(String hname) {
         this.hname = hname;
+    }
+
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
     }
 }

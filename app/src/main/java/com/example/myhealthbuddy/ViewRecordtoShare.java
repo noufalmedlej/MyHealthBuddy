@@ -37,7 +37,7 @@ public class ViewRecordtoShare extends AppCompatActivity {
     ArrayList<item_record> Arraylist;
     ArrayList<String> CkList;
     Button sendChk;
-    SearchView searchView;
+
 
 
 
@@ -112,90 +112,6 @@ public class ViewRecordtoShare extends AppCompatActivity {
     }
 
 
-    public void Browse() {
-/*
-        Query DisplayInfiQuere =RecordRef.orderByChild("pid").startAt(currentPatienid).endAt(currentPatienid+"\uf8ff");
-
-        FirebaseRecyclerAdapter<item_record, ViewAllRecord.RecordViweHolder> FirebaseRecycleAdapter
-                = new FirebaseRecyclerAdapter<item_record, RecordViweHolder>
-                (
-                        item_record.class,
-                        R.layout.record_item,
-                        ViewAllRecord.RecordViweHolder.class,
-                        DisplayInfiQuere
-                ){
-            @Override
-            protected void populateViewHolder(final ViewAllRecord.RecordViweHolder recordViweHolder, final item_record module, final int i) {
-
-                recordViweHolder.setDate(module.getDate());
-
-                PatientRef = FirebaseDatabase.getInstance().getReference().child("Patients").child(currentPatienid);
-                PatientRef.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) { if(dataSnapshot.exists()){
-                        String  Patient_name= dataSnapshot.child("name").getValue().toString();
-                        recordViweHolder.setPatientName(Patient_name);
-                    }
-
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                    }
-                });
-
-
-
-                DoctorRef = FirebaseDatabase.getInstance().getReference().child("Doctors").child(module.getDid());
-                DoctorRef.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        String  Doctor_Name=dataSnapshot.child("name").getValue().toString();
-                        HospitalID =dataSnapshot.child("hospital").getValue().toString();
-
-                        recordViweHolder.setDoctorName(Doctor_Name);
-                        recordViweHolder.setHospitalName( GetHospitalName());
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                    }
-                });
-
-                HospitalRef= FirebaseDatabase.getInstance().getReference().child("Hospitals").child("122");
-                HospitalRef.addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        HospitalName =dataSnapshot.child("Name").getValue().toString();
-                        recordViweHolder.setHospitalName(HospitalName);
-
-                    }
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                    }
-                });
-
-
-               /* recordViweHolder.itemView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        String HCPuId= getRef(i).getKey();
-                        Intent intent = new Intent(ChooseDocToShareWith.this, ShareRecord.class);
-                        intent.putExtra("HCPuID", HCPuId);
-                        intent.putExtra("HCPID",HCPID);
-                        startActivity(intent);
-                    }
-                })*/
-/*
-            }
-        };
-        RecordList.setAdapter(FirebaseRecycleAdapter);
-        */
-
-    }
 
     public String GetHospitalName(String rid){
 

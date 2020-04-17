@@ -115,7 +115,7 @@ public class ChooseDocToShareWith extends AppCompatActivity {
                             searchHCPInfiQuere
                     ) {
                 @Override
-                protected void populateViewHolder(SearchViweHolder searchViweHolder, HCPsResult module, final int i) {
+                protected void populateViewHolder(SearchViweHolder searchViweHolder, final HCPsResult module, final int i) {
                     searchViweHolder.setName(module.getName());
                     searchViweHolder.setID(module.getID());
                     searchViweHolder.setSpecialty(module.getSpecialty());
@@ -130,6 +130,7 @@ public class ChooseDocToShareWith extends AppCompatActivity {
                             Intent intent = new Intent(ChooseDocToShareWith.this, ShareRecord.class);
                             intent.putExtra("HCPuID", HCPuId);
                             intent.putExtra("HCPID",HCPID);
+                            intent.putExtra("HCPName",module.getName());
                             ArrayList<item_record>  CkList=(ArrayList<item_record> ) getIntent().getExtras().get("list");
                             intent.putExtra("list",CkList);
                             startActivity(intent);

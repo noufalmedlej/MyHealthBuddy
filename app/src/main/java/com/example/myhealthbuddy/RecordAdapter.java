@@ -46,6 +46,19 @@ public class RecordAdapter extends RecyclerView.Adapter<RecordAdapter.RecordView
         holder.mpatientName.setText(currentItem.getPatientName());
         holder.mrid.setText(currentItem.getRid());
         holder.mhname.setText(currentItem.getHname());
+
+       int myType =currentItem.getType();
+        if(myType==1)
+            holder.type.setText("Prescription");
+        if(myType==2)
+            holder.type.setText("Blood Test");
+        if(myType==3)
+            holder.type.setText("X-Ray");
+        if(myType==4)
+            holder.type.setText("Vital Signs");
+        if(myType==5)
+            holder.type.setText("Records");
+
        /* holder.box.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -81,6 +94,8 @@ public class RecordAdapter extends RecyclerView.Adapter<RecordAdapter.RecordView
         public TextView mpatientName;
         public TextView mhname;
         public CheckBox box;
+        public TextView type;
+
 
         public RecordViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -89,6 +104,9 @@ public class RecordAdapter extends RecyclerView.Adapter<RecordAdapter.RecordView
             mpatientName =itemView.findViewById(R.id.patient_name);
             mdate=itemView.findViewById(R.id.record_date);
             mrid= itemView.findViewById(R.id.Rid);
+            type= itemView.findViewById(R.id.Type);
+
+
             box=itemView.findViewById(R.id.chk);
 
             box.setOnClickListener(new View.OnClickListener() {
