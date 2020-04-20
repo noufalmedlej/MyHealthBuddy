@@ -27,7 +27,7 @@ public class HomePage extends AppCompatActivity {
     ImageView img;
     BottomNavigationView bottomnav;
     Button btn ;
-    CardView img1;
+    CardView img1,MyDoc;
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,6 +71,22 @@ public class HomePage extends AppCompatActivity {
 
        }
    });
+
+
+
+
+
+
+        MyDoc = findViewById(R.id.doctorcard);
+        MyDoc.setOnClickListener(new View.OnClickListener() {
+                                     @Override
+                                     public void onClick(View v) {
+                                         Intent intent = new Intent(HomePage.this, MyHCPs.class);
+                                         startActivity(intent);
+                                     }
+                                 }
+        );
+
 
 
 

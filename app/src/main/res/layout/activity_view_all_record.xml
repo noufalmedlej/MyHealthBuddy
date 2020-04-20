@@ -7,7 +7,7 @@
     tools:context=".ViewAllRecord">
 
     <include
-        android:id="@+id/viewHiveToolBar"
+        android:id="@+id/viewRecordsToolBar"
         layout="@layout/toolbar"
         android:layout_width="413dp"
         android:layout_height="82dp"

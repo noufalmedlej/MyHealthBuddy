@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ShareRecord"></activity>
+        <activity android:name=".MyHCPs"></activity>
+        <activity android:name=".ShareRecord" />
         <activity android:name=".ChooseDocToShareWith" />
         <activity android:name=".Register" />
         <activity android:name=".SigninActivity" />
@@ -30,8 +31,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
     </application>
 
 </manifest>

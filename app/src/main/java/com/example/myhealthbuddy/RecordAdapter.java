@@ -7,13 +7,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
-import java.util.List;
+
 
 public class RecordAdapter extends RecyclerView.Adapter<RecordAdapter.RecordViewHolder> {
  private ArrayList<item_record> mRecorslist;
@@ -118,20 +116,14 @@ public class RecordAdapter extends RecyclerView.Adapter<RecordAdapter.RecordView
                     if (box.isChecked()) {
                         mRecorslist.get(position).setCk(true);
                         Rids.add(mRecorslist.get(position).getRid());
-                        // Toast.makeText(c, "Checked  ", Toast.LENGTH_SHORT).show();
                     } else {
                         mRecorslist.get(position).setCk(false);
                         Rids.remove(mRecorslist.get(position).getRid());
-                        //Toast.makeText(c, "NOT Checked  ", Toast.LENGTH_SHORT).show();
-
                     }
-
 
                     if(position!= RecyclerView.NO_POSITION && listener!= null){
                         listener.onItemClick(Rids);
                     }
-
-
                 }
             });
 

@@ -29,10 +29,10 @@ public class ShareRecord extends AppCompatActivity {
     private String currentUser;
     ArrayList<String> CkList;
 
-    //need check
+
     private TextView Ids,HCPIDText,hcpName;
 
-    private DatabaseReference patienstRef,docsRef,sharRef,recordRef;
+    private DatabaseReference patienstRef,sharRef,recordRef;
     private FirebaseAuth mAuth;
 
 
@@ -66,7 +66,6 @@ public class ShareRecord extends AppCompatActivity {
 
         //database Ref
         patienstRef= FirebaseDatabase.getInstance().getReference().child("Patients");
-        docsRef= FirebaseDatabase.getInstance().getReference().child("Doctors");
         sharRef= FirebaseDatabase.getInstance().getReference().child("Share");
         recordRef= FirebaseDatabase.getInstance().getReference().child("Records");
         mAuth= FirebaseAuth.getInstance();
@@ -109,7 +108,7 @@ public class ShareRecord extends AppCompatActivity {
 
                     }
                     else {
-                        Toast.makeText(getApplicationContext(),"Record was not found, please enter another ID...",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(),"حدثت مشكله  ",Toast.LENGTH_SHORT).show();
 
                     }
                 }
@@ -140,7 +139,7 @@ public class ShareRecord extends AppCompatActivity {
                     reqmap.put("record_id",recordId);
                     reqmap.put("patient_id",patientID);
                     reqmap.put("patient_uid",currentUser);
-                    reqmap.put("shareid",currentUser+HCPuID);
+
 
                     final String key=patientID+HCPID+recordId;
 
@@ -148,7 +147,7 @@ public class ShareRecord extends AppCompatActivity {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                             if(dataSnapshot.exists()){
-                                Toast.makeText(ShareRecord.this, "You already shared this record ...", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(ShareRecord.this, "لقد قمت بمشاركه احد هذه التقارير بالفعل ", Toast.LENGTH_SHORT).show();
                                 return;
 
                             }
@@ -157,11 +156,11 @@ public class ShareRecord extends AppCompatActivity {
                                     @Override
                                     public void onComplete(@NonNull Task task) {
                                         if(task.isSuccessful()){
-                                            Toast.makeText(ShareRecord.this, "Record shared ", Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(ShareRecord.this, "تمت مشاركة التقارير", Toast.LENGTH_SHORT).show();
                                             sendUserToMainActivity();
                                         }
                                         else{
-                                            Toast.makeText(ShareRecord.this, "Error", Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(ShareRecord.this, "حدثت مشكلة  ", Toast.LENGTH_SHORT).show();
                                         }
                                     }
                                 });

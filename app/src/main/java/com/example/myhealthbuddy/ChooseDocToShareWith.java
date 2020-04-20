@@ -38,9 +38,11 @@ public class ChooseDocToShareWith extends AppCompatActivity {
     private ImageButton searchbtn;
     private EditText searchInpuText;
     private RecyclerView SearchResultList;
-    private DatabaseReference allUsersdatabaseRef;
+    private DatabaseReference allSharesRef,DoctorRef,RecordsRef;
     private FirebaseAuth mAuth;
     String currentUserid;
+    HCPAdapter mAdapter ;
+    TextView Noresult;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +50,9 @@ public class ChooseDocToShareWith extends AppCompatActivity {
         setContentView(R.layout.activity_choose_doc_to_share_with);
 
 
-    allUsersdatabaseRef = FirebaseDatabase.getInstance().getReference().child("Doctors");
+    allSharesRef = FirebaseDatabase.getInstance().getReference().child("Share");
+    DoctorRef = FirebaseDatabase.getInstance().getReference().child("Doctors");
+    RecordsRef = FirebaseDatabase.getInstance().getReference().child("Records");
     mAuth = FirebaseAuth.getInstance();
     currentUserid = mAuth.getCurrentUser().getUid();
 
@@ -62,10 +66,12 @@ public class ChooseDocToShareWith extends AppCompatActivity {
     // RecyclerView
     SearchResultList = (RecyclerView) findViewById(R.id.HCPresult);
     SearchResultList.setHasFixedSize(true);
+    Noresult =findViewById(R.id.NoResult2);
 
     RecyclerView myRecycler = (RecyclerView) findViewById(R.id.HCPresult);
         myRecycler.setLayoutManager(new LinearLayoutManager(this));
         myRecycler.setAdapter(new SampleRecycler());
+        Browse();
 
         SearchResultList.setLayoutManager(new LinearLayoutManager(this));
         searchbtn.setOnClickListener(new View.OnClickListener() {
@@ -105,7 +111,7 @@ public class ChooseDocToShareWith extends AppCompatActivity {
     public void SearchMethod(String SearchBoxInput) {
         if (SearchBoxInput.length() == 7 ) {
             Toast.makeText(this, "جاري البحث..", Toast.LENGTH_LONG).show();
-            Query searchHCPInfiQuere = allUsersdatabaseRef.orderByChild("id").startAt(SearchBoxInput).endAt(SearchBoxInput + "\uf8ff");
+            Query searchHCPInfiQuere = DoctorRef.orderByChild("id").startAt(SearchBoxInput).endAt(SearchBoxInput + "\uf8ff");
             FirebaseRecyclerAdapter<HCPsResult, SearchViweHolder> FirebaseRecycleAdapter
                     = new FirebaseRecyclerAdapter<HCPsResult, SearchViweHolder>
                     (
@@ -136,11 +142,136 @@ public class ChooseDocToShareWith extends AppCompatActivity {
                             startActivity(intent);
                         }
                     });
+                    if (getItemCount()==0)
+                        Noresult.setVisibility(View.VISIBLE);
+                    else Noresult.setVisibility(View.INVISIBLE);
                 }
             };
             SearchResultList.setAdapter(FirebaseRecycleAdapter);
+                Noresult.setVisibility(View.VISIBLE);
         } else
             Toast.makeText(this, "الرجاء ادخال رقم صحيح ", Toast.LENGTH_LONG).show();
+    }
+
+
+
+    public void Browse() {
+
+        final ArrayList<HCPsResult> HCPArrayList= new ArrayList<>();
+        final ArrayList<String> Ids= new ArrayList<>();
+
+
+        DoctorRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull final DataSnapshot dataSnapshot2) {
+                if (dataSnapshot2.exists()) {
+
+                    allSharesRef.orderByChild("patient_uid").startAt(currentUserid).endAt(currentUserid + "\uf8ff");
+                    allSharesRef.addValueEventListener(new ValueEventListener() {
+
+
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot1) {
+                            if (dataSnapshot1.exists()) {
+                                String id;
+                                for (DataSnapshot share : dataSnapshot1.getChildren()) {
+                                    for (DataSnapshot ds : dataSnapshot2.getChildren()) {
+                                        HCPsResult HCP;
+                                        if (ds.getKey().equals(share.child("hcp_uid").getValue().toString())) {
+                                            HCP = ds.getValue(HCPsResult.class);
+                                            id = ds.getKey();
+                                            if (!Ids.contains(id)) {
+                                                Ids.add(id);
+                                                //GetHospitalName(record.getKey());
+                                                HCPArrayList.add(HCP);
+                                            }
+                                        }
+                                    }
+
+                                }
+
+                            }
+                            mAdapter = new HCPAdapter(ChooseDocToShareWith.this, HCPArrayList);
+                            SearchResultList.setAdapter(mAdapter);
+                            if (HCPArrayList.size() == 0) {
+                                Noresult.setVisibility(View.VISIBLE);
+
+                            } else Noresult.setVisibility(View.INVISIBLE);
+
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                        }
+                    });
+
+
+                    // from recods
+
+                    RecordsRef.orderByChild("pid").startAt(currentUserid).endAt(currentUserid + "\uf8ff");
+                    RecordsRef.addValueEventListener(new ValueEventListener() {
+
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot1) {
+
+                            if (dataSnapshot1.exists()) {
+                                String id;
+                                for (DataSnapshot records : dataSnapshot1.getChildren()) {
+
+                                    for (DataSnapshot doc : dataSnapshot2.getChildren()) {
+                                        HCPsResult HCP;
+                                        if (doc.getKey().equals(records.child("did").getValue().toString())) {
+                                            HCP = doc.getValue(HCPsResult.class);
+                                            id = doc.getKey();
+                                            if (!Ids.contains(id)) {
+                                                Ids.add(id);
+                                                //GetHospitalName(record.getKey());
+                                                HCPArrayList.add(HCP);
+                                            }
+                                        }
+                                    }
+
+                                }
+
+
+                            }
+
+                            mAdapter = new HCPAdapter(ChooseDocToShareWith.this, HCPArrayList);
+                            SearchResultList.setAdapter(mAdapter);
+                            if (HCPArrayList.size() == 0) {
+                                Noresult.setVisibility(View.VISIBLE);
+
+                            } else Noresult.setVisibility(View.INVISIBLE);
+
+
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                        }
+                    });
+
+
+                }
+            }
+
+
+
+            // from request NOT sure
+
+
+
+
+
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+
+        });
     }
 
 

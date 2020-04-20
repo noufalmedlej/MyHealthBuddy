@@ -43,7 +43,7 @@
                 android:layout_marginLeft="5dp"
                 android:background="#ffffffff"
                 android:ems="10"
-                android:hint="Health Care Provider ID .."
+                android:hint="   رقم مقدم الرعاية الصحيه .."
                 android:imeOptions="actionSearch"
                 android:inputType="textPersonName"
                 android:lines="1"
@@ -90,6 +90,19 @@
 
         app:layout_constraintTop_toBottomOf="@+id/viewHiveToolBar"
         app:layout_constraintVertical_bias="0.483" />
+
+    <TextView
+        android:id="@+id/NoResult2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="140dp"
+        android:text="لايوجد أطباء "
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.484"
+        app:layout_constraintStart_toStartOf="@+id/HCPresult"
+        app:layout_constraintTop_toTopOf="@+id/HCPresult"
+        android:visibility="invisible"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
