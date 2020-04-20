@@ -42,7 +42,7 @@ public class ChooseDocToShareWith extends AppCompatActivity {
     private FirebaseAuth mAuth;
     String currentUserid;
     HCPAdapter mAdapter ;
-    TextView Noresult;
+    TextView NoresultHCP;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,7 +66,7 @@ public class ChooseDocToShareWith extends AppCompatActivity {
     // RecyclerView
     SearchResultList = (RecyclerView) findViewById(R.id.HCPresult);
     SearchResultList.setHasFixedSize(true);
-    Noresult =findViewById(R.id.NoResult2);
+    NoresultHCP =findViewById(R.id.NoResult2);
 
     RecyclerView myRecycler = (RecyclerView) findViewById(R.id.HCPresult);
         myRecycler.setLayoutManager(new LinearLayoutManager(this));
@@ -143,12 +143,12 @@ public class ChooseDocToShareWith extends AppCompatActivity {
                         }
                     });
                     if (getItemCount()==0)
-                        Noresult.setVisibility(View.VISIBLE);
-                    else Noresult.setVisibility(View.INVISIBLE);
+                        NoresultHCP.setVisibility(View.VISIBLE);
+                    else NoresultHCP.setVisibility(View.INVISIBLE);
                 }
             };
             SearchResultList.setAdapter(FirebaseRecycleAdapter);
-                Noresult.setVisibility(View.VISIBLE);
+            NoresultHCP.setVisibility(View.VISIBLE);
         } else
             Toast.makeText(this, "الرجاء ادخال رقم صحيح ", Toast.LENGTH_LONG).show();
     }
@@ -194,9 +194,9 @@ public class ChooseDocToShareWith extends AppCompatActivity {
                             mAdapter = new HCPAdapter(ChooseDocToShareWith.this, HCPArrayList);
                             SearchResultList.setAdapter(mAdapter);
                             if (HCPArrayList.size() == 0) {
-                                Noresult.setVisibility(View.VISIBLE);
+                                NoresultHCP.setVisibility(View.VISIBLE);
 
-                            } else Noresult.setVisibility(View.INVISIBLE);
+                            } else NoresultHCP.setVisibility(View.INVISIBLE);
 
                         }
 
@@ -240,9 +240,9 @@ public class ChooseDocToShareWith extends AppCompatActivity {
                             mAdapter = new HCPAdapter(ChooseDocToShareWith.this, HCPArrayList);
                             SearchResultList.setAdapter(mAdapter);
                             if (HCPArrayList.size() == 0) {
-                                Noresult.setVisibility(View.VISIBLE);
+                                NoresultHCP.setVisibility(View.VISIBLE);
 
-                            } else Noresult.setVisibility(View.INVISIBLE);
+                            } else NoresultHCP.setVisibility(View.INVISIBLE);
 
 
                         }
