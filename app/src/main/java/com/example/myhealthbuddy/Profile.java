@@ -5,10 +5,12 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -38,7 +40,7 @@ public class Profile extends AppCompatActivity {
         });
 
 
-        Button set = findViewById(R.id.textView5);
+        CardView set = findViewById(R.id.textView5);
         set.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -46,7 +48,7 @@ public class Profile extends AppCompatActivity {
                 startActivity(intt);
             }
         });
-        Button edit= findViewById(R.id.editbut);
+        ImageButton edit= findViewById(R.id.editbut);
         edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -79,8 +81,13 @@ public class Profile extends AppCompatActivity {
     private void UserMenuSelector(MenuItem item) {
         switch (item.getItemId()){
 
+            case R.id.nav_share:
+                Intent intent = new Intent(Profile.this, ViewRecordtoShare.class);
+                startActivity(intent);
+                break;
+
             case R.id.nav_request:
-                Intent intentrequest=new Intent(Profile.this, CreateRequest.class);
+                Intent intentrequest=new Intent(Profile.this, ViewRequests.class);
                 startActivity(intentrequest);
                 break;
 

@@ -6,10 +6,12 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.SearchView;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -37,6 +39,7 @@ public class ViewRecordtoShare extends AppCompatActivity {
     ArrayList<item_record> Arraylist;
     ArrayList<String> CkList;
     Button sendChk;
+    BottomNavigationView bottomnav;
 
 
 
@@ -45,6 +48,18 @@ public class ViewRecordtoShare extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_record_to_share);
+
+
+        bottomnav =  findViewById(R.id.bottom_navigation);
+        bottomnav.setSelectedItemId(R.id.nav_share);
+        bottomnav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                UserMenuSelector(menuItem);
+                return false;
+            }
+        });
+
 
         sendChk=(Button) findViewById(R.id.next);
         mAuth = FirebaseAuth.getInstance();
@@ -158,6 +173,26 @@ public class ViewRecordtoShare extends AppCompatActivity {
             }
         });
         return HospitalName;
+    }
+
+
+    private void UserMenuSelector(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.nav_home:
+                Intent intent = new Intent(ViewRecordtoShare.this, HomePage.class);
+                startActivity(intent);
+                break;
+
+            case R.id.nav_request:
+                Intent intentrequest=new Intent(ViewRecordtoShare.this, ViewRequests.class);
+                startActivity(intentrequest);
+                break;
+
+            case R.id.nav_person:
+                Intent intentsearch=new Intent(ViewRecordtoShare.this, Profile.class);
+                startActivity(intentsearch);
+                break;
+        }
     }
 
 

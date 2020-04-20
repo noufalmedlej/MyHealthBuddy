@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -28,8 +29,8 @@ public class Settings extends AppCompatActivity {
                 return false;
             }
         });
-       Button logout = findViewById(R.id.logout);
-       Button reset = findViewById(R.id.reset1);
+       CardView logout = findViewById(R.id.logout);
+       CardView reset = findViewById(R.id.reset1);
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

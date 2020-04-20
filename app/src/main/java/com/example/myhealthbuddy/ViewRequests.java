@@ -70,6 +70,11 @@ public class ViewRequests extends AppCompatActivity {
     private void UserMenuSelector(MenuItem item) {
         switch (item.getItemId()){
 
+            case R.id.nav_share:
+                Intent intentshare = new Intent(ViewRequests.this, ViewRecordtoShare.class);
+                startActivity(intentshare);
+                break;
+
             case R.id.nav_home:
                 Intent intentrequest=new Intent(ViewRequests.this, HomePage.class);
                 startActivity(intentrequest);

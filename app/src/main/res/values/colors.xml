@@ -3,4 +3,20 @@
     <color name="colorPrimary">#C98DCF</color>
     <color name="colorPrimaryDark">#C98DCF</color>
     <color name="colorAccent">#620D7B</color>
+
+
+    <color name="white">#FFFFFF</color>
+    <color name="grey">#737373</color>
+
+    <color name="blue">#0178cc</color>
+    <color name="red">#FF0000</color>
+    <color name="purple">#58264B</color>
+
+
+
+    <color name="purple1">#794D71</color>
+    <color name="BodourColor">#C98DCF</color>
+    <color name="HaifaColor">#662d8e</color>
+    <color name="NoufColor">#58264B</color>
+
 </resources>

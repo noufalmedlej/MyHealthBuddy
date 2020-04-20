@@ -11,6 +11,11 @@
         android:title="ملفي الشخصي" />
 
     <item
+        android:id="@+id/nav_share"
+        android:icon="@drawable/share"
+        android:title="مشاركة" />
+
+    <item
         android:id="@+id/nav_request"
         android:icon="@drawable/calendarr"
         android:title="طلب" />
@@ -19,4 +24,6 @@
         android:id="@+id/nav_not"
         android:icon="@drawable/notify"
         android:title="اشعارات" />
+
+
 </menu>

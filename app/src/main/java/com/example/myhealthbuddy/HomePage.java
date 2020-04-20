@@ -23,7 +23,7 @@ import com.google.firebase.database.ValueEventListener;
 public class HomePage extends AppCompatActivity {
     Button reqbtn;
   //  ImageView img;
-    Button selectbtn;
+   // Button selectbtn;
     ImageView img;
     BottomNavigationView bottomnav;
     Button btn ;
@@ -75,7 +75,7 @@ public class HomePage extends AppCompatActivity {
 
 
 
-        selectbtn =(Button)findViewById(R.id.selectbtn);
+        /*selectbtn =(Button)findViewById(R.id.selectbtn);
         selectbtn.setOnClickListener(new View.OnClickListener() {
                                    @Override
                                    public void onClick(View v) {
@@ -99,6 +99,10 @@ public class HomePage extends AppCompatActivity {
 }
     private void UserMenuSelector(MenuItem item) {
         switch (item.getItemId()){
+            case R.id.nav_share:
+                Intent intent = new Intent(HomePage.this, ViewRecordtoShare.class);
+                startActivity(intent);
+                break;
 
             case R.id.nav_request:
                 Intent intentrequest=new Intent(HomePage.this, ViewRequests.class);

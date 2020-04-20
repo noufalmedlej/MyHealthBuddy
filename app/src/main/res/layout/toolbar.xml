@@ -2,6 +2,6 @@
 <androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/profilebar"
     android:layout_width="match_parent" android:layout_height="wrap_content"
-    android:background="#C98DCF">
+    android:background="#f3f3f3">
 
 </androidx.appcompat.widget.Toolbar>

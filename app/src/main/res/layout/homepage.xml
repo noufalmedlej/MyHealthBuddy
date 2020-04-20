@@ -21,7 +21,7 @@
         android:id="@+id/toolbar2"
         android:layout_width="413dp"
         android:layout_height="214dp"
-        android:background="#C98DCF"
+        layout="@layout/toolbar"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
@@ -36,8 +36,8 @@
         android:layout_marginLeft="76dp"
         android:layout_marginTop="16dp"
         android:text="TextView"
-        android:textColor="#FFFFFF"
-        android:textSize="18sp"
+        android:textColor="@color/purple"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="@+id/toolbar2"
         app:layout_constraintEnd_toStartOf="@+id/textView4"
         app:layout_constraintHorizontal_bias="0.943"
@@ -51,8 +51,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="مرحبًا"
-        android:textColor="#FFFFFF"
-        android:textSize="18sp"
+        android:textColor="@color/purple"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="@+id/toolbar2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.968"
@@ -230,18 +230,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView6"
         app:layout_constraintVertical_bias="0.142" />-->
 
-    <Button
-        android:id="@+id/selectbtn"
-        android:layout_width="149dp"
-        android:layout_height="34dp"
-        android:layout_marginEnd="244dp"
-        android:layout_marginRight="244dp"
-        android:layout_marginBottom="48dp"
-        android:text="Share Record "
-        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView12" />
-        app:layout_constraintEnd_toEndOf="parent" />
+
 
     <GridLayout
         android:layout_width="334dp"
@@ -279,7 +268,7 @@
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:src="@drawable/pills" />
+                    android:src="@drawable/pills1" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -314,7 +303,7 @@
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:src="@drawable/blood" />
+                    android:src="@drawable/blooddonation" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -349,7 +338,7 @@
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:src="@drawable/cardiogram" />
+                    android:src="@drawable/heartbeat" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -383,7 +372,7 @@
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:src="@drawable/nuclear" />
+                    android:src="@drawable/skeleton" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -418,7 +407,7 @@
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:src="@drawable/report" />
+                    android:src="@drawable/medicalhistory" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -453,7 +442,7 @@
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:src="@drawable/doctor" />
+                    android:src="@drawable/stethoscope" />
 
                 <TextView
                     android:layout_width="wrap_content"
