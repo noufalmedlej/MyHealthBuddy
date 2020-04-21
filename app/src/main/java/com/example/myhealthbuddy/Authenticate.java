@@ -57,7 +57,7 @@ public class Authenticate extends AppCompatActivity{
 
                 if ((code.isEmpty() || code.length() < 6)){
 
-                    Code.setError("Code is not correct");
+                    Code.setError("رمز التحقق غير صحيح");
                     Code.requestFocus();
                     return;
                 }
@@ -68,11 +68,11 @@ public class Authenticate extends AppCompatActivity{
     }
 
     private void verifyCode(String code){
-
+        progressBar.setVisibility(View.VISIBLE);
         PhoneAuthCredential credential = PhoneAuthProvider.getCredential(verificationid, code);
-        String ActCode = credential.getSmsCode();
+      //  String ActCode = credential.getSmsCode();
 
-        if (ActCode==code){
+  /*      if (ActCode==code){
             Intent intent = getIntent();
             Bundle extras = intent.getExtras();
             String username = extras.getString("name");
@@ -83,11 +83,11 @@ public class Authenticate extends AppCompatActivity{
             String nid = extras.getString("NID");
             CreateUserAccount(email,nid,password,username,phone);
         }
-
-        // signInWithCredential(credential);
+*/
+        signInWithCredential(credential);
     }
-//never used
     private void signInWithCredential(PhoneAuthCredential credential) {
+        progressBar.setVisibility(View.INVISIBLE);
         mAuth.signInWithCredential(credential)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
@@ -104,7 +104,8 @@ public class Authenticate extends AppCompatActivity{
                             CreateUserAccount(email,nid,password,username,phone);
 
                         } else {
-                            Toast.makeText(Authenticate.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                            Toast.makeText(Authenticate.this, "رمز التحقق غير صحيح", Toast.LENGTH_LONG).show();
+                            // The verification code entered was invalid
                         }
                     }
 
@@ -157,7 +158,7 @@ public class Authenticate extends AppCompatActivity{
                         if (task.isSuccessful()) {
                             //sendUserToSetUpActivity();
 
-                            showMessage("registered successfully");
+                            showMessage("تم انشاء حسابك");
                             String Currentuser=mAuth.getCurrentUser().getUid();
                             DatabaseReference Userref= FirebaseDatabase.getInstance().getReference().child("Patients").child(Currentuser);
                             HashMap userMap=new HashMap();
@@ -170,20 +171,20 @@ public class Authenticate extends AppCompatActivity{
                                 public void onComplete(@NonNull Task task) {
 
                                     if (task.isSuccessful()){
-                                        Toast.makeText(Authenticate.this, "Account created", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(Authenticate.this, "تم تسجيل بياناتك", Toast.LENGTH_LONG).show();
                                         Intent intent = new Intent(Authenticate.this, HomePage.class);
                                         startActivity(intent);
                                     }
 
                                     else{
-                                        Toast.makeText(Authenticate.this, "Something went wrong", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(Authenticate.this, "حدث خطأ", Toast.LENGTH_SHORT).show();
                                     }
 
                                 }
                             });
                         }
                         else
-                            showMessage("Account Creation Failed" + task.getException().getMessage());
+                            showMessage("فشلت عملية التسجيل" + task.getException().getMessage());
                     }
                 });
     }

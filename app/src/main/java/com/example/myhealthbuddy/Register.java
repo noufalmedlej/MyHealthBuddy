@@ -25,6 +25,8 @@ public class Register extends AppCompatActivity {
 
 
     public EditText UserEmail,UserNID, userPassword, userPassword2,userName,UserPhone;
+    public boolean flag=false;
+
     private Button regBtn;
     private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks;
     private Button login;
@@ -65,15 +67,24 @@ public class Register extends AppCompatActivity {
 
 
 
-                if( Email.isEmpty() || Password.isEmpty() || Password2.isEmpty() || NID.isEmpty() || NID.length()<10 || NID.length()>10 || !Password.equals(Password2)){
-                    showMessage("Please Verify All Fields");
+                if( Email.isEmpty() || Password.isEmpty() || Password2.isEmpty() || !Password.equals(Password2)){
+                    showMessage("يرجى التأكد من بياناتك");
                     return;
 
                 }
+                if ( Password.length()<6){
+                    userPassword.setError("يجب ان لا يقل الرمز السري عن 6 رموز");
+                    userPassword.requestFocus();
+                    return;
+                }
+
                 if (phone.isEmpty()|| phone.length()<9 || phone.length()>9) {
-                    UserPhone.setError("Phone number is not valid");
+                    UserPhone.setError("رقم الجوال غير صحيح");
                     UserPhone.requestFocus();
                     return;
+                }
+                if ( NID.isEmpty() || NID.length()<10 || NID.length()>10 ){
+                    UserNID.setError("رقم الهوية الوطنية غير صحيح");
                 }
 
                 final String phonee="+966"+phone;
@@ -85,6 +96,7 @@ public class Register extends AppCompatActivity {
                             String key1 = postsnapshot.getKey();
                             if((key1.equals(NID))) {
                                 if ((dataSnapshot.child(key1).child("phone").getValue().equals(phonee))){
+                                    flag=true;
                                     System.out.println(key1);
                                     System.out.println(dataSnapshot.child(key1).child("phone").getValue());
                                     Intent intent = new Intent(Register.this, Authenticate.class);
@@ -104,11 +116,14 @@ public class Register extends AppCompatActivity {
 
                     @Override
                     public void onCancelled(@NonNull DatabaseError databaseError) {
-                        showMessage("يرجى التحقق من بياناتك");
+                        showMessage("يرجى التأكد من ان بياناتك مطابقة للبيانات المسجلة في الأحوال المدنية");
                     }
                 });
-
+                if (!flag)
+                    showMessage("يرجى التأكد من ان بياناتك مطابقة للبيانات المسجلة في الأحوال المدنية");
             }});
+
+
 
     }
     @Override
