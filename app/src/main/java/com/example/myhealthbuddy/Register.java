@@ -109,6 +109,7 @@ public class Register extends AppCompatActivity {
                                     extras.putString("p2", Password2);
                                     intent.putExtras(extras);
                                     startActivity(intent);
+                                    break;
                                 }}
                         }
 

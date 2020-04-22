@@ -12,8 +12,6 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
-import com.onesignal.OneSignal;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -24,7 +22,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
-
+import com.onesignal.OneSignal;
 public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private DatabaseReference UsersRef;

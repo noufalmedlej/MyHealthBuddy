@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CreateRequest"
+    android:background="#ffffff">
+
+
+    <include
+        android:id="@+id/viewHiveToolBar"
+        layout="@layout/toolbar"
+        android:layout_width="416dp"
+        android:layout_height="166dp"
+        android:gravity="right"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="354dp"
+        android:layout_height="518dp"
+        android:orientation="vertical"
+        app:cardCornerRadius="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="518dp"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:orientation="vertical"
+            android:padding="17dp">
+
+
+            <RadioGroup
+                android:id="@+id/radioGroup"
+                android:layout_width="325dp"
+                android:layout_height="165dp"
+                android:layout_margin="7dp"
+                android:gravity="right"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/viewHiveToolBar">
+
+                <TextView
+                    android:id="@+id/gender"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginEnd="2dp"
+                    android:layout_marginRight="2dp"
+                    android:gravity="right"
+                    android:text="الجنس"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toTopOf="@+id/radioGroup"
+                    app:layout_constraintTop_toBottomOf="@+id/viewHiveToolBar"
+                    tools:layout_editor_absoluteX="43dp" />
+
+                <RadioButton
+                    android:id="@+id/male"
+                    android:layout_width="67dp"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="ذكر" />
+
+                <RadioButton
+                    android:id="@+id/female"
+                    android:layout_width="68dp"
+                    android:layout_height="wrap_content"
+                    android:text="أنثى" />
+
+                <TextView
+                    android:id="@+id/date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="تاريخ الميلاد"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+
+                <ImageView
+                    android:id="@+id/imageView8"
+                    android:layout_width="26dp"
+                    android:layout_height="21dp"
+                    android:layout_margin="7dp"
+                    app:layout_constraintBottom_toTopOf="@+id/DocId"
+                    app:layout_constraintEnd_toStartOf="@+id/Date"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/radioGroup"
+                    app:layout_constraintVertical_bias="0.705"
+                    app:srcCompat="@drawable/calendarr" />
+
+
+            </RadioGroup>
+
+
+            <Button
+                android:id="@+id/save"
+                android:layout_width="286dp"
+                android:layout_height="53dp"
+                android:layout_margin="7dp"
+                android:background="@drawable/login_btn"
+                android:text="حفظ"
+                android:textAllCaps="true"
+                android:textColor="#ffffff"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.496"
+                app:layout_constraintStart_toStartOf="parent"
+                />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/textView21"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="بيانات إضافية"
+        android:textColor="#794D71"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/cardView"
+        app:layout_constraintEnd_toEndOf="@+id/viewHiveToolBar"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.706" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

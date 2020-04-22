@@ -14,6 +14,7 @@ import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseException;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseAuthException;
 import com.google.firebase.auth.PhoneAuthCredential;
 import com.google.firebase.auth.PhoneAuthProvider;
 import com.google.firebase.database.DatabaseReference;
@@ -172,12 +173,35 @@ public class Authenticate extends AppCompatActivity{
 
                                     if (task.isSuccessful()){
                                         Toast.makeText(Authenticate.this, "تم تسجيل بياناتك", Toast.LENGTH_LONG).show();
-                                        Intent intent = new Intent(Authenticate.this, HomePage.class);
+                                        Intent intent = new Intent(Authenticate.this, SetUp.class);// go to set up
                                         startActivity(intent);
                                     }
 
                                     else{
-                                        Toast.makeText(Authenticate.this, "حدث خطأ", Toast.LENGTH_SHORT).show();
+
+                                            String errorCode = ((FirebaseAuthException) task.getException()).getErrorCode();
+                                            showMessage(errorCode);
+
+                                            switch (errorCode) {
+
+                                                case "ERROR_EMAIL_ALREADY_IN_USE":
+                                                    showMessage("البريد الإلكتروني مسجل مسبقًا.");
+                                                    break;
+
+                                                case "ERROR_USER_MISMATCH":
+                                                    showMessage("البريد الإلكتروني مسجل مسبقًا.");
+                                                    break;
+
+                                                case "ERROR_INVALID_EMAIL":
+                                                    showMessage("الرجاء إدخال بريد إلكتروني صحيح.");
+                                                    break;
+
+                                                case "ERROR_WEAK_PASSWORD":
+                                                    showMessage("يجب أن تتكون كلمة المرور من ٦ أحرف على الأقل.");
+                                                    break;
+
+
+                                            }
                                     }
 
                                 }
