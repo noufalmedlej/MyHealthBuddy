@@ -24,7 +24,7 @@
                 android:id="@+id/display_request_daterequest"
                 android:layout_width="74dp"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/textView17"
+                android:layout_below="@+id/display_reqordec"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentLeft="true"
                 android:layout_gravity="right"
@@ -36,7 +36,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/textView17"
+                android:id="@+id/display_reqordec"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/display_request_image"

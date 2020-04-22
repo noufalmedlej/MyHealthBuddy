@@ -75,7 +75,7 @@ public class ActiveRequests extends Fragment {
                 new FirebaseRecyclerAdapter<MyRequests, RequestsActiveViewHolder>(MyRequests.class,R.layout.display_requests,RequestsActiveViewHolder.class,query) {
                     @Override
                     protected void populateViewHolder(final RequestsActiveViewHolder requestsActiveViewHolder, MyRequests myRequests, int i) {
-                        requestsActiveViewHolder.setDoctor_id(myRequests.getPatient_id());
+                        requestsActiveViewHolder.setDoctor_id(myRequests.getDoctor_id());
                         requestsActiveViewHolder.setType(myRequests.getType());
                         requestsActiveViewHolder.setDate(myRequests.getDate());
                         requestsActiveViewHolder.setRequest_date(myRequests.getRequest_date());

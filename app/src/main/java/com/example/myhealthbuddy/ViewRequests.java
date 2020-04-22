@@ -61,9 +61,9 @@ public class ViewRequests extends AppCompatActivity {
     }
     private void setUpViewPager(ViewPager viewPager){
         SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter( getSupportFragmentManager());
-        sectionsPagerAdapter.addFragment(new ActiveRequests(),"Active");
-        sectionsPagerAdapter.addFragment(new CanceledRequests(),"Declined");
-        sectionsPagerAdapter.addFragment(new ClosedRequests(),"Closed");
+        sectionsPagerAdapter.addFragment(new ActiveRequests(),"نشطة");
+        sectionsPagerAdapter.addFragment(new CanceledRequests(),"مرفوضة");
+        sectionsPagerAdapter.addFragment(new ClosedRequests(),"مغلقة");
         viewPager.setAdapter(sectionsPagerAdapter);
     }
 

@@ -7,7 +7,9 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.StrictMode;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -30,9 +32,13 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.Scanner;
 
 public class CreateRequest extends AppCompatActivity {
     private Button sendreq;
@@ -122,7 +128,7 @@ public class CreateRequest extends AppCompatActivity {
         doctorid=docId.getText().toString();
         note=not.getText().toString();
         date=dat.getText().toString();
-        if(doctorid.length()==7&&!date.equals("Select Date Of Appointment")) {
+        if(doctorid.length()==7&&!date.equals("اختر تاريخ الموعد")) {
             Query query = docsref.orderByChild("id").equalTo(doctorid);
             query.addValueEventListener(new ValueEventListener() {
                 @Override
@@ -134,7 +140,7 @@ public class CreateRequest extends AppCompatActivity {
 
                     }
                     else {
-                        Toast.makeText(getApplicationContext(),"Doctor was not found, please enter another ID...",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(),"الطبيب غير موجود الرجاء ادخال الرمز الصحيح...",Toast.LENGTH_SHORT).show();
 
                     }
                 }
@@ -147,7 +153,7 @@ public class CreateRequest extends AppCompatActivity {
         }
 
         else {
-            Toast.makeText(getApplicationContext(),"Please enter doctor's ID and date of the session",Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(),"الرجاء ادخال رمز الطبيب وتاريخ الموعد...",Toast.LENGTH_SHORT).show();
 
 
         }
@@ -208,7 +214,7 @@ public class CreateRequest extends AppCompatActivity {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                             if(dataSnapshot.exists()){
-                                Toast.makeText(CreateRequest.this, "You already have a request...", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(CreateRequest.this, "يوجد طلب سابق...", Toast.LENGTH_SHORT).show();
                                 return;
 
                             }
@@ -217,11 +223,12 @@ public class CreateRequest extends AppCompatActivity {
                                     @Override
                                     public void onComplete(@NonNull Task task) {
                                         if(task.isSuccessful()){
-                                            Toast.makeText(CreateRequest.this, "Request sent", Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(CreateRequest.this, "تم ارسال الطلب", Toast.LENGTH_SHORT).show();
+                                            sendNotification(doctoruid);
                                             sendUserToMainActivity();
                                         }
                                         else{
-                                            Toast.makeText(CreateRequest.this, "Error", Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(CreateRequest.this, "حدث خطأ...", Toast.LENGTH_SHORT).show();
                                         }
                                     }
                                 });
@@ -246,6 +253,77 @@ public class CreateRequest extends AppCompatActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
+            }
+        });
+    }
+    private void sendNotification(final String puid) {
+
+        AsyncTask.execute(new Runnable() {
+            @Override
+            public void run() {
+                int SDK_INT = android.os.Build.VERSION.SDK_INT;
+                if (SDK_INT > 8) {
+                    StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder()
+                            .permitAll().build();
+                    StrictMode.setThreadPolicy(policy);
+                    String send_email;
+
+
+                    //This is a Simple Logic to Send Notification different Device Programmatically....
+
+                    send_email =puid ;
+
+
+                    try {
+                        String jsonResponse;
+
+                        URL url = new URL("https://onesignal.com/api/v1/notifications");
+                        HttpURLConnection con = (HttpURLConnection) url.openConnection();
+                        con.setUseCaches(false);
+                        con.setDoOutput(true);
+                        con.setDoInput(true);
+
+                        con.setRequestProperty("Content-Type", "application/json; charset=UTF-8");
+                        con.setRequestProperty("Authorization", "Basic MWMzMDk5YzgtMTBjMC00N2U4LTgzNjAtNjk2Yjk3NjgxOTRm");
+                        con.setRequestMethod("POST");
+
+                        String strJsonBody = "{"
+                                + "\"app_id\": \"8feeee1a-0ae6-4662-af58-51550ce5b903\","
+
+                                + "\"filters\": [{\"field\": \"tag\", \"key\": \"User_uid\", \"relation\": \"=\", \"value\": \"" + send_email + "\"}],"
+
+                                + "\"data\": {\"foo\": \"bar\"},"
+                                + "\"contents\": {\"en\": \"New patient request\"}"
+                                + "}";
+
+
+                        System.out.println("strJsonBody:\n" + strJsonBody);
+
+                        byte[] sendBytes = strJsonBody.getBytes("UTF-8");
+                        con.setFixedLengthStreamingMode(sendBytes.length);
+
+                        OutputStream outputStream = con.getOutputStream();
+                        outputStream.write(sendBytes);
+
+                        int httpResponse = con.getResponseCode();
+                        System.out.println("httpResponse: " + httpResponse);
+
+                        if (httpResponse >= HttpURLConnection.HTTP_OK
+                                && httpResponse < HttpURLConnection.HTTP_BAD_REQUEST) {
+                            Scanner scanner = new Scanner(con.getInputStream(), "UTF-8");
+                            jsonResponse = scanner.useDelimiter("\\A").hasNext() ? scanner.next() : "";
+                            scanner.close();
+                        } else {
+                            Scanner scanner = new Scanner(con.getErrorStream(), "UTF-8");
+                            jsonResponse = scanner.useDelimiter("\\A").hasNext() ? scanner.next() : "";
+                            scanner.close();
+                        }
+                        System.out.println("jsonResponse:\n" + jsonResponse);
+
+                    } catch (Throwable t) {
+                        t.printStackTrace();
+                    }
+                }
             }
         });
     }

@@ -74,10 +74,10 @@ public class CanceledRequests extends Fragment {
                 new FirebaseRecyclerAdapter<MyRequests, declinedViewHolder>(MyRequests.class,R.layout.display_requests, declinedViewHolder.class,query) {
                     @Override
                     protected void populateViewHolder(final declinedViewHolder requestsDeclinedViewHolder, MyRequests myRequests, int i) {
-                        requestsDeclinedViewHolder.setDoctor_id(myRequests.getPatient_id());
+                        requestsDeclinedViewHolder.setDoctor_id(myRequests.getDoctor_id());
                         requestsDeclinedViewHolder.setType(myRequests.getType());
                         requestsDeclinedViewHolder.setDate(myRequests.getDate());
-                        requestsDeclinedViewHolder.setRequest_date(myRequests.getRequest_date());
+                        requestsDeclinedViewHolder.setDeclined_date(myRequests.getDeclined_date());
 
                         PatientRef = FirebaseDatabase.getInstance().getReference().child("Doctors");
                         PatientRef.child(myRequests.getDoctor_uid()).addValueEventListener(new ValueEventListener() {
@@ -153,9 +153,12 @@ public class CanceledRequests extends Fragment {
             TextView myDate=(TextView)mView.findViewById(R.id.display_request_Date);
             myDate.setText(date);
         }
-        public void setRequest_date(String request_date) {
+
+        public void setDeclined_date(String declined_date) {
+            TextView declined=(TextView)mView.findViewById(R.id.display_reqordec);
+            declined.setText("Declined at:");
             TextView rdate=(TextView)mView.findViewById(R.id.display_request_daterequest);
-            rdate.setText(request_date);
+            rdate.setText(declined_date);
         }
         public void setDoctorName(String Dname) {
             TextView myID=(TextView)mView.findViewById(R.id.display_request_name);

@@ -30,8 +30,9 @@ public class ViewRequestDetails extends AppCompatActivity {
     TextView DoctorNameText,DoctorIDText,RequestTypeText,AppointmentDateText,NoteText,RDate;
     Button WriteRecordbtn,CancelRequestBtn;
     ImageView RequestPic;
-    String RequestKey,Type;
+    String RequestKey,Type,reqdate;
     DatabaseReference Request,PatientsRef,declinedRequest,DocRef;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,7 +70,10 @@ public class ViewRequestDetails extends AppCompatActivity {
                 if(dataSnapshot.exists()){
                     String did=dataSnapshot.child("doctor_id").getValue().toString();
                     DoctorIDText.setText(did);
-                    String reqdate=dataSnapshot.child("request_date").getValue().toString();
+                    if (Type.equals("PendingRequests"))
+                        reqdate=dataSnapshot.child("request_date").getValue().toString();
+                    else if(Type.equals("DeclinedRequests"))
+                        reqdate=dataSnapshot.child("declined_date").getValue().toString();
                     RDate.setText(reqdate);
                     String type=dataSnapshot.child("type").getValue().toString();
                     RequestTypeText.setText(type);

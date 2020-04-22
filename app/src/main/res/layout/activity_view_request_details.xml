@@ -126,8 +126,8 @@
                 android:text="None"
                 android:textColor="@android:color/black"
                 android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="@+id/textView17"
-                app:layout_constraintTop_toBottomOf="@+id/textView17" />
+                app:layout_constraintStart_toStartOf="@+id/display_reqordec"
+                app:layout_constraintTop_toBottomOf="@+id/display_reqordec" />
 
             <TextView
                 android:id="@+id/textView14"
@@ -198,7 +198,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/page_request_type" />
 
             <TextView
-                android:id="@+id/textView17"
+                android:id="@+id/display_reqordec"
                 android:layout_width="130dp"
                 android:layout_height="25dp"
                 android:layout_alignParentTop="true"

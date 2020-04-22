@@ -8,6 +8,7 @@ public class MyRequests {
     public String patient_uid;
     public String doctor_uid;
     public String request_date;
+    public String declined_date;
 
     public MyRequests(){
 
@@ -18,6 +19,14 @@ public class MyRequests {
         this.doctor_id = doctor_id;
         this.patient_id = patient_id;
         this.type = type;
+    }
+
+    public String getDeclined_date() {
+        return declined_date;
+    }
+
+    public void setDeclined_date(String declined_date) {
+        this.declined_date = declined_date;
     }
 
     public String getRequest_date() {
