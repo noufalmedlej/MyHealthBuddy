@@ -58,6 +58,8 @@ public class ViewAllBloodTest extends AppCompatActivity {
         });
 
 
+
+
         BloodTestList= findViewById(R.id.BloodTestList);
         BloodTestList.setHasFixedSize(true);
         RecyclerView myRecycler =  findViewById(R.id.BloodTestList);
@@ -71,7 +73,7 @@ public class ViewAllBloodTest extends AppCompatActivity {
                 break;
             case 2: NoBloodTests.setText("لايوجد تحاليل طبية ");
                 break;
-            case 3: NoBloodTests.setText("لايوجد اشعة ");
+            case 3: NoBloodTests.setText("لايوجد أشعة ");
                 break;
             case 4: NoBloodTests.setText("لايوجد علامات حيوية ");
                 break;
