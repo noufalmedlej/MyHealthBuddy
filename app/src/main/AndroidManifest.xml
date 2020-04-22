@@ -21,7 +21,6 @@
         <activity android:name=".CreateRequest" />
         <activity android:name=".ResetPassword" />
         <activity android:name=".ViewRequests" />
-        <activity android:name=".ViewAllRecord" />
         <activity android:name=".Authenticate" />
         <activity android:name=".ViewRecordtoShare" />
         <activity android:name=".Settings" />
