@@ -5,7 +5,7 @@ import java.security.PublicKey;
 
 public class item_record  {
 
-    public String date;
+    public String dateCreated;
     public String file;
     public String rid;
     public String time;
@@ -22,8 +22,8 @@ public class item_record  {
 
     }
 
-    public item_record(String date, String file, String rid, String time,String doctorName,boolean ck,String did,String pid ,int type,String hospital) {
-        this.date = date;
+    public item_record(String dateCreated, String file, String rid, String time,String doctorName,boolean ck,String did,String pid ,int type,String hospital) {
+        this.dateCreated = dateCreated;
         this.file = file;
         this.rid = rid;
         this.time = time;
@@ -36,12 +36,12 @@ public class item_record  {
 
     }
 
-    public String getDate() {
-        return date;
+    public String getDateCreated() {
+        return dateCreated;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setDateCreated(String date) {
+        this.dateCreated = dateCreated;
     }
 
     public String getFile() {

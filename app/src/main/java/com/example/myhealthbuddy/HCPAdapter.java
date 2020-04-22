@@ -13,6 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
+import de.hdodenhof.circleimageview.CircleImageView;
+
 public class HCPAdapter  extends RecyclerView.Adapter<HCPAdapter.HCPViewHolder> {
 
     private ArrayList<HCPsResult> HCPsList;
@@ -51,6 +53,10 @@ public class HCPAdapter  extends RecyclerView.Adapter<HCPAdapter.HCPViewHolder> 
                 }
             }
         });
+
+       // if(currentItem.getGender().equals("F")) set imge
+
+
     }
     @Override
     public int getItemCount() {
@@ -62,6 +68,7 @@ public class HCPAdapter  extends RecyclerView.Adapter<HCPAdapter.HCPViewHolder> 
         public TextView myid;
         public TextView myspecialty;
         public TextView mygender;
+
 
         //public TextView img;
 

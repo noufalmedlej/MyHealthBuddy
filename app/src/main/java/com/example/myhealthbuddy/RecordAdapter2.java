@@ -43,23 +43,9 @@ public class RecordAdapter2 extends RecyclerView.Adapter<RecordAdapter2.RecordVi
 
         item_record currentItem = mRecorslist.get(position);
         //the same as
-        holder.mdate.setText(mRecorslist.get(position).getDate());
+        holder.mdate.setText(currentItem.getDateCreated());
         holder.mdoctorName.setText(currentItem.getDoctorName());
         holder.mrid.setText(currentItem.getRid());
-
-
-        DatabaseReference name= FirebaseDatabase.getInstance().getReference().child("Patients");
-        name.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                holder.mpatientName.setText(dataSnapshot.child(mRecorslist.get(position).getPid()).child("name").getValue().toString());
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
         DatabaseReference Hospital= FirebaseDatabase.getInstance().getReference().child("Hospitals");
         Hospital.addValueEventListener(new ValueEventListener() {
             @Override
@@ -73,20 +59,32 @@ public class RecordAdapter2 extends RecyclerView.Adapter<RecordAdapter2.RecordVi
             }
         });
 
+        DatabaseReference name= FirebaseDatabase.getInstance().getReference().child("Patients");
+        name.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                holder.mpatientName.setText(dataSnapshot.child(mRecorslist.get(position).getPid()).child("name").getValue().toString());
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
 
 
         int myType =currentItem.getType();
         if(myType==1)
-            holder.type.setText("Prescription");
+            holder.type.setText("وصفة طبية");
         if(myType==2)
-            holder.type.setText("Blood Test");
+            holder.type.setText(" تحليل طبي ");
         if(myType==3)
-            holder.type.setText("X-Ray");
+            holder.type.setText(" أشعة");
         if(myType==4)
-            holder.type.setText("Vital Signs");
+            holder.type.setText("علامات حيوية");
         if(myType==5)
-            holder.type.setText("Records");
+            holder.type.setText("تقرير طبي ");
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override

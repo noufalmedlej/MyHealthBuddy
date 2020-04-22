@@ -47,7 +47,7 @@ public class RecordAdapter extends RecyclerView.Adapter<RecordAdapter.RecordView
 
         item_record currentItem = mRecorslist.get(position);
         //the same as
-        holder.mdate.setText(mRecorslist.get(position).getDate());
+        holder.mdate.setText(mRecorslist.get(position).getDateCreated());
         holder.mdoctorName.setText(currentItem.getDoctorName());
         holder.mrid.setText(currentItem.getRid());
         holder.mhname.setText(currentItem.getHospital());
@@ -81,15 +81,15 @@ public class RecordAdapter extends RecyclerView.Adapter<RecordAdapter.RecordView
 
         int myType =currentItem.getType();
         if(myType==1)
-            holder.type.setText("Prescription");
+            holder.type.setText("وصفة طبية");
         if(myType==2)
-            holder.type.setText("Blood Test");
+            holder.type.setText(" تحليل طبي ");
         if(myType==3)
-            holder.type.setText("X-Ray");
+            holder.type.setText(" أشعة");
         if(myType==4)
-            holder.type.setText("Vital Signs");
+            holder.type.setText("علامات حيوية");
         if(myType==5)
-            holder.type.setText("Records");
+            holder.type.setText("تقرير طبي ");
 
        /* holder.box.setOnClickListener(new View.OnClickListener() {
             @Override

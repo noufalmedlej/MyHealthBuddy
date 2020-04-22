@@ -34,7 +34,7 @@ public class ViewAllBloodTest extends AppCompatActivity {
     RecyclerView BloodTestList;
     BottomNavigationView bottomnav;
     RecordAdapter2 mAdapter ;
-    TextView NoBloodTests;
+    TextView NoBloodTests,PageTitel;
     int type;
 
     @Override
@@ -59,7 +59,7 @@ public class ViewAllBloodTest extends AppCompatActivity {
 
 
 
-
+        PageTitel=findViewById(R.id.Titele);
         BloodTestList= findViewById(R.id.BloodTestList);
         BloodTestList.setHasFixedSize(true);
         RecyclerView myRecycler =  findViewById(R.id.BloodTestList);
@@ -70,14 +70,20 @@ public class ViewAllBloodTest extends AppCompatActivity {
         switch(type){
 
             case 1: NoBloodTests.setText("لايوجد وصفات طبية ");
+                PageTitel.setText("الوصفات الطبية");
                 break;
             case 2: NoBloodTests.setText("لايوجد تحاليل طبية ");
+                PageTitel.setText("التحاليل الطبية");
                 break;
             case 3: NoBloodTests.setText("لايوجد أشعة ");
+                PageTitel.setText("الأشعة");
                 break;
             case 4: NoBloodTests.setText("لايوجد علامات حيوية ");
+                PageTitel.setText("العلامات الحيوية");
+
                 break;
             case 5: NoBloodTests.setText("لايوجد تقارير طبية ");
+                PageTitel.setText("التقارير الطبية");
                 break;
         }
 
