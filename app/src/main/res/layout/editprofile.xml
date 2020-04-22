@@ -23,7 +23,7 @@
         android:id="@+id/toolbar2"
         android:layout_width="match_parent"
         android:layout_height="64dp"
-        android:background="#C98DCF"
+        android:background="#AD7BB2 "
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
@@ -35,7 +35,7 @@
         android:id="@+id/editbutton"
         android:layout_width="328dp"
         android:layout_height="60dp"
-        android:layout_marginTop="252dp"
+        android:layout_marginTop="440dp"
         android:background="@drawable/login_btn"
         android:text="تعديل معلومات الحساب"
         android:textSize="18sp"
@@ -59,10 +59,60 @@
         android:inputType="textEmailAddress"
         app:layout_constraintBottom_toTopOf="@+id/editbutton"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar2"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <RadioGroup
+        android:id="@+id/editgender"
+        android:layout_width="328dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="152dp"
+        android:background="@drawable/sginin_style"
+        android:ems="10"
+        android:inputType="textEmailAddress"
+        app:layout_constraintBottom_toTopOf="@+id/editbutton"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.023"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar2"
-        app:layout_constraintVertical_bias="0.15" />
+        app:layout_constraintVertical_bias="0.35">
+
+        <RadioButton
+            android:id="@+id/male"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="ذكر" />
+
+        <RadioButton
+            android:id="@+id/female"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:text="أنثى" />
+    </RadioGroup>
+
+
+    <EditText
+        android:id="@+id/editdate"
+        android:layout_width="328dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="152dp"
+        android:background="@drawable/sginin_style"
+        android:ems="10"
+        android:hint="تاريخ الميلاد"
+        app:layout_constraintBottom_toTopOf="@+id/editbutton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.023"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar2"
+        app:layout_constraintVertical_bias="0.71" />
 
     <TextView
         android:id="@+id/textView3"

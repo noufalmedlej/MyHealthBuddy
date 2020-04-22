@@ -55,12 +55,9 @@
         app:layout_constraintTop_toTopOf="@+id/viewRequestToolbar" />
 
 
-
-
-
     <androidx.cardview.widget.CardView
-        android:layout_width="350dp"
-        android:layout_height="200dp"
+        android:layout_width="349dp"
+        android:layout_height="258dp"
         app:cardBackgroundColor="#A6B1ACB4"
         app:cardCornerRadius="10dp"
         app:contentPadding="1dp"
@@ -72,54 +69,18 @@
         app:layout_constraintVertical_bias="0.228">
 
         <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="341dp"
+            android:layout_height="233dp"
             android:layout_gravity="center"
             app:cardCornerRadius="10dp"
             app:contentPadding="5dp">
 
-            <ImageButton
-                android:id="@+id/editbut"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginStart="10dp"
-                android:background="@drawable/edit"
-                android:src="@drawable/edit"
-                android:layout_marginLeft="10dp" />
-
             <LinearLayout
-                android:layout_width="343dp"
-                android:layout_height="135dp"
+                android:layout_width="347dp"
+                android:layout_height="258dp"
                 android:layout_marginTop="30dp"
                 android:background="#ffffffff"
                 android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:orientation="horizontal"
-                    android:padding="3dp">
-
-                    <TextView
-                        android:id="@+id/nameee"
-                        android:layout_width="210sp"
-                        android:layout_height="30dp"
-                        android:text="name"
-                        android:textColor="#58385A"
-                        android:textSize="18sp" />
-
-                    <TextView
-                        android:layout_width="120dp"
-                        android:layout_height="30dp"
-                        android:layout_marginEnd="72dp"
-                        android:layout_marginRight="72dp"
-                        android:text="الأسم:"
-                        android:textColor="#000000"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -189,6 +150,88 @@
                         android:textSize="18sp"
                         android:textStyle="bold" />
                 </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:orientation="horizontal"
+                    android:padding="3dp">
+
+                    <TextView
+                        android:id="@+id/dateview"
+                        android:layout_width="210dp"
+                        android:layout_height="30dp"
+                        android:text="Birth Date"
+                        android:textColor="#58385A"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:layout_width="120dp"
+                        android:layout_height="30dp"
+                        android:text="تاريخ الميلاد:"
+                        android:textColor="#000000"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:orientation="horizontal"
+                    android:padding="3dp">
+
+                    <TextView
+                        android:id="@+id/genderview"
+                        android:layout_width="210dp"
+                        android:layout_height="30dp"
+                        android:text="Date"
+                        android:textColor="#58385A"
+                        android:textSize="18sp" />
+
+                    <TextView
+                        android:layout_width="120dp"
+                        android:layout_height="30dp"
+                        android:text="الجنس:"
+                        android:textColor="#000000"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <ImageButton
+                    android:id="@+id/editbut"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="15dp"
+                    android:background="@drawable/edit"
+                    android:src="@drawable/edit" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:orientation="horizontal"
+                android:padding="3dp">
+
+                <TextView
+                    android:id="@+id/nameee"
+                    android:layout_width="210sp"
+                    android:layout_height="30dp"
+                    android:text="name"
+                    android:textColor="#58385A"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:layout_width="120dp"
+                    android:layout_height="30dp"
+                    android:layout_marginEnd="72dp"
+                    android:layout_marginRight="72dp"
+                    android:text="الأسم:"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
             </LinearLayout>
         </androidx.cardview.widget.CardView>
     </androidx.cardview.widget.CardView>

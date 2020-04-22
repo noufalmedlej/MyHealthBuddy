@@ -60,6 +60,8 @@ public class Profile extends AppCompatActivity {
         final TextView mail= findViewById(R.id.mailview);
         final TextView phone= findViewById(R.id.phoneview);
         final TextView nid= findViewById(R.id.nid);
+        final TextView date= findViewById(R.id.dateview);
+        final TextView gender= findViewById(R.id.genderview);
         String current= FirebaseAuth.getInstance().getCurrentUser().getUid();
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Patients").child(current);
         ref.addValueEventListener(new ValueEventListener() {
@@ -69,6 +71,8 @@ public class Profile extends AppCompatActivity {
                 mail.setText(dataSnapshot.child("email").getValue().toString());
                 phone.setText(dataSnapshot.child("phone").getValue().toString());
                 nid.setText(dataSnapshot.child("national_id").getValue().toString());
+                date.setText(dataSnapshot.child("birthdate").getValue().toString());
+                gender.setText(dataSnapshot.child("gender").getValue().toString());
             }
 
             @Override

@@ -7,6 +7,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -31,11 +33,12 @@ import java.util.Calendar;
 import java.util.HashMap;
 
 public class EditProfile extends AppCompatActivity {
-    private EditText editprofilename;
+    private EditText editprofilename,editbirthdate;
     private Button editcancelbutton, editbutton;
     private DatabaseReference editprofRef,userRef;
     private FirebaseAuth mAuth;
     private String currentUser;
+    private RadioButton male,female;
     FirebaseUser currentuser;
 
 
@@ -54,6 +57,10 @@ public class EditProfile extends AppCompatActivity {
         });
         currentuser = FirebaseAuth.getInstance().getCurrentUser();
         editprofilename = (EditText) findViewById(R.id.editname);
+        editbirthdate = (EditText) findViewById(R.id.editdate);
+        male = (RadioButton) findViewById(R.id.male);
+        female=(RadioButton) findViewById(R.id.female);
+
         editbutton = (Button) findViewById(R.id.editbutton);
 
         currentUser = currentuser.getUid();
@@ -66,7 +73,18 @@ public class EditProfile extends AppCompatActivity {
                 if (dataSnapshot.exists()) {
                     if (dataSnapshot.hasChild("name")) {
                         String name = dataSnapshot.child("name").getValue().toString();
+                        String date = dataSnapshot.child("birthdate").getValue().toString();
+                        String gender = dataSnapshot.child("gender").getValue().toString();
+
+
                         editprofilename.setText(name);
+                        editbirthdate.setText(date);
+                        if (gender.equals("male")){
+                            male.setChecked(true);
+                        }
+                        if (gender.equals("female")){
+                            female.setChecked(true);
+                        }
                     }
 
                 }
@@ -98,8 +116,16 @@ public class EditProfile extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
                     String name = editprofilename.getText().toString();
+                    String gender="";
+                    if (male.isChecked())
+                        gender="male";
+                    if (female.isChecked())
+                        gender="female";
+                    String date=editbirthdate.getText().toString();
                     HashMap hivesmap = new HashMap();
                     hivesmap.put("name", name);
+                    hivesmap.put("birthdate", date);
+                    hivesmap.put("gender", gender);
 
                     editprofRef.updateChildren(hivesmap).addOnCompleteListener(new OnCompleteListener() {
                         @Override
