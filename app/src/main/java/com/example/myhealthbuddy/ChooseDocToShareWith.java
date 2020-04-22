@@ -123,11 +123,11 @@ public class ChooseDocToShareWith extends AppCompatActivity {
                 @Override
                 protected void populateViewHolder(SearchViweHolder searchViweHolder, final HCPsResult module, final int i) {
                     searchViweHolder.setName(module.getName());
-                    searchViweHolder.setID(module.getID());
+                    searchViweHolder.setID(module.getId());
                     searchViweHolder.setSpecialty(module.getSpecialty());
                     searchViweHolder.setGender(module.getGender());
                     //searchViweHolder.setImage(getApplicationContext(),module.getImage());
-                    final String HCPID=module.getID();
+                    final String HCPID=module.getId();
 
                     searchViweHolder.itemView.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -183,6 +183,7 @@ public class ChooseDocToShareWith extends AppCompatActivity {
                                             if (!Ids.contains(id)) {
                                                 Ids.add(id);
                                                 //GetHospitalName(record.getKey());
+                                                HCP.uid=ds.getKey();
                                                 HCPArrayList.add(HCP);
                                             }
                                         }
@@ -192,6 +193,19 @@ public class ChooseDocToShareWith extends AppCompatActivity {
 
                             }
                             mAdapter = new HCPAdapter(ChooseDocToShareWith.this, HCPArrayList);
+                            mAdapter.setOnItemClickListener(new HCPAdapter.OnItemClickListener(){
+
+                                @Override
+                                public void onItemClick(String HCPID,String Name,String HCPuId) {
+                                    Intent intent = new Intent(ChooseDocToShareWith.this, ShareRecord.class);
+                                    intent.putExtra("HCPuID", HCPuId);
+                                    intent.putExtra("HCPID",HCPID);
+                                    intent.putExtra("HCPName",Name);
+                                    ArrayList<item_record>  CkList=(ArrayList<item_record> ) getIntent().getExtras().get("list");
+                                    intent.putExtra("list",CkList);
+                                    startActivity(intent);
+                                }
+                            });
                             SearchResultList.setAdapter(mAdapter);
                             if (HCPArrayList.size() == 0) {
                                 NoresultHCP.setVisibility(View.VISIBLE);
@@ -227,6 +241,7 @@ public class ChooseDocToShareWith extends AppCompatActivity {
                                             if (!Ids.contains(id)) {
                                                 Ids.add(id);
                                                 //GetHospitalName(record.getKey());
+                                                HCP.uid=doc.getKey();
                                                 HCPArrayList.add(HCP);
                                             }
                                         }
@@ -238,6 +253,19 @@ public class ChooseDocToShareWith extends AppCompatActivity {
                             }
 
                             mAdapter = new HCPAdapter(ChooseDocToShareWith.this, HCPArrayList);
+                            mAdapter.setOnItemClickListener(new HCPAdapter.OnItemClickListener(){
+
+                                @Override
+                                public void onItemClick(String HCPID,String Name,String HCPuId) {
+                                    Intent intent = new Intent(ChooseDocToShareWith.this, ShareRecord.class);
+                                    intent.putExtra("HCPuID", HCPuId);
+                                    intent.putExtra("HCPID",HCPID);
+                                    intent.putExtra("HCPName",Name);
+                                    ArrayList<item_record>  CkList=(ArrayList<item_record> ) getIntent().getExtras().get("list");
+                                    intent.putExtra("list",CkList);
+                                    startActivity(intent);
+                                }
+                            });
                             SearchResultList.setAdapter(mAdapter);
                             if (HCPArrayList.size() == 0) {
                                 NoresultHCP.setVisibility(View.VISIBLE);

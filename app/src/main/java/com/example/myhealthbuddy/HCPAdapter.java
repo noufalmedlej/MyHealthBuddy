@@ -16,7 +16,7 @@ import java.util.ArrayList;
 public class HCPAdapter  extends RecyclerView.Adapter<HCPAdapter.HCPViewHolder> {
 
     private ArrayList<HCPsResult> HCPsList;
-    private RecordAdapter.OnItemClickListener listener;
+    private HCPAdapter.OnItemClickListener listener;
     Context c;
 
     public HCPAdapter(Context c, ArrayList<HCPsResult> list) {
@@ -38,15 +38,24 @@ public class HCPAdapter  extends RecyclerView.Adapter<HCPAdapter.HCPViewHolder> 
         HCPsResult currentItem = HCPsList.get(position);
         //the same as
         holder.myname.setText(currentItem.getName());
-        holder.myid.setText(currentItem.getID());
+        holder.myid.setText(currentItem.getId());
         holder.myspecialty.setText(currentItem.getSpecialty());
         holder.mygender.setText(currentItem.getGender());
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(listener!= null){
+                    listener.onItemClick(HCPsList.get(position).getId(),HCPsList.get(position).getName(),HCPsList.get(position).getUid());
+                    //Intent n = new Intent(c, .class);
+                    // n.putExtra("Rid",mRecorslist );
+                }
+            }
+        });
     }
     @Override
     public int getItemCount() {
         return HCPsList.size() ;
     }
-
 
     public class HCPViewHolder extends RecyclerView.ViewHolder {
         public TextView myname;
@@ -72,10 +81,12 @@ public class HCPAdapter  extends RecyclerView.Adapter<HCPAdapter.HCPViewHolder> 
 
     }
     public interface OnItemClickListener {
-        void onItemClick(ArrayList<String> mRecorslist);
+        void onItemClick(String HCPID,String Name,String HCPuId);
 
     }
-    public void setOnItemClickListener (RecordAdapter.OnItemClickListener listener){
+    public void setOnItemClickListener (HCPAdapter.OnItemClickListener listener){
         this.listener=listener;
     }
+
+
 }

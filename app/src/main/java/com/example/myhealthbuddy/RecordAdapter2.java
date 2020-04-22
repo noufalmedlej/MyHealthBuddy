@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.TextView;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -18,28 +19,23 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-
-public class RecordAdapter extends RecyclerView.Adapter<RecordAdapter.RecordViewHolder> {
- private ArrayList<item_record> mRecorslist;
-    private ArrayList<String>  Rids;
-    private OnItemClickListener listener;
+public class RecordAdapter2 extends RecyclerView.Adapter<RecordAdapter2.RecordViewHolder> {
+    private ArrayList<item_record> mRecorslist;
+    private RecordAdapter2.OnItemClickListener listener;
     Context c;
 
 
-
-    public RecordAdapter(Context c , ArrayList<item_record> records) {
+    public RecordAdapter2(Context c , ArrayList<item_record> records) {
         mRecorslist=records;
         this.c=c;
-        Rids=new ArrayList<String>();
-
     }
 
     @NonNull
     @Override
     public RecordViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-         View v= LayoutInflater.from(c).inflate(R.layout.record_item,parent, false);
-         RecordViewHolder rvh = new RecordViewHolder(v);
-         return rvh;
+        View v= LayoutInflater.from(c).inflate(R.layout.record_item,parent, false);
+        RecordViewHolder rvh = new RecordViewHolder(v);
+        return rvh;
     }
 
     @Override
@@ -50,7 +46,8 @@ public class RecordAdapter extends RecyclerView.Adapter<RecordAdapter.RecordView
         holder.mdate.setText(mRecorslist.get(position).getDate());
         holder.mdoctorName.setText(currentItem.getDoctorName());
         holder.mrid.setText(currentItem.getRid());
-        holder.mhname.setText(currentItem.getHospital());
+
+
         DatabaseReference name= FirebaseDatabase.getInstance().getReference().child("Patients");
         name.addValueEventListener(new ValueEventListener() {
             @Override
@@ -63,7 +60,6 @@ public class RecordAdapter extends RecyclerView.Adapter<RecordAdapter.RecordView
 
             }
         });
-
         DatabaseReference Hospital= FirebaseDatabase.getInstance().getReference().child("Hospitals");
         Hospital.addValueEventListener(new ValueEventListener() {
             @Override
@@ -79,6 +75,7 @@ public class RecordAdapter extends RecyclerView.Adapter<RecordAdapter.RecordView
 
 
 
+
         int myType =currentItem.getType();
         if(myType==1)
             holder.type.setText("Prescription");
@@ -91,25 +88,17 @@ public class RecordAdapter extends RecyclerView.Adapter<RecordAdapter.RecordView
         if(myType==5)
             holder.type.setText("Records");
 
-       /* holder.box.setOnClickListener(new View.OnClickListener() {
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                if (holder.box.isChecked()) {
-                    //mRecorslist.get(position).setCk(true);
-                    //Rids.add(mRecorslist.get(position).getRid());
-                    Toast.makeText(c, "Checked  ", Toast.LENGTH_SHORT).show();
-                } else {
-                    //mRecorslist.get(position).setCk(false);
-                    //Rids.remove(mRecorslist.get(position).getRid());
-                    Toast.makeText(c, "NOT Checked  ", Toast.LENGTH_SHORT).show();
+                listener.onItemClick(mRecorslist.get(position).getRid());
+                //Intent n = new Intent(c, .class);
+               // n.putExtra("Rid",mRecorslist );
 
-                }
             }
         });
 
-        Intent n = new Intent(c, ShareRecord.class);
-        n.putExtra("list",mRecorslist );*/
     }
 
     @Override
@@ -129,7 +118,7 @@ public class RecordAdapter extends RecyclerView.Adapter<RecordAdapter.RecordView
         public TextView type;
 
 
-        public RecordViewHolder(@NonNull View itemView) {
+        public RecordViewHolder(@NonNull final View itemView) {
             super(itemView);
             mdoctorName =itemView.findViewById(R.id.d_name);
             mhname =itemView.findViewById(R.id.hname);
@@ -138,36 +127,13 @@ public class RecordAdapter extends RecyclerView.Adapter<RecordAdapter.RecordView
             mrid= itemView.findViewById(R.id.Rid);
             type= itemView.findViewById(R.id.Type);
 
-
             box=itemView.findViewById(R.id.chk);
-
-            box.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-
-
-                    int position =getAdapterPosition();
-                    if (box.isChecked()) {
-                        mRecorslist.get(position).setCk(true);
-                        Rids.add(mRecorslist.get(position).getRid());
-                    } else {
-                        mRecorslist.get(position).setCk(false);
-                        Rids.remove(mRecorslist.get(position).getRid());
-                    }
-
-                    if(position!= RecyclerView.NO_POSITION && listener!= null){
-                        listener.onItemClick(Rids);
-                    }
-                }
-            });
-
-            Intent n = new Intent(c, ShareRecord.class);
-            n.putExtra("list",mRecorslist );
-
+            box.setVisibility(View.INVISIBLE);
+            box.setEnabled(false);
         }
     }
     public interface OnItemClickListener {
-        void onItemClick(ArrayList<String> mRecorslist);
+        void onItemClick(String rid);
 
     }
     public void setOnItemClickListener (OnItemClickListener listener){

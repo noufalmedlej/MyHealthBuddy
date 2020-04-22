@@ -10,10 +10,10 @@ public class item_record  {
     public String rid;
     public String time;
     public String doctorName;
-    public String patientName;
     public boolean ck;
     public String did ;
-    public String hname;
+    public String pid ;
+    public String hospital;
     public int type;
 
 
@@ -22,15 +22,17 @@ public class item_record  {
 
     }
 
-    public item_record(String date, String file, String rid, String time,String doctorName,String patientName,boolean ck, int type) {
+    public item_record(String date, String file, String rid, String time,String doctorName,boolean ck,String did,String pid ,int type,String hospital) {
         this.date = date;
         this.file = file;
         this.rid = rid;
         this.time = time;
         this.doctorName=doctorName;
-        this.patientName=patientName;
         this.ck=ck;
         this.type=type;
+        this.hospital=hospital;
+        this.pid=pid;
+        this.did=did;
 
     }
 
@@ -75,13 +77,6 @@ public class item_record  {
         this.doctorName = doctorName;
     }
 
-    public String getPatientName() {
-        return patientName;
-    }
-
-    public void setPatientName(String patientName) {
-        this.patientName = patientName;
-    }
 
     public boolean isCk() {
         return ck;
@@ -99,12 +94,12 @@ public class item_record  {
         this.did = did;
     }
 
-    public String getHname() {
-        return hname;
+    public String getHospital() {
+        return hospital;
     }
 
-    public void setHname(String hname) {
-        this.hname = hname;
+    public void setHospital(String hname) {
+        this.hospital = hname;
     }
 
     public int getType() {
@@ -113,5 +108,13 @@ public class item_record  {
 
     public void setType(int type) {
         this.type = type;
+    }
+
+    public String getPid() {
+        return pid;
+    }
+
+    public void setPid(String puid) {
+        this.pid = puid;
     }
 }

@@ -21,13 +21,10 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class HomePage extends AppCompatActivity {
-    Button reqbtn;
-  //  ImageView img;
-   // Button selectbtn;
+
     ImageView img;
     BottomNavigationView bottomnav;
-    Button btn ;
-    CardView img1,MyDoc;
+    CardView Mypills,MyDoc,MyBloodTests,Myx_Rays,MyVital,Myreports;
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,14 +45,7 @@ public class HomePage extends AppCompatActivity {
             }
     });
 
-    img1 = findViewById(R.id.pillscard);
-    img1.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-          Intent intentRecord=new Intent(HomePage.this, ViewAllRecord.class);
-            startActivity(intentRecord);
-        }
-    });
+
 
     String current= FirebaseAuth.getInstance().getCurrentUser().getUid();
    DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Patients").child(current).child("name");
@@ -72,45 +62,68 @@ public class HomePage extends AppCompatActivity {
        }
    });
 
-
-
-
-
-
         MyDoc = findViewById(R.id.doctorcard);
         MyDoc.setOnClickListener(new View.OnClickListener() {
                                      @Override
                                      public void onClick(View v) {
-                                         Intent intent = new Intent(HomePage.this, MyHCPs.class);
-                                         startActivity(intent);
+                                         Intent intentMyDoc = new Intent(HomePage.this, MyHCPs.class);
+                                         startActivity(intentMyDoc);
                                      }
                                  }
         );
 
-
-
-
-
-        /*selectbtn =(Button)findViewById(R.id.selectbtn);
-        selectbtn.setOnClickListener(new View.OnClickListener() {
-                                   @Override
-                                   public void onClick(View v) {
-                                       Intent intent = new Intent(HomePage.this, ViewRecordtoShare.class);
-                                       startActivity(intent);
-                                   }
-                               }
-        );
-
-
-        /*reqbtn=findViewById(R.id.Requestbtn);
-        reqbtn.setOnClickListener(new View.OnClickListener() {
+        Mypills = findViewById(R.id.pillscard);
+        Mypills.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentreq=new Intent(HomePage.this, CreateRequest.class);
-                startActivity(intentreq);
-
+               Intent intentPills=new Intent(HomePage.this, ViewAllBloodTest.class);
+                intentPills.putExtra("type",1);
+               startActivity(intentPills);
             }
-        });*/
+        });
+
+
+        MyBloodTests= findViewById(R.id.blodcard);
+        MyBloodTests.setOnClickListener(new View.OnClickListener() {
+                                     @Override
+                                     public void onClick(View v) {
+                                         Intent intentMyBloodTests = new Intent(HomePage.this, ViewAllBloodTest.class);
+                                         intentMyBloodTests.putExtra("type",2);
+                                         startActivity(intentMyBloodTests);
+                                     }
+                                 }
+        );
+        Myx_Rays= findViewById(R.id.Xraycard);
+        Myx_Rays.setOnClickListener(new View.OnClickListener() {
+                                            @Override
+                                            public void onClick(View v) {
+                                              Intent intentMyx_Rays = new Intent(HomePage.this, ViewAllBloodTest.class);
+                                              intentMyx_Rays.putExtra("type",3);
+                                              startActivity(intentMyx_Rays);
+                                            }
+                                        }
+        );
+        MyVital= findViewById(R.id.cardiocard);
+        MyVital.setOnClickListener(new View.OnClickListener() {
+                                        @Override
+                                        public void onClick(View v) {
+                                             Intent intentMyVital = new Intent(HomePage.this, ViewAllBloodTest.class);
+                                            intentMyVital.putExtra("type",4);
+                                            startActivity(intentMyVital);
+                                        }
+                                    }
+        );
+        Myreports = findViewById(R.id.reporcard);
+        Myreports.setOnClickListener(new View.OnClickListener() {
+                                       @Override
+                                       public void onClick(View v) {
+                                           Intent intentRecord = new Intent(HomePage.this, ViewAllBloodTest.class);
+                                           intentRecord.putExtra("type",5);
+                                           startActivity(intentRecord);
+                                       }
+                                   }
+        );
+
 
 }
     private void UserMenuSelector(MenuItem item) {

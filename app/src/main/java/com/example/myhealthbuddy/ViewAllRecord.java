@@ -152,14 +152,20 @@ public class ViewAllRecord extends AppCompatActivity {
             myDate.setText(Date);
         }
 
-
         public void setCk(boolean ck) {
-
             CheckBox b =(CheckBox) mViwe.findViewById(R.id.chk);
             b.setVisibility(View.INVISIBLE);
             b.setEnabled(false);
         }
-
+        public void setRid(String rid) {
+            TextView myRid=(TextView) mViwe.findViewById(R.id.Rid);
+            myRid.setText(rid);
+        }
+        public void setType(int type) {
+            TextView mytybe=(TextView) mViwe.findViewById(R.id.Type);
+            if(type==2)
+                mytybe.setText("تحالييل المختبر ");
+        }
 
     }
 

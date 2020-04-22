@@ -9,18 +9,20 @@ public class HCPsResult {
     public String specialty;
     public String gender;
     public String img;
+    public String uid;
 
 
     public HCPsResult() {
 
     }
-    public HCPsResult(String name, String id, String phone, String specialty, String gender) {
+    public HCPsResult(String name, String id, String phone, String specialty, String gender,String uid) {
         this.name = name;
         this.id = id;
         this.phone= phone;
 
         this.specialty= specialty;
         this.gender= gender;
+        this.uid=uid;
 
         // add img paramter also
         //this.img=img;
@@ -33,13 +35,6 @@ public class HCPsResult {
         this.name = name;
     }
 
-    public String getID() {
-        return id;
-    }
-
-    public void setID(String id) {
-        this.id = id;
-    }
 
     public String getSpecialty() {
         return specialty;
@@ -72,7 +67,21 @@ public class HCPsResult {
         this.img = img;
     }
 
+    public String getId() {
+        return id;
+    }
 
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
+    }
 }
 
 
