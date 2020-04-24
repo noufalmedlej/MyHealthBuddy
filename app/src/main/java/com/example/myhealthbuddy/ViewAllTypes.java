@@ -23,13 +23,13 @@ import java.util.ArrayList;
 
 public class ViewAllTypes extends AppCompatActivity {
 
-    DatabaseReference RecordRef,HospitalRef;
+    DatabaseReference RecordRef;
     FirebaseAuth mAuth;
-    String currentPatienid, HospitalName;
-    RecyclerView BloodTestList;
+    String currentPatienid;
+    RecyclerView List;
     BottomNavigationView bottomnav;
     RecordAdapter2 mAdapter ;
-    TextView NoBloodTests,PageTitel;
+    TextView NoResult,PageTitel;
     int type;
 
     @Override
@@ -55,29 +55,29 @@ public class ViewAllTypes extends AppCompatActivity {
 
 
         PageTitel=findViewById(R.id.Titele);
-        BloodTestList= findViewById(R.id.BloodTestList);
-        BloodTestList.setHasFixedSize(true);
+        List= findViewById(R.id.BloodTestList);
+        List.setHasFixedSize(true);
         RecyclerView myRecycler =  findViewById(R.id.BloodTestList);
         myRecycler.setLayoutManager(new LinearLayoutManager(this));
-        BloodTestList.setLayoutManager(new LinearLayoutManager(this));
-        NoBloodTests =findViewById(R.id.NoBloodTests);
+        List.setLayoutManager(new LinearLayoutManager(this));
+        NoResult =findViewById(R.id.NoBloodTests);
         type=(int)getIntent().getExtras().get("type");
         switch(type){
 
-            case 1: NoBloodTests.setText("لايوجد وصفات طبية ");
+            case 1: NoResult.setText("لايوجد وصفات طبية ");
                 PageTitel.setText("الوصفات الطبية");
                 break;
-            case 2: NoBloodTests.setText("لايوجد تحاليل طبية ");
+            case 2: NoResult.setText("لايوجد تحاليل طبية ");
                 PageTitel.setText("التحاليل الطبية");
                 break;
-            case 3: NoBloodTests.setText("لايوجد أشعة ");
+            case 3: NoResult.setText("لايوجد أشعة ");
                 PageTitel.setText("الأشعة");
                 break;
-            case 4: NoBloodTests.setText("لايوجد علامات حيوية ");
+            case 4: NoResult.setText("لايوجد علامات حيوية ");
                 PageTitel.setText("العلامات الحيوية");
 
                 break;
-            case 5: NoBloodTests.setText("لايوجد تقارير طبية ");
+            case 5: NoResult.setText("لايوجد تقارير طبية ");
                 PageTitel.setText("التقارير الطبية");
                 break;
         }
@@ -86,7 +86,7 @@ public class ViewAllTypes extends AppCompatActivity {
     }
 
     private void Browse() {
-        final ArrayList<item_record> MyBloodTest=new ArrayList<>();
+        final ArrayList<item_record> MyResult=new ArrayList<>();
         RecordRef.orderByChild("pid").equalTo(currentPatienid).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -96,49 +96,47 @@ public class ViewAllTypes extends AppCompatActivity {
                     item_record record=Myrecords.getValue(item_record.class);
                     if(record.getType()==type) {
                         record.rid = Myrecords.getKey();
-                        MyBloodTest.add(record);
+                        MyResult.add(record);
                     }
                 }
-                mAdapter= new RecordAdapter2(ViewAllTypes.this,MyBloodTest);
-                BloodTestList.setAdapter(mAdapter);
+                mAdapter= new RecordAdapter2(ViewAllTypes.this,MyResult);
+                List.setAdapter(mAdapter);
                 mAdapter.setOnItemClickListener(new RecordAdapter2.OnItemClickListener() {
                     @Override
                     public void onItemClick(String Rid) {
 
-                       // Toast.makeText(ViewAllBloodTest.this,"heeere "+Rid,Toast.LENGTH_LONG).show();
-                        Intent intentPills=new Intent(ViewAllTypes.this, ViewPrescription.class);
+
+
+
+                       switch(type){
+                            case 1:   Intent intentPills=new Intent(ViewAllTypes.this, ViewPrescription.class);
                         intentPills.putExtra("Rid",Rid);
                         startActivity(intentPills);
-
-                       /* switch(type){
-                            case 1:  Intent intentPills=new Intent(ViewAllBloodTest.this, ViewAllRecord.class);
-                                intentPills.putExtra("Rid",Rid);
-                                startActivity(intentPills);
                                 break;
-                            case 2: Intent intentMyBloodTests = new Intent(ViewAllBloodTest.this, ViewAllBloodTest.class);
+                            /*case 2: Intent intentMyBloodTests = new Intent(ViewAllTypes.this, ViewAllBloodTest.class);
                                 intentMyBloodTests.putExtra("Rid",Rid);
                                 startActivity(intentMyBloodTests);
-                                break;
-                            case 3:  Intent intentMyx_Rays = new Intent(ViewAllBloodTest.this, ViewAllBloodTest.class);
+                                break;*/
+                            case 3:  Intent intentMyx_Rays = new Intent(ViewAllTypes.this, ViewXRay.class);
                                 intentMyx_Rays.putExtra("Rid",Rid);
                                 startActivity(intentMyx_Rays);
                                 break;
-                            case 4: Intent intentMyVital = new Intent(ViewAllBloodTest.this, ViewAllBloodTest.class);
+                            case 4: Intent intentMyVital = new Intent(ViewAllTypes.this, ViewVitalSigns.class);
                                 intentMyVital.putExtra("Rid",Rid);
                                 startActivity(intentMyVital);
                                 break;
-                            case 5:Intent intentRecord = new Intent(ViewAllBloodTest.this, ViewAllRecord.class);
+                            case 5:Intent intentRecord = new Intent(ViewAllTypes.this, ViewRecord.class);
                                 intentRecord.putExtra("Rid",Rid);
                                 startActivity(intentRecord);
                                 break;
-                        }*/
+                        }
 
                     }
                 });
-                if(MyBloodTest.size()==0){
-                    NoBloodTests.setVisibility(View.VISIBLE);
+                if(MyResult.size()==0){
+                    NoResult.setVisibility(View.VISIBLE);
 
-                }else NoBloodTests.setVisibility(View.INVISIBLE);
+                }else NoResult.setVisibility(View.INVISIBLE);
 
             }
 
@@ -192,23 +190,7 @@ public class ViewAllTypes extends AppCompatActivity {
     }*/
 
 
-    public String GetHospitalName(String hospitalID){
 
-        HospitalRef= FirebaseDatabase.getInstance().getReference().child("Hospitals").child(hospitalID);
-        HospitalRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                HospitalName =dataSnapshot.child("Name").getValue().toString();
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-        return HospitalName;
-    }
     private void UserMenuSelector(MenuItem item) {
         switch (item.getItemId()){
             case R.id.nav_share:
