@@ -161,12 +161,13 @@ public class Register extends AppCompatActivity {
         super.onStart();
         mAuth = FirebaseAuth.getInstance();
         FirebaseUser currentUser=mAuth.getCurrentUser();
-        if (currentUser!=null)
+        // no because we want log in every time
+        /*if (currentUser!=null)
         {
 
             SendUserToMainActivity();
 
-        }
+        }*/
 
     }
 
