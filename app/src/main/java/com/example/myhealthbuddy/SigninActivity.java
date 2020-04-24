@@ -72,14 +72,14 @@ public class SigninActivity  extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-        FirebaseUser currentUser=mAuth.getCurrentUser();
+        /*FirebaseUser currentUser=mAuth.getCurrentUser();
         if (currentUser!=null)
         {
 
             SendUserToMainActivity();
 
 
-        }
+        }*/
     }
 
     public void signin(final String ID, final String password) {
