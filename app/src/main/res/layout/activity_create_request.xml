@@ -154,11 +154,11 @@
 
             <Button
                 android:id="@+id/sendreq"
+                android:text="إرسال الطلب"
                 android:layout_width="286dp"
                 android:layout_height="53dp"
                 android:layout_margin="7dp"
                 android:background="@drawable/login_btn"
-                android:text="إرسال الطلب"
                 android:textAllCaps="true"
                 android:textColor="#ffffff"
                 android:textSize="18dp"

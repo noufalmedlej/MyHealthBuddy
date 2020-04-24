@@ -36,10 +36,16 @@
 
     <Button
         android:id="@+id/check"
+        android:text="تحقق"
         android:layout_width="286dp"
         android:layout_height="53dp"
+        android:layout_margin="7dp"
         android:background="@drawable/login_btn"
-        android:text="تحقق"
+        android:textAllCaps="true"
+        android:textColor="#ffffff"
+        android:textSize="18dp"
+        android:textStyle="bold"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"

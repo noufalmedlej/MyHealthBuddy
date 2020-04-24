@@ -62,7 +62,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="60dp"
-        app:backgroundTint="@color/colorPrimary"
+        app:backgroundTint="@color/NoufColor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/plussign" />
