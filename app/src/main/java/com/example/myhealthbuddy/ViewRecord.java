@@ -74,7 +74,7 @@ public class ViewRecord extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                 //record info
-                String medication,impression,note;
+                String medication,impression,note,tdate;
 
 
                 if(dataSnapshot.hasChild("note")){
@@ -84,7 +84,20 @@ public class ViewRecord extends AppCompatActivity {
                     noteT.setVisibility(View.GONE);
                     findViewById(R.id.noteL).setVisibility(View.GONE);
                 }
-
+                if(dataSnapshot.hasChild("testDate")){
+                    tdate=dataSnapshot.child("testDate").getValue().toString();
+                    testDateT.setText(tdate);
+                }else{
+                    testDateT.setVisibility(View.GONE);
+                    findViewById(R.id.testDateL).setVisibility(View.GONE);
+                }
+                if(dataSnapshot.hasChild("testDate")){
+                    tdate=dataSnapshot.child("testDate").getValue().toString();
+                    testDateT.setText(tdate);
+                }else{
+                    testDateT.setVisibility(View.GONE);
+                    findViewById(R.id.testDateL).setVisibility(View.GONE);
+                }
 
                 //doctor who wrote this record
                 String doctorName, doctorsSpecialty;
@@ -95,7 +108,7 @@ public class ViewRecord extends AppCompatActivity {
                 doctorsSpecialty=dataSnapshot.child("doctorSpeciality").getValue().toString();
                 doctorsSpecialtyT.setText(doctorsSpecialty);
 
-                creationDate.setText(dataSnapshot.child("dateCreated").getValue().toString()+" at ");
+                creationDate.setText(dataSnapshot.child("dateCreated").getValue().toString());
                 creationTime.setText(dataSnapshot.child("timeCreated").getValue().toString());
                 hid=dataSnapshot.child("hospital").getValue().toString();
                 pid=dataSnapshot.child("pid").getValue().toString();

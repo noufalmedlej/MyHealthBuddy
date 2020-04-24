@@ -19,12 +19,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.annotation.NonNull;
 import com.google.firebase.database.DatabaseReference;
 
+import java.util.regex.Pattern;
+
 
 public class Register extends AppCompatActivity {
 
 
 
     public EditText UserEmail,UserNID, userPassword, userPassword2,userName,UserPhone;
+    public boolean flag=false;
 
     private Button regBtn;
     private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks;
@@ -32,7 +35,6 @@ public class Register extends AppCompatActivity {
     DatabaseReference Userref;
     private FirebaseAuth mAuth;
     private String Currentuser;
-    boolean exists;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -72,8 +74,8 @@ public class Register extends AppCompatActivity {
                     return;
 
                 }
-                if ( Password.length()<6){
-                    userPassword.setError("يجب ان لا يقل الرمز السري عن 6 رموز");
+                if ( Password.length()<8 ||isValid(Password)){
+                    userPassword.setError("يجب ان لا يقل الرمز السري عن 8 رموز ويحتوي على ارقام وحروف ");
                     userPassword.requestFocus();
                     return;
                 }
@@ -86,41 +88,16 @@ public class Register extends AppCompatActivity {
                 if ( NID.isEmpty() || NID.length()<10 || NID.length()>10 ){
                     UserNID.setError("رقم الهوية الوطنية غير صحيح");
                 }
-                // to check if the NID is already in use
-                DatabaseReference ref= FirebaseDatabase.getInstance().getReference().child("Patients");
-
-                ref.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        for (DataSnapshot postsnapshot : dataSnapshot.getChildren()) {
-                            String key1 = postsnapshot.getKey();
-                                if ((dataSnapshot.child(key1).child("national_id").getValue().equals(NID))){
-                                    UserNID.setError("رقم الهوية الوطنية مستخدم");
-                                    exists=true;
-                                    return;
-                                }}
-                        }
-
-
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-                    }
-                });
-                if (exists==true)
-                    return;
 
 
 
 
 
-
-        final String phonee="+966"+phone;
+                final String phonee="+966"+phone;
                 DatabaseReference authentication= FirebaseDatabase.getInstance("https://mockup-8ca7f.firebaseio.com").getReference().child("info");
                 authentication.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        boolean flag = false;
                         for (DataSnapshot postsnapshot : dataSnapshot.getChildren()) {
                             String key1 = postsnapshot.getKey();
                             if((key1.equals(NID))) {
@@ -141,8 +118,7 @@ public class Register extends AppCompatActivity {
                                     break;
                                 }}
                         }
-                        if (!flag)
-                            showMessage("يرجى التأكد من ان بياناتك مطابقة للبيانات المسجلة في الأحوال المدنية");
+
                     }
 
                     @Override
@@ -150,7 +126,8 @@ public class Register extends AppCompatActivity {
                         showMessage("يرجى التأكد من ان بياناتك مطابقة للبيانات المسجلة في الأحوال المدنية");
                     }
                 });
-
+                if (!flag)
+                    showMessage("يرجى التأكد من ان بياناتك مطابقة للبيانات المسجلة في الأحوال المدنية");
             }});
 
 
@@ -191,6 +168,29 @@ public class Register extends AppCompatActivity {
         mainintent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK|Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(mainintent);
         finish();
+
+    }
+
+    public static boolean isValid(String passwordhere) {
+
+        Pattern UpperCasePatten = Pattern.compile("[A-Z ]");
+        Pattern lowerCasePatten = Pattern.compile("[a-z ]");
+        Pattern digitCasePatten = Pattern.compile("[0-9 ]");
+
+        boolean flag=true;
+
+
+        if (!UpperCasePatten.matcher(passwordhere).find()) {
+            flag=false;
+        }
+        if (!lowerCasePatten.matcher(passwordhere).find()) {
+            flag=false;
+        }
+        if (!digitCasePatten.matcher(passwordhere).find()) {
+            flag=false;
+        }
+
+        return flag;
 
     }
 
