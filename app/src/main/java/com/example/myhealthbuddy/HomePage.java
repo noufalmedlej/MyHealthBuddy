@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -76,7 +75,7 @@ public class HomePage extends AppCompatActivity {
         Mypills.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               Intent intentPills=new Intent(HomePage.this, ViewAllBloodTest.class);
+               Intent intentPills=new Intent(HomePage.this, ViewAllTypes.class);
                 intentPills.putExtra("type",1);
                startActivity(intentPills);
             }
@@ -87,7 +86,7 @@ public class HomePage extends AppCompatActivity {
         MyBloodTests.setOnClickListener(new View.OnClickListener() {
                                      @Override
                                      public void onClick(View v) {
-                                         Intent intentMyBloodTests = new Intent(HomePage.this, ViewAllBloodTest.class);
+                                         Intent intentMyBloodTests = new Intent(HomePage.this, ViewAllTypes.class);
                                          intentMyBloodTests.putExtra("type",2);
                                          startActivity(intentMyBloodTests);
                                      }
@@ -97,7 +96,7 @@ public class HomePage extends AppCompatActivity {
         Myx_Rays.setOnClickListener(new View.OnClickListener() {
                                             @Override
                                             public void onClick(View v) {
-                                              Intent intentMyx_Rays = new Intent(HomePage.this, ViewAllBloodTest.class);
+                                              Intent intentMyx_Rays = new Intent(HomePage.this, ViewAllTypes.class);
                                               intentMyx_Rays.putExtra("type",3);
                                               startActivity(intentMyx_Rays);
                                             }
@@ -107,7 +106,7 @@ public class HomePage extends AppCompatActivity {
         MyVital.setOnClickListener(new View.OnClickListener() {
                                         @Override
                                         public void onClick(View v) {
-                                             Intent intentMyVital = new Intent(HomePage.this, ViewAllBloodTest.class);
+                                             Intent intentMyVital = new Intent(HomePage.this, ViewAllTypes.class);
                                             intentMyVital.putExtra("type",4);
                                             startActivity(intentMyVital);
                                         }
@@ -117,7 +116,7 @@ public class HomePage extends AppCompatActivity {
         Myreports.setOnClickListener(new View.OnClickListener() {
                                        @Override
                                        public void onClick(View v) {
-                                           Intent intentRecord = new Intent(HomePage.this, ViewAllBloodTest.class);
+                                           Intent intentRecord = new Intent(HomePage.this, ViewAllTypes.class);
                                            intentRecord.putExtra("type",5);
                                            startActivity(intentRecord);
                                        }
