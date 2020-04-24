@@ -16,6 +16,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
@@ -80,8 +81,8 @@ public class MyHCPs extends AppCompatActivity {
             public void onDataChange(@NonNull final DataSnapshot dataSnapshot2) {
                 if (dataSnapshot2.exists()) {
 
-                    allSharesRef.orderByChild("patient_uid").startAt(currentPatient_uid).endAt(currentPatient_uid + "\uf8ff");
-                    allSharesRef.addValueEventListener(new ValueEventListener() {
+                    Query SatientShare= allSharesRef.orderByChild("patient_uid").equalTo(currentPatient_uid + "\uf8ff");
+                    SatientShare.addValueEventListener(new ValueEventListener() {
 
 
                         @Override
@@ -123,8 +124,8 @@ public class MyHCPs extends AppCompatActivity {
 
                     // from recods
 
-                   RecordsRef.orderByChild("pid").startAt(currentPatient_uid).endAt(currentPatient_uid + "\uf8ff");
-                    RecordsRef.addValueEventListener(new ValueEventListener() {
+                   Query paitenrRecords =RecordsRef.orderByChild("pid").startAt(currentPatient_uid).endAt(currentPatient_uid + "\uf8ff");
+                    paitenrRecords.addValueEventListener(new ValueEventListener() {
 
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot1) {

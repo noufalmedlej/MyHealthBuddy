@@ -19,6 +19,7 @@
     <color name="HaifaColor">#662d8e</color>
     <color name="NoufColor">#58264B</color>
     <color name="NoufColor2">#7D5980</color>
-
+    <color name="G">#D3D3D3</color>
+    <color name="black">#000000</color>
 
 </resources>

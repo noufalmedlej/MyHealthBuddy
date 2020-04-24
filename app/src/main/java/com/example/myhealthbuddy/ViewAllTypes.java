@@ -9,24 +9,19 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.CheckBox;
-import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
-public class ViewAllBloodTest extends AppCompatActivity {
+public class ViewAllTypes extends AppCompatActivity {
 
     DatabaseReference RecordRef,HospitalRef;
     FirebaseAuth mAuth;
@@ -40,7 +35,7 @@ public class ViewAllBloodTest extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_all_blood_test);
+        setContentView(R.layout.activity_view_all_types);
 
 
         RecordRef = FirebaseDatabase.getInstance().getReference().child("Records");
@@ -104,13 +99,16 @@ public class ViewAllBloodTest extends AppCompatActivity {
                         MyBloodTest.add(record);
                     }
                 }
-                mAdapter= new RecordAdapter2(ViewAllBloodTest.this,MyBloodTest);
+                mAdapter= new RecordAdapter2(ViewAllTypes.this,MyBloodTest);
                 BloodTestList.setAdapter(mAdapter);
                 mAdapter.setOnItemClickListener(new RecordAdapter2.OnItemClickListener() {
                     @Override
                     public void onItemClick(String Rid) {
 
-                        Toast.makeText(ViewAllBloodTest.this,"heeere "+Rid,Toast.LENGTH_LONG).show();
+                       // Toast.makeText(ViewAllBloodTest.this,"heeere "+Rid,Toast.LENGTH_LONG).show();
+                        Intent intentPills=new Intent(ViewAllTypes.this, ViewPrescription.class);
+                        intentPills.putExtra("Rid",Rid);
+                        startActivity(intentPills);
 
                        /* switch(type){
                             case 1:  Intent intentPills=new Intent(ViewAllBloodTest.this, ViewAllRecord.class);
@@ -214,17 +212,17 @@ public class ViewAllBloodTest extends AppCompatActivity {
     private void UserMenuSelector(MenuItem item) {
         switch (item.getItemId()){
             case R.id.nav_share:
-                Intent intent = new Intent(ViewAllBloodTest.this, ViewRecordtoShare.class);
+                Intent intent = new Intent(ViewAllTypes.this, ViewRecordtoShare.class);
                 startActivity(intent);
                 break;
 
             case R.id.nav_request:
-                Intent intentrequest=new Intent(ViewAllBloodTest.this, ViewRequests.class);
+                Intent intentrequest=new Intent(ViewAllTypes.this, ViewRequests.class);
                 startActivity(intentrequest);
                 break;
 
             case R.id.nav_person:
-                Intent intentsearch=new Intent(ViewAllBloodTest.this, Profile.class);
+                Intent intentsearch=new Intent(ViewAllTypes.this, Profile.class);
                 startActivity(intentsearch);
                 break;
         }

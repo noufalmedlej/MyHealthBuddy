@@ -49,7 +49,7 @@ public class SigninActivity  extends AppCompatActivity {
         });
 
 
-        mAuth = FirebaseAuth.getInstance();
+
         login.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -66,7 +66,12 @@ public class SigninActivity  extends AppCompatActivity {
 
         }
     });
+
+
+
+       mAuth = FirebaseAuth.getInstance();
 }
+
 
     @Override
     protected void onStart() {
@@ -75,9 +80,7 @@ public class SigninActivity  extends AppCompatActivity {
         FirebaseUser currentUser=mAuth.getCurrentUser();
         if (currentUser!=null)
         {
-
             SendUserToMainActivity();
-
 
         }
     }
