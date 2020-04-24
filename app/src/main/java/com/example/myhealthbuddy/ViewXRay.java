@@ -79,7 +79,7 @@ public class ViewXRay extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
                 //record info
-                String medication,impression,note;
+                String medication,impression,note,tdate;
 
                 medication=dataSnapshot.child("findings").getValue().toString();
                 findingsT.setText(medication);
@@ -94,6 +94,13 @@ public class ViewXRay extends AppCompatActivity {
                 }else{
                     noteT.setVisibility(View.GONE);
                     findViewById(R.id.noteL).setVisibility(View.GONE);
+                }
+                if(dataSnapshot.hasChild("testDate")){
+                    tdate=dataSnapshot.child("testDate").getValue().toString();
+                    testDateT.setText(tdate);
+                }else{
+                    testDateT.setVisibility(View.GONE);
+                    findViewById(R.id.testDateL).setVisibility(View.GONE);
                 }
 
 

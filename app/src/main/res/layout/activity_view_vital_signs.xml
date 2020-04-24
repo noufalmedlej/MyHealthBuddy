@@ -33,9 +33,11 @@
         app:layout_constraintBottom_toTopOf="@id/bottom_navigation"
 
 
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/viewHiveToolBar">
+        app:layout_constraintTop_toBottomOf="@id/viewHiveToolBar"
+        app:layout_constraintVertical_bias="0.0">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/clayout"
@@ -45,56 +47,70 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/eee"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="229dp"
+                android:layout_height="21dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
 
                 <TextView
-                    android:id="@+id/textView32"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:text="Created on "
-                    android:textColor="@color/grey"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
                     android:id="@+id/creationDate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="00-month-2020 at "
+                    android:layout_marginStart="52dp"
+                    android:layout_marginLeft="52dp"
+                    android:layout_marginTop="2dp"
+                    android:text="00-month-2020 "
                     android:textColor="@color/grey"
-                    app:layout_constraintStart_toEndOf="@+id/textView32"
-                    app:layout_constraintTop_toTopOf="@+id/textView32" />
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/textView32"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <TextView
+                    android:id="@+id/textView32"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginEnd="2dp"
+                    android:layout_marginRight="2dp"
+                    android:text="تم انشاؤها في "
+                    android:textColor="@color/grey"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0" />
 
                 <TextView
                     android:id="@+id/creationTime"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+
+                    android:layout_marginTop="2dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginRight="10dp"
                     android:text="00:00"
                     android:textColor="@color/grey"
-                    app:layout_constraintBottom_toBottomOf="@+id/creationDate"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toEndOf="@+id/creationDate" />
+                    app:layout_constraintEnd_toStartOf="@+id/creationDate"
+                    app:layout_constraintTop_toTopOf="parent" />
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
-
 
             <TextView
                 android:id="@+id/textView1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginRight="12dp"
                 android:gravity="center"
-                android:text="Patient"
+                android:text="المريض"
                 android:textColor="@color/purple"
                 android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="@+id/frameLayout"
+                app:layout_constraintEnd_toEndOf="@+id/frameLayout"
                 app:layout_constraintTop_toBottomOf="@+id/eee" />
 
             <FrameLayout
@@ -108,6 +124,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView1">
 
+
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -118,67 +135,81 @@
                         android:id="@+id/textView19"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Name:"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginEnd="12dp"
+                        android:layout_marginRight="12dp"
+                        android:text="الاسم :"
                         android:textColor="@color/purple"
                         android:textSize="18sp"
-                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
                         android:id="@+id/patientName"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="4dp"
+                        android:layout_width="288dp"
+                        android:layout_height="24dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginRight="20dp"
+                        android:gravity="right"
                         android:text="Name"
                         android:textColor="@color/black"
                         android:textSize="18sp"
-                        app:layout_constraintStart_toEndOf="@+id/textView21"
+                        app:layout_constraintEnd_toStartOf="@+id/textView19"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
                         android:id="@+id/textView21"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:text="National ID: "
+                        android:layout_marginTop="1dp"
+                        android:layout_marginEnd="14dp"
+                        android:layout_marginRight="14dp"
+                        android:text="رقم الهويه:"
                         android:textColor="@color/purple"
                         android:textSize="18sp"
-                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textView19" />
 
                     <TextView
                         android:id="@+id/patientID"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="129dp"
+                        android:layout_height="22dp"
+                        android:layout_marginEnd="24dp"
+                        android:layout_marginRight="24dp"
+                        android:gravity="right"
                         android:text="ID"
                         android:textColor="@color/black"
                         android:textSize="18sp"
-                        app:layout_constraintStart_toStartOf="@+id/patientName"
+                        app:layout_constraintEnd_toStartOf="@+id/textView21"
                         app:layout_constraintTop_toTopOf="@+id/textView21" />
 
                     <TextView
                         android:id="@+id/textView29"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:text="Gender:"
+                        android:layout_marginEnd="13dp"
+                        android:layout_marginRight="13dp"
+                        android:gravity="right"
+                        android:text="الجنس:"
                         android:textColor="@color/purple"
                         android:textSize="18sp"
-                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textView21" />
 
                     <TextView
                         android:id="@+id/gender"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginEnd="12dp"
+                        android:gravity="right"
                         android:text="Gender"
                         android:textColor="@color/black"
                         android:textSize="18sp"
-                        app:layout_constraintStart_toStartOf="@+id/patientID"
-                        app:layout_constraintTop_toTopOf="@+id/textView29" />
+                        app:layout_constraintEnd_toStartOf="@+id/textView29"
+                        app:layout_constraintTop_toBottomOf="@+id/patientID" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
-
             </FrameLayout>
 
 
@@ -186,12 +217,14 @@
                 android:id="@+id/textView25"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginRight="12dp"
                 android:gravity="center"
-                android:text="Doctor"
+                android:text="مقدم الرعاية الصحية"
                 android:textColor="@color/purple"
                 android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="@+id/frameLayout"
+                app:layout_constraintEnd_toEndOf="@+id/frameLayout2"
                 app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
 
             <FrameLayout
@@ -200,7 +233,6 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/bourder"
                 android:padding="5dp"
-                android:layout_marginTop="5dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView25">
@@ -215,66 +247,86 @@
                         android:id="@+id/ftextv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Name:"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginEnd="15dp"
+                        android:layout_marginRight="15dp"
+                        android:text="الاسم: "
                         android:textColor="@color/purple"
                         android:textSize="18sp"
-                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
+
 
                     <TextView
                         android:id="@+id/doctorsSpecialty"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="192dp"
+                        android:layout_marginLeft="192dp"
+                        android:gravity="right"
                         android:text="Speciality"
-                        android:textColor="@color/black"
+                        android:textColor="#000000"
                         android:textSize="18sp"
-                        app:layout_constraintStart_toStartOf="@+id/doctorName"
-                        app:layout_constraintTop_toTopOf="@+id/textViewsss" />
+                        app:layout_constraintBottom_toTopOf="@+id/hospitalName"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/doctorName" />
 
                     <TextView
                         android:id="@+id/doctorName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="49dp"
-                        android:layout_marginLeft="49dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginEnd="17dp"
+                        android:layout_marginRight="17dp"
+                        android:gravity="right"
                         android:text="Name"
-                        android:textColor="@color/black"
+                        android:textColor="#000000"
                         android:textSize="18sp"
-                        app:layout_constraintStart_toEndOf="@+id/ftextv"
+                        app:layout_constraintBottom_toTopOf="@+id/doctorsSpecialty"
+                        app:layout_constraintEnd_toStartOf="@+id/ftextv"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
                         android:id="@+id/textViewsss"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:text="Speciality:"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginRight="16dp"
+                        android:text="التخصص :"
                         android:textColor="@color/purple"
                         android:textSize="18sp"
-                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/ftextv" />
-
 
                     <TextView
                         android:id="@+id/textView24"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:text="Hospital:"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginRight="16dp"
+                        android:text="المستشفى:"
                         android:textColor="@color/purple"
                         android:textSize="18sp"
-                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/textViewsss" />
 
                     <TextView
                         android:id="@+id/hospitalName"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="265dp"
+                        android:layout_height="24dp"
+                        android:layout_marginStart="162dp"
+                        android:layout_marginLeft="162dp"
+                        android:layout_marginEnd="13dp"
+                        android:layout_marginRight="13dp"
+                        android:gravity="right"
                         android:text="hospitalName"
-                        android:textColor="@color/black"
+                        android:textColor="#000000"
                         android:textSize="18sp"
-                        app:layout_constraintStart_toStartOf="@+id/doctorsSpecialty"
-                        app:layout_constraintTop_toBottomOf="@+id/textViewsss" />
+                        app:layout_constraintEnd_toStartOf="@+id/textView24"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/doctorsSpecialty" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -285,21 +337,21 @@
                 android:id="@+id/textView26"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="20dp"
                 android:gravity="center"
-                android:text="Record"
+                android:text="التقرير "
                 android:textColor="@color/purple"
                 android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="@+id/frameLayout2"
+                app:layout_constraintEnd_toEndOf="@+id/frameLayout3"
                 app:layout_constraintTop_toBottomOf="@+id/frameLayout2" />
 
             <FrameLayout
                 android:id="@+id/frameLayout3"
                 android:layout_width="380dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
                 android:background="@drawable/bourder"
                 android:padding="5dp"
-                android:layout_marginTop="5dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView26">
@@ -313,9 +365,10 @@
 
                     <TextView
                         android:id="@+id/testDateL"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Test Date:"
+                        android:text="تاريخ التقرير :"
+                        android:layout_gravity="end"
                         android:textColor="@color/purple"
                         android:textSize="18sp"
                         app:layout_constraintStart_toStartOf="parent"
@@ -323,9 +376,10 @@
 
                     <TextView
                         android:id="@+id/testDate"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="testDate"
+                        android:layout_gravity="end"
                         android:textColor="@color/black"
                         android:textSize="18sp"
                         app:layout_constraintStart_toStartOf="parent"
@@ -333,10 +387,10 @@
 
                     <TextView
                         android:id="@+id/findingsL"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="6dp"
-                        android:text="Findings:"
+                        android:text="النتائج:"
                         android:textColor="@color/purple"
                         android:textSize="18sp"
                         app:layout_constraintStart_toStartOf="parent"
@@ -344,9 +398,10 @@
 
                     <TextView
                         android:id="@+id/findings"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Findings"
+                        android:gravity="end"
                         android:textColor="@color/black"
                         android:textSize="18sp"
                         app:layout_constraintStart_toStartOf="parent"
@@ -354,10 +409,10 @@
 
                     <TextView
                         android:id="@+id/impressionL"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="6dp"
-                        android:text="Impression:"
+                        android:text="التعليق:"
                         android:textColor="@color/purple"
                         android:textSize="18sp"
                         app:layout_constraintStart_toStartOf="parent"
@@ -365,9 +420,10 @@
 
                     <TextView
                         android:id="@+id/impression"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Impression"
+                        android:gravity="end"
                         android:textColor="@color/black"
                         android:textSize="18sp"
                         app:layout_constraintStart_toStartOf="parent"
@@ -376,10 +432,11 @@
 
                     <TextView
                         android:id="@+id/noteL"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="6dp"
-                        android:text="Notes:"
+                        android:text="الملاحظات:"
+                        android:layout_gravity="end"
                         android:textColor="@color/purple"
                         android:textSize="18sp"
                         app:layout_constraintStart_toStartOf="parent"
@@ -387,9 +444,10 @@
 
                     <TextView
                         android:id="@+id/note"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Notes....."
+                        android:gravity="end"
                         android:textColor="@color/black"
                         android:textSize="18sp"
                         app:layout_constraintStart_toStartOf="parent"
@@ -403,16 +461,16 @@
                 android:id="@+id/attachmentView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="4dp"
+                android:layout_marginTop="20dp"
                 android:background="?attr/selectableItemBackground"
                 android:drawableLeft="@drawable/attachpurple"
                 android:minHeight="1dp"
-                android:text=" View File"
+                android:text="معاينة الملف"
                 android:textAllCaps="false"
                 android:textColor="@color/grey"
                 android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="@+id/textView26"
-                app:layout_constraintEnd_toEndOf="@+id/frameLayout3" />
+                app:layout_constraintStart_toStartOf="@+id/frameLayout3"
+                app:layout_constraintTop_toBottomOf="@+id/frameLayout2" />
 
             <Button
                 android:id="@+id/done"
@@ -422,7 +480,7 @@
 
                 android:layout_margin="20dp"
                 android:background="@drawable/cancelbutton"
-                android:text="Done"
+                android:text="إنهاء"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="18sp"
@@ -434,6 +492,7 @@
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     </ScrollView>
 
