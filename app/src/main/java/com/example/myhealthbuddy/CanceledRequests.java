@@ -77,6 +77,7 @@ public class CanceledRequests extends Fragment {
                         requestsDeclinedViewHolder.setDoctor_id(myRequests.getDoctor_id());
                         requestsDeclinedViewHolder.setType(myRequests.getType());
                         requestsDeclinedViewHolder.setDate(myRequests.getDate());
+                        ///////////////////////////////////////////////////
                         requestsDeclinedViewHolder.setDeclined_date(myRequests.getDeclined_date());
 
                         PatientRef = FirebaseDatabase.getInstance().getReference().child("Doctors");
@@ -153,6 +154,7 @@ public class CanceledRequests extends Fragment {
             TextView myDate=(TextView)mView.findViewById(R.id.display_request_Date);
             myDate.setText(date);
         }
+/////////////////////////////////////Change the date base on type
 
         public void setDeclined_date(String declined_date) {
             TextView declined=(TextView)mView.findViewById(R.id.display_reqordec);

@@ -74,6 +74,9 @@ public class ViewRequestDetails extends AppCompatActivity {
                         reqdate=dataSnapshot.child("request_date").getValue().toString();
                     else if(Type.equals("DeclinedRequests"))
                         reqdate=dataSnapshot.child("declined_date").getValue().toString();
+
+                    ////////// here change date
+
                     RDate.setText(reqdate);
                     String type=dataSnapshot.child("type").getValue().toString();
                     RequestTypeText.setText(type);
