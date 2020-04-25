@@ -22,6 +22,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
+import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -40,9 +41,7 @@ public class ViewRecordtoShare extends AppCompatActivity {
     ArrayList<String> CkList;
     Button sendChk;
     BottomNavigationView bottomnav;
-
-
-
+    TextView NoResult;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,7 +70,7 @@ public class ViewRecordtoShare extends AppCompatActivity {
         mLayoutManager=new LinearLayoutManager(this);
         RecordList.setLayoutManager(mLayoutManager);
         CkList=new ArrayList<>();
-
+        NoResult=findViewById(R.id.NoResult);
 
         //Toast.makeText(this, HID, Toast.LENGTH_LONG).show();
         RecordRef.addValueEventListener(new ValueEventListener() {
@@ -95,6 +94,9 @@ public class ViewRecordtoShare extends AppCompatActivity {
                         CkList= mRecorslist;
                     }
                 });
+                if(Arraylist.size()==0)
+                    NoResult.setVisibility(View.VISIBLE);
+                else NoResult.setVisibility(View.INVISIBLE);
 
             }
 

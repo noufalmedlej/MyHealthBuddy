@@ -140,12 +140,12 @@ public class ShareRecord extends AppCompatActivity {
 
                     // check if the record is shared before
 
-                    final HashMap reqmap=new HashMap();
-                    reqmap.put("hcp_uid",HCPuID);
-                    reqmap.put("record_id",recordId);
-                    reqmap.put("patient_id",patientID);
-                    reqmap.put("patient_uid",currentUser);
-
+                    final HashMap Sharemap=new HashMap();
+                    Sharemap.put("hcp_uid",HCPuID);
+                    Sharemap.put("record_id",recordId);
+                    Sharemap.put("patient_id",patientID);
+                    Sharemap.put("patient_uid",currentUser);
+                    Sharemap.put("share_id",currentUser+HCPuID);
 
                     final String key=patientID+HCPID+recordId;
 
@@ -158,7 +158,7 @@ public class ShareRecord extends AppCompatActivity {
 
                             }
                             else {
-                                sharRef.child(key).updateChildren(reqmap).addOnCompleteListener(new OnCompleteListener() {
+                                sharRef.child(key).updateChildren(Sharemap).addOnCompleteListener(new OnCompleteListener() {
                                     @Override
                                     public void onComplete(@NonNull Task task) {
                                         if(task.isSuccessful()){

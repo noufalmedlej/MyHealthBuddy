@@ -81,8 +81,8 @@ public class MyHCPs extends AppCompatActivity {
             public void onDataChange(@NonNull final DataSnapshot dataSnapshot2) {
                 if (dataSnapshot2.exists()) {
 
-                    Query SatientShare= allSharesRef.orderByChild("patient_uid").equalTo(currentPatient_uid + "\uf8ff");
-                    SatientShare.addValueEventListener(new ValueEventListener() {
+                    Query PatientShare= allSharesRef.orderByChild("patient_uid").equalTo(currentPatient_uid + "\uf8ff");
+                    PatientShare.addValueEventListener(new ValueEventListener() {
 
 
                         @Override
@@ -171,15 +171,6 @@ public class MyHCPs extends AppCompatActivity {
 
                 }
             }
-
-
-
-    // from request NOT sure
-
-
-
-
-
 
     @Override
     public void onCancelled(@NonNull DatabaseError databaseError) {
