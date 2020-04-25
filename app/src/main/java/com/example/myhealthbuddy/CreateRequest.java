@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
@@ -49,6 +50,7 @@ public class CreateRequest extends AppCompatActivity {
     private String doctorid,note,date;
     private String currentUser;
     BottomNavigationView bottomnav;
+    private ImageView chosedate;
 
 
     private DatabaseReference patientRef,docsref,reqRef;
@@ -65,6 +67,7 @@ public class CreateRequest extends AppCompatActivity {
         docId=(EditText)findViewById(R.id.DocId);
         dat=(TextView)findViewById(R.id.Date);
         not=(EditText)findViewById(R.id.Notes);
+        chosedate=(ImageView)findViewById(R.id.choosedatebtn);
 
         bottomnav =  findViewById(R.id.bottom_navigation);
         bottomnav.setSelectedItemId(R.id.nav_request);
@@ -74,6 +77,22 @@ public class CreateRequest extends AppCompatActivity {
                     UserMenuSelector(menuItem);
                     return false;
                 }
+        });
+
+
+        chosedate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Calendar cal=Calendar.getInstance();
+                int year=cal.get(Calendar.YEAR);
+                int month=cal.get(Calendar.MONTH);
+                int day=cal.get(Calendar.DAY_OF_MONTH);
+
+                DatePickerDialog dialog=new DatePickerDialog(CreateRequest.this,android.R.style.Theme_DeviceDefault_Dialog_MinWidth,mDatasetListner,year,month,day);
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dialog.show();
+
+            }
         });
 
 

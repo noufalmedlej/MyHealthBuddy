@@ -129,20 +129,21 @@ public class CanceledRequests extends Fragment {
 
         }
         public void setType(String type){
-            ImageView imageView=(ImageView)mView.findViewById(R.id.display_request_image);
             TextView t=(TextView)mView.findViewById(R.id.display_request_type);
-            t.setText(type);
             if(type.equals("Medical Report")){
-                imageView.setImageResource(R.drawable.report);
+                t.setText("تقرير");
             }
             if(type.equals("Radiology Report")){
-                imageView.setImageResource(R.drawable.nuclear);
+                t.setText("أشعة");
             }
             if(type.equals("Prescription")){
-                imageView.setImageResource(R.drawable.pills);
+                t.setText("وصفة طبية");
             }
             if(type.equals("Vital Signs")){
-                imageView.setImageResource(R.drawable.cardiogram);
+                t.setText("مؤشرات حيوية");
+            }
+            if(type.equals("Lab Report")){
+                t.setText("تحليل مختبر");
             }
 
         }

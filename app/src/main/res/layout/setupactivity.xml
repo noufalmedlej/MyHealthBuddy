@@ -85,7 +85,7 @@
                     app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
 
                 <ImageView
-                    android:id="@+id/imageView8"
+                    android:id="@+id/choosedatebtn"
                     android:layout_width="26dp"
                     android:layout_height="21dp"
                     android:layout_margin="7dp"

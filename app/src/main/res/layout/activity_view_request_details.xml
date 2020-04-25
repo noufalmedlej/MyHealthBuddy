@@ -225,7 +225,7 @@
                 app:layout_constraintHorizontal_bias="0.025"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/viewRequestToolbar"
-                app:srcCompat="@drawable/blood" />
+                app:srcCompat="@drawable/blooddonation" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 
