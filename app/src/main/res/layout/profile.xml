@@ -8,18 +8,6 @@
     android:background="#ffffff">
 
 
-   <!-- <FrameLayout
-      android:id="@+id/frameLayout"
-      android:layout_width="357dp"
-      android:layout_height="241dp"
-      android:layout_marginBottom="444dp"
-      android:background="@drawable/bourder"
-      app:layout_constraintBottom_toBottomOf="@+id/bottom_navigation"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.444"
-        app:layout_constraintStart_toStartOf="parent"></FrameLayout>-->
-
-
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
@@ -27,234 +15,230 @@
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
         app:menu="@menu/bottom_navigation" />
 
     <include
         android:id="@+id/viewRequestToolbar"
         layout="@layout/toolbar"
-        android:layout_width="422dp"
-        android:layout_height="90dp"
-        tools:layout_editor_absoluteX="-2dp"
-        tools:layout_editor_absoluteY="-1dp" />
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/textView21"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
-        android:gravity="center"
-        android:text="ملفي الشخصي"
+        android:text="الملف الشخصي"
         android:textColor="#794D71"
         android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/viewRequestToolbar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/viewRequestToolbar" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardView2"
         android:layout_width="349dp"
-        android:layout_height="258dp"
+        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content"
         app:cardBackgroundColor="#A6B1ACB4"
         app:cardCornerRadius="10dp"
         app:contentPadding="1dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.519"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.228">
+        app:layout_constraintTop_toBottomOf="@+id/viewRequestToolbar">
 
         <androidx.cardview.widget.CardView
             android:layout_width="354dp"
-            android:layout_height="262dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
             app:cardCornerRadius="10dp"
             app:contentPadding="5dp">
-
-            <LinearLayout
-                android:layout_width="347dp"
-                android:layout_height="258dp"
-                android:layout_marginTop="30dp"
-                android:background="#ffffffff"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:orientation="horizontal"
-                    android:padding="3dp">
-
-                    <TextView
-                        android:id="@+id/nid"
-                        android:layout_width="210dp"
-                        android:layout_height="30dp"
-                        android:text="National Id"
-                        android:textColor="#58385A"
-                        android:textSize="18sp" />
-
-                    <TextView
-                        android:layout_width="120dp"
-                        android:layout_height="30dp"
-                        android:text="الهوية الوطنية:"
-                        android:textColor="#000000"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:orientation="horizontal"
-                    android:padding="3dp">
-
-                    <TextView
-                        android:id="@+id/mailview"
-                        android:layout_width="210dp"
-                        android:layout_height="30dp"
-                        android:text="Emai"
-                        android:textColor="#58385A"
-                        android:textSize="18sp" />
-
-                    <TextView
-                        android:layout_width="120dp"
-                        android:layout_height="30dp"
-                        android:text="البريد الإلكتروني:"
-                        android:textColor="#000000"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:orientation="horizontal"
-                    android:padding="3dp">
-
-                    <TextView
-                        android:id="@+id/phoneview"
-                        android:layout_width="210dp"
-                        android:layout_height="30dp"
-                        android:text="Phone Num"
-                        android:textColor="#58385A"
-                        android:textSize="18sp" />
-
-                    <TextView
-                        android:layout_width="120dp"
-                        android:layout_height="30dp"
-                        android:text="رقم الجوال:"
-                        android:textColor="#000000"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:orientation="horizontal"
-                    android:padding="3dp">
-
-                    <TextView
-                        android:id="@+id/dateview"
-                        android:layout_width="210dp"
-                        android:layout_height="30dp"
-                        android:text="Birth Date"
-                        android:textColor="#58385A"
-                        android:textSize="18sp" />
-
-                    <TextView
-                        android:layout_width="120dp"
-                        android:layout_height="30dp"
-                        android:text="تاريخ الميلاد:"
-                        android:textColor="#000000"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:orientation="horizontal"
-                    android:padding="3dp">
-
-                    <TextView
-                        android:id="@+id/genderview"
-                        android:layout_width="210dp"
-                        android:layout_height="30dp"
-                        android:text="Date"
-                        android:textColor="#58385A"
-                        android:textSize="18sp" />
-
-                    <TextView
-                        android:layout_width="120dp"
-                        android:layout_height="30dp"
-                        android:text="الجنس:"
-                        android:textColor="#000000"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-
-                <ImageButton
-                    android:id="@+id/editbut"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="15dp"
-                    android:background="@drawable/edit"
-                    android:src="@drawable/edit" />
-            </LinearLayout>
-
-            <LinearLayout
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
-                android:orientation="horizontal"
-                android:padding="3dp">
+                android:layout_height="match_parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView6">
+
+                <TextView
+                    android:id="@+id/textv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="15dp"
+                    android:text="الاسم:"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/purple"
+                    android:textSize="22sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/editbut" />
+
+                <TextView
+                    android:id="@+id/textv1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="الهوية الوطنية:"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/purple"
+                    android:textSize="22sp"
+                    app:layout_constraintEnd_toEndOf="@+id/textv"
+                    app:layout_constraintTop_toBottomOf="@+id/textv" />
+
+                <TextView
+                    android:id="@+id/textv2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="البريد الإلكتروني:"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/purple"
+                    android:textSize="22sp"
+                    app:layout_constraintEnd_toEndOf="@+id/textv"
+                    app:layout_constraintTop_toBottomOf="@+id/textv1" />
+
+                <TextView
+                    android:id="@+id/textv3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="رقم الجوال:"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/purple"
+                    android:textSize="22sp"
+                    app:layout_constraintEnd_toEndOf="@+id/textv"
+                    app:layout_constraintTop_toBottomOf="@+id/textv2" />
+
+                <TextView
+                    android:id="@+id/textv4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="تاريخ الميلاد:"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/purple"
+                    android:textSize="22sp"
+                    app:layout_constraintEnd_toEndOf="@+id/textv"
+                    app:layout_constraintTop_toBottomOf="@+id/textv3" />
+
+                <TextView
+                    android:id="@+id/textv5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="الجنس:"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/purple"
+                    android:textSize="22sp"
+                    app:layout_constraintEnd_toEndOf="@+id/textv"
+                    app:layout_constraintTop_toBottomOf="@+id/textv4" />
+
 
                 <TextView
                     android:id="@+id/nameee"
-                    android:layout_width="210sp"
-                    android:layout_height="30dp"
-                    android:text="name"
-                    android:textColor="#58385A"
-                    android:textSize="18sp" />
+                    android:layout_marginTop="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:text="nameee"
+                    android:textColor="@color/black"
+                    android:textSize="22sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/editbut" />
 
                 <TextView
-                    android:layout_width="120dp"
-                    android:layout_height="30dp"
-                    android:layout_marginEnd="72dp"
-                    android:layout_marginRight="72dp"
-                    android:text="الأسم:"
-                    android:textColor="#000000"
-                    android:textSize="18sp"
-                    android:textStyle="bold" />
+                    android:id="@+id/nid"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="nid"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/black"
+                    android:textSize="22sp"
+                    app:layout_constraintStart_toStartOf="@+id/nameee"
+                    app:layout_constraintTop_toBottomOf="@+id/nameee" />
 
-            </LinearLayout>
+                <TextView
+                    android:id="@+id/mailview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="email"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/black"
+                    android:textSize="22sp"
+                    app:layout_constraintStart_toStartOf="@+id/nid"
+                    app:layout_constraintTop_toBottomOf="@+id/nid" />
+
+                <TextView
+                    android:id="@+id/phoneview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="phone"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/black"
+                    android:textSize="22sp"
+                    app:layout_constraintStart_toStartOf="@+id/mailview"
+                    app:layout_constraintTop_toBottomOf="@+id/mailview" />
+
+                <TextView
+                    android:id="@+id/dateview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="date"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/black"
+                    android:textSize="22sp"
+                    app:layout_constraintStart_toStartOf="@+id/phoneview"
+                    app:layout_constraintTop_toBottomOf="@+id/phoneview" />
+
+                <TextView
+                    android:id="@+id/genderview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="gender"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/black"
+                    android:textSize="22sp"
+                    app:layout_constraintStart_toStartOf="@+id/dateview"
+                    app:layout_constraintTop_toBottomOf="@+id/dateview" />
+
+
+                <ImageButton
+                    android:layout_marginTop="5dp"
+                    android:id="@+id/editbut"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:background="@drawable/edit"
+                    android:src="@drawable/edit"
+                    app:layout_constraintEnd_toEndOf="@+id/textv5"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:text="تحريرالمعلومات"
+                    android:textColor="@color/purple"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/editbut"
+                    app:layout_constraintEnd_toStartOf="@+id/editbut"
+                    app:layout_constraintTop_toTopOf="@+id/editbut" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
         </androidx.cardview.widget.CardView>
     </androidx.cardview.widget.CardView>
 
 
-
-
-
-
-
     <androidx.cardview.widget.CardView
+        android:layout_marginTop="20dp"
         android:id="@+id/textView5"
         android:layout_width="350dp"
         android:layout_height="55dp"
         app:cardBackgroundColor="#A6B1ACB4"
         app:cardCornerRadius="10dp"
         app:contentPadding="1dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.519"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.528">
+        app:layout_constraintTop_toBottomOf="@+id/cardView2">
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
@@ -265,27 +249,30 @@
 
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="348dp"
+                android:layout_height="47dp"
                 android:background="#ffffffff"
                 android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:text="الإعدادات"
+                    android:paddingLeft="90dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:textColor="#BC000000"
+                    android:textSize="24sp"
+                   />
 
                 <ImageView
                     android:layout_width="72dp"
                     android:layout_height="48dp"
-                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:layout_gravity="center"
                     android:padding="10dp"
                     android:src="@drawable/settings1" />
 
-                <TextView
-                    android:layout_width="177dp"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_vertical|center_horizontal"
-                    android:gravity="center"
-                    android:padding="6dp"
-                    android:text="إعدادات"
-                    android:textColor="#BC000000"
-                    android:textSize="20sp" />
+
             </LinearLayout>
         </androidx.cardview.widget.CardView>
     </androidx.cardview.widget.CardView>
@@ -294,15 +281,14 @@
         android:id="@+id/textView6"
         android:layout_width="350dp"
         android:layout_height="55dp"
+        android:layout_marginTop="15dp"
         app:cardBackgroundColor="#A6B1ACB4"
         app:cardCornerRadius="10dp"
         app:contentPadding="1dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.519"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.628">
+        app:layout_constraintTop_toBottomOf="@+id/textView5">
 
         <androidx.cardview.widget.CardView
             android:layout_width="348dp"
@@ -313,31 +299,35 @@
 
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="348dp"
+                android:layout_height="47dp"
                 android:background="#ffffffff"
                 android:orientation="horizontal">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2"
+                android:text="مساعدة"
+                android:paddingLeft="90dp"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textColor="#BC000000"
+                android:textSize="24sp"
+                />
 
-                <ImageView
-                    android:layout_width="72dp"
-                    android:layout_height="48dp"
-                    android:layout_gravity="center_vertical|center_horizontal"
-                    android:padding="10dp"
-                    android:tint="#784D7A"
-                    app:srcCompat="@android:drawable/ic_dialog_info" />
+            <ImageView
+                android:layout_width="72dp"
+                android:layout_height="48dp"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:tint="#784D7A"
+                android:padding="10dp"
+                app:srcCompat="@android:drawable/ic_dialog_info"  />
 
-                <TextView
-                    android:layout_width="177dp"
-                    android:layout_height="match_parent"
-                    android:layout_gravity="center_vertical|center_horizontal"
-                    android:gravity="center"
-                    android:padding="6dp"
-                    android:text="مساعدة"
-                    android:textColor="#BC000000"
-                    android:textSize="20sp" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
     </androidx.cardview.widget.CardView>
+
+
 
 
 

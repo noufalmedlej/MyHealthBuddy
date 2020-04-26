@@ -4,35 +4,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CreateRequest"
-    android:background="#ffffff">
-
+    android:background="#ffffff"
+    tools:context=".CreateRequest">
 
     <include
-        android:id="@+id/viewHiveToolBar"
+        android:id="@+id/viewRequestToolbar"
         layout="@layout/toolbar"
-        android:layout_width="416dp"
-        android:layout_height="166dp"
-        android:gravity="right"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <androidx.cardview.widget.CardView
+        android:layout_marginTop="40dp"
         android:id="@+id/cardView"
         android:layout_width="354dp"
-        android:layout_height="518dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         app:cardCornerRadius="4dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/viewRequestToolbar">
 
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="518dp"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_gravity="center_horizontal|center_vertical"
             android:orientation="vertical"
             android:padding="17dp">
@@ -41,7 +40,7 @@
             <RadioGroup
                 android:id="@+id/radioGroup"
                 android:layout_width="306dp"
-                android:layout_height="158dp"
+                android:layout_height="wrap_content"
                 android:layout_margin="7dp"
                 android:gravity="right"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -56,22 +55,31 @@
                     android:layout_marginEnd="2dp"
                     android:layout_marginRight="2dp"
                     android:gravity="right"
-                    android:text="الجنس"
-                    android:textSize="18sp"
+                    android:text="الجنس:"
+                    android:textColor="@color/purple"
+                    android:textSize="22sp"
                     app:layout_constraintBottom_toTopOf="@+id/radioGroup"
                     app:layout_constraintTop_toBottomOf="@+id/viewHiveToolBar"
                     tools:layout_editor_absoluteX="43dp" />
 
                 <RadioButton
                     android:id="@+id/male"
-                    android:layout_width="67dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:checked="true"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"
+                    android:layoutDirection="rtl"
+                    android:layout_gravity="end"
                     android:text="ذكر" />
 
                 <RadioButton
                     android:id="@+id/female"
-                    android:layout_width="68dp"
+                    android:layout_width="wrap_content"
+                    android:layoutDirection="rtl"
+                    android:textColor="@color/black"
+                    android:layout_gravity="end"
+                    android:textSize="18sp"
                     android:layout_height="wrap_content"
                     android:text="أنثى" />
 
@@ -79,45 +87,65 @@
                     android:id="@+id/date"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="تاريخ الميلاد"
-                    android:textSize="18sp"
+                    android:text="تاريخ الميلاد:"
+                    android:textColor="@color/purple"
+                    android:textSize="22sp"
+
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
 
-                <ImageView
-                    android:id="@+id/choosedatebtn"
-                    android:layout_width="26dp"
-                    android:layout_height="21dp"
-                    android:layout_margin="7dp"
-                    app:layout_constraintBottom_toTopOf="@+id/DocId"
-                    app:layout_constraintEnd_toStartOf="@+id/Date"
-                    app:layout_constraintHorizontal_bias="1.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/radioGroup"
-                    app:layout_constraintVertical_bias="0.705"
-                    app:srcCompat="@drawable/calendarr" />
-
 
             </RadioGroup>
+
+            <ImageView
+                android:id="@+id/choosedatebtn"
+                android:layout_width="26dp"
+                android:layout_height="21dp"
+                android:layout_margin="7dp"
+                app:layout_constraintBottom_toTopOf="@+id/DocId"
+                app:layout_constraintEnd_toEndOf="@+id/radioGroup"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/radioGroup"
+                app:layout_constraintVertical_bias="0.705"
+                app:srcCompat="@drawable/calendarr" />
+
+
+            <TextView
+                android:id="@+id/dateV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00/00/0000"
+                android:layout_marginRight="5dp"
+                android:visibility="visible"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="@+id/choosedatebtn"
+                app:layout_constraintEnd_toStartOf="@+id/choosedatebtn"
+                app:layout_constraintTop_toTopOf="@+id/choosedatebtn" />
 
 
             <Button
                 android:id="@+id/save"
                 android:layout_width="286dp"
                 android:layout_height="53dp"
-                android:layout_margin="7dp"
-                android:background="@drawable/login_btn"
+                android:background="@drawable/buttonshape"
                 android:text="حفظ"
-                android:textAllCaps="true"
+                android:textAllCaps="false"
                 android:textColor="#ffffff"
                 android:textSize="18dp"
+                android:layout_marginTop="15dp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.496"
-                app:layout_constraintStart_toStartOf="parent" />
+                app:layout_constraintHorizontal_bias="0.504"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/dateV" />
 
-        </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
     </androidx.cardview.widget.CardView>
 
     <TextView
@@ -128,11 +156,9 @@
         android:textColor="#794D71"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/cardView"
-        app:layout_constraintEnd_toEndOf="@+id/viewHiveToolBar"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintBottom_toBottomOf="@+id/viewRequestToolbar"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.706" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

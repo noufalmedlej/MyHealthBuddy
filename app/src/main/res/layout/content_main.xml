@@ -1,157 +1,157 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".MainActivity"
-    tools:showIn="@layout/activity_main"
-    android:background="#ffffff">
+    tools:showIn="@layout/activity_main">
 
-    <EditText
-        android:id="@+id/email"
-        android:layout_width="300dp"
-        android:layout_height="53dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/sginin_style"
-        android:ems="10"
-        android:hint="البريد الألكتروني"
-        android:inputType="textEmailAddress"
-        app:layout_constraintBottom_toBottomOf="parent"
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+  >
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/purple"
+        android:textSize="22sp"
+        android:text="مرحبًا، قم بإدخال معلوماتك للتسجيل."
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/name"
-        app:layout_constraintVertical_bias="0.006" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <EditText
         android:id="@+id/name"
-        android:layout_width="300dp"
+        android:layout_width="286dp"
         android:layout_height="53dp"
-        android:layout_marginTop="120dp"
-        android:background="@drawable/sginin_style"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/login_style"
         android:ems="10"
-        android:hint="الأسم"
+        android:hint="الاسم"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/textView13" />
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="286dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/login_style"
+        android:cursorVisible="false"
+        android:ems="10"
+        android:gravity="right"
+        android:hint="البريد الإلكتروني"
+        android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/name" />
 
     <EditText
         android:id="@+id/ID"
-        android:layout_width="300dp"
+        android:layout_width="286dp"
         android:layout_height="53dp"
-        android:background="@drawable/sginin_style"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/login_style"
         android:ems="10"
         android:hint="الهوية الوطنية"
         android:inputType="number"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/email"
-        app:layout_constraintVertical_bias="0.028" />
+        app:layout_constraintTop_toBottomOf="@+id/email" />
+
 
     <EditText
         android:id="@+id/phone"
-        android:layout_width="300dp"
+        android:layout_width="286dp"
         android:layout_height="53dp"
-        android:background="@drawable/sginin_style"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/login_style"
         android:ems="10"
         android:gravity="right"
         android:hint="رقم الجوال : 5×××"
         android:inputType="number"
-        app:layout_constraintBottom_toTopOf="@+id/regBtn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ID"
-        app:layout_constraintVertical_bias="0.072" />
+        app:layout_constraintTop_toBottomOf="@+id/ID" />
 
     <EditText
         android:id="@+id/pass"
-        android:layout_width="300dp"
+        android:layout_width="286dp"
         android:layout_height="53dp"
-        android:background="@drawable/sginin_style"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/login_style"
+        android:cursorVisible="false"
         android:ems="10"
         android:gravity="right"
-        android:hint="الرمز السري"
+        android:hint="كلمة المرور"
         android:inputType="textPassword"
-        app:layout_constraintBottom_toTopOf="@+id/pass2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/phone" />
 
     <EditText
         android:id="@+id/pass2"
-        android:layout_width="300dp"
+        android:layout_width="286dp"
         android:layout_height="53dp"
-        android:background="@drawable/sginin_style"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/login_style"
+        android:cursorVisible="false"
         android:ems="10"
         android:gravity="right"
-        android:hint="تأكيد الرمز السري"
+        android:hint="تأكيد كلمة المرور"
         android:inputType="textPassword"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.713" />
+        app:layout_constraintTop_toBottomOf="@+id/phone" />
 
     <Button
         android:id="@+id/regBtn"
         android:layout_width="286dp"
         android:layout_height="53dp"
-        android:layout_margin="7dp"
-        android:layout_marginBottom="88dp"
-        android:background="@color/colorPrimaryDark"
-        android:text="تسجيل حساب جديد"
-        android:textAllCaps="true"
+        android:background="@drawable/buttonshape"
+        android:text="التسجيل"
+        android:textAllCaps="false"
         android:textColor="#ffffff"
         android:textSize="18dp"
+        android:layout_marginTop="15dp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pass2"
-        app:layout_constraintVertical_bias="0.297" />
+        app:layout_constraintTop_toBottomOf="@+id/pass" />
 
     <Button
         android:id="@+id/loginn"
-        android:layout_marginTop="12dp"
-        android:text="تسجيل دخول"
         android:layout_width="286dp"
         android:layout_height="53dp"
-        android:layout_margin="7dp"
         android:background="@drawable/cancelbutton"
-        android:textAllCaps="true"
+        android:text="تسجيل الدخول"
+        android:textAllCaps="false"
+        android:layout_marginTop="15dp"
         android:textColor="#ffffff"
         android:textSize="18dp"
         android:textStyle="bold"
-
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/regBtn"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/regBtn" />
 
     <ImageView
-        android:id="@+id/choosedatebtn"
-        android:layout_width="264dp"
-        android:layout_height="79dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/imageView"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_marginTop="50dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.05"
-        app:srcCompat="@drawable/gplogo" />
+        app:srcCompat="@drawable/logoh" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

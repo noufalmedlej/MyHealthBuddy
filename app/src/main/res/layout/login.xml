@@ -4,97 +4,89 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".MainActivity"
-    android:background="#ffffff">
+    android:background="#ffffff"
+    tools:context=".MainActivity">
 
-    <include
-        android:id="@+id/viewHiveToolBar"
-        layout="@layout/toolbar"
-        android:layout_width="413dp"
-        android:layout_height="82dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/uid"
-        android:layout_width="300dp"
+        android:id="@+id/name"
+        android:layout_width="286dp"
         android:layout_height="53dp"
-        android:background="@drawable/sginin_style"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/login_style"
         android:ems="10"
-        android:hint="رقم الهوية الوطنية"
+        android:hint="الهوية الوطنية"
         android:inputType="textEmailAddress"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView9"
-        app:layout_constraintVertical_bias="0.069" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <EditText
-        android:id="@+id/password"
-        android:layout_width="300dp"
+        android:id="@+id/email"
+        android:layout_width="286dp"
         android:layout_height="53dp"
-        android:layout_marginTop="264dp"
-        android:background="@drawable/sginin_style"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/login_style"
+        android:cursorVisible="false"
         android:ems="10"
         android:gravity="right"
-        android:hint="الرمز السري"
+        android:hint="كلمة المرور"
         android:inputType="textPassword"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.154" />
+        app:layout_constraintTop_toBottomOf="@+id/name" />
+
+    <TextView
+        android:id="@+id/ForgotPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="نسيت كلمة المرور؟"
+        android:textColor="@color/blue"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/email"
+        app:layout_constraintTop_toBottomOf="@+id/email" />
 
     <Button
         android:id="@+id/login"
         android:layout_width="286dp"
         android:layout_height="53dp"
-        android:layout_margin="7dp"
-        android:background="@drawable/login_btn"
-        android:textAllCaps="true"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/buttonshape"
+        android:text="تسجيل الدخول"
+        android:textAllCaps="false"
         android:textColor="#ffffff"
         android:textSize="18dp"
         android:textStyle="bold"
-        android:text="تسجيل الدخول"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.62" />
+        app:layout_constraintTop_toBottomOf="@+id/email" />
 
     <Button
         android:id="@+id/reg"
         android:layout_width="286dp"
         android:layout_height="53dp"
-        android:layout_margin="7dp"
         android:background="@drawable/cancelbutton"
-        android:textAllCaps="true"
+        android:text="تسجيل حساب جديد"
+        android:layout_marginTop="10dp"
+        android:textAllCaps="false"
         android:textColor="#ffffff"
         android:textSize="18dp"
         android:textStyle="bold"
-        android:text="تسجيل حساب جديد"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.722" />
+        app:layout_constraintTop_toBottomOf="@+id/login" />
 
     <ImageView
-        android:id="@+id/imageView9"
-        android:layout_width="232dp"
-        android:layout_height="104dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/imageView"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:layout_marginTop="50dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.202"
-        app:srcCompat="@drawable/gplogo" />
+        app:srcCompat="@drawable/logoh" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
