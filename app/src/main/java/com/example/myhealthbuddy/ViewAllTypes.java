@@ -96,6 +96,7 @@ public class ViewAllTypes extends AppCompatActivity {
                     item_record record=Myrecords.getValue(item_record.class);
                     if(record.getType()==type) {
                         record.rid = Myrecords.getKey();
+                        record.dateCreated=Myrecords.child("dateCreated").getValue().toString();
                         MyResult.add(record);
                     }
                 }

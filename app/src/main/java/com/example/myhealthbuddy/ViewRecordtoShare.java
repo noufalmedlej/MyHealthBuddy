@@ -81,7 +81,7 @@ public class ViewRecordtoShare extends AppCompatActivity {
                 for(DataSnapshot dataSnapshot1: dataSnapshot.getChildren()) {
                     item_record r = dataSnapshot1.getValue(item_record.class);
                     r.rid= dataSnapshot1.getKey();
-                   /// r.hname=GetHospitalName(r.rid);
+                    r.dateCreated=dataSnapshot1.child("dateCreated").getValue().toString();
                     Arraylist.add(r);
                 }
 

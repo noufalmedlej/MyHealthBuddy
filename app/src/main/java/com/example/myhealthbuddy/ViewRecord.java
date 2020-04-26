@@ -121,7 +121,7 @@ public class ViewRecord extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         patientN.setText(dataSnapshot.child("name").getValue().toString());
                         patientID.setText(dataSnapshot.child("national_id").getValue().toString());
-                        //patientG.setText(dataSnapshot.child("").getValue().toString());
+                        patientG.setText(dataSnapshot.child("gender").getValue().toString());
                     }
 
                     @Override

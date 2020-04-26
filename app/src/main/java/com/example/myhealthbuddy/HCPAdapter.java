@@ -42,7 +42,7 @@ public class HCPAdapter  extends RecyclerView.Adapter<HCPAdapter.HCPViewHolder> 
         holder.myname.setText(currentItem.getName());
         holder.myid.setText(currentItem.getId());
         holder.myspecialty.setText(currentItem.getSpecialty());
-        holder.mygender.setText(currentItem.getGender());
+
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -53,6 +53,17 @@ public class HCPAdapter  extends RecyclerView.Adapter<HCPAdapter.HCPViewHolder> 
                 }
             }
         });
+
+        if(currentItem.getGender().equals("Female")){
+            holder.mygender.setText("أنثى");
+           //set img
+        }
+
+        if(currentItem.getGender().equals("Male")) {
+            holder.mygender.setText("ذكر");
+            //set img
+        }
+
 
        // if(currentItem.getGender().equals("F")) set imge
 
@@ -68,9 +79,7 @@ public class HCPAdapter  extends RecyclerView.Adapter<HCPAdapter.HCPViewHolder> 
         public TextView myid;
         public TextView myspecialty;
         public TextView mygender;
-
-
-        //public TextView img;
+        public  CircleImageView img;
 
 
         public HCPViewHolder(@NonNull View itemView) {
@@ -79,7 +88,7 @@ public class HCPAdapter  extends RecyclerView.Adapter<HCPAdapter.HCPViewHolder> 
             myid =itemView.findViewById(R.id.all_HCP_profile_Id);
             myspecialty=itemView.findViewById(R.id.all_HCP_profile_specialty);
             mygender= itemView.findViewById(R.id.all_HCP_profile_gender);
-
+            img= itemView.findViewById(R.id.all_HCP_profileImg);
             Intent n = new Intent(c, MyHCPs.class);
             n.putExtra("list",HCPsList );
 
