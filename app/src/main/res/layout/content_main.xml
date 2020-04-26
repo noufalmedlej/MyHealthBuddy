@@ -7,6 +7,7 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".MainActivity"
+    android:background="#ffffff"
     tools:showIn="@layout/activity_main">
 
 <androidx.constraintlayout.widget.ConstraintLayout
@@ -31,9 +32,9 @@
         android:layout_width="286dp"
         android:layout_height="53dp"
         android:layout_marginTop="10dp"
-        android:background="@drawable/login_style"
         android:ems="10"
         android:hint="الاسم"
+        android:background="@drawable/login_style"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -110,7 +111,7 @@
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/phone" />
+        app:layout_constraintTop_toBottomOf="@+id/pass" />
 
     <Button
         android:id="@+id/regBtn"
@@ -125,7 +126,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pass" />
+        app:layout_constraintTop_toBottomOf="@+id/pass2" />
 
     <Button
         android:id="@+id/loginn"
@@ -144,10 +145,11 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="160dp"
-        android:layout_height="160dp"
-        android:layout_marginTop="50dp"
+        android:layout_width="155dp"
+        android:layout_height="130dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logoh" />
