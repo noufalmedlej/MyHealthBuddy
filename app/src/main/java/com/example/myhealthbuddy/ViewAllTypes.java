@@ -114,10 +114,10 @@ public class ViewAllTypes extends AppCompatActivity {
                         intentPills.putExtra("Rid",Rid);
                         startActivity(intentPills);
                                 break;
-                            /*case 2: Intent intentMyBloodTests = new Intent(ViewAllTypes.this, ViewAllBloodTest.class);
+                            case 2: Intent intentMyBloodTests = new Intent(ViewAllTypes.this, ViewBloodTest.class);
                                 intentMyBloodTests.putExtra("Rid",Rid);
                                 startActivity(intentMyBloodTests);
-                                break;*/
+                                break;
                             case 3:  Intent intentMyx_Rays = new Intent(ViewAllTypes.this, ViewXRay.class);
                                 intentMyx_Rays.putExtra("Rid",Rid);
                                 startActivity(intentMyx_Rays);

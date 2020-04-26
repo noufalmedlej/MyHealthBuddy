@@ -9,20 +9,20 @@
 
 
     <EditText
-        android:id="@+id/name"
+        android:id="@+id/uid"
         android:layout_width="286dp"
         android:layout_height="53dp"
         android:layout_marginTop="15dp"
         android:background="@drawable/login_style"
         android:ems="10"
         android:hint="الهوية الوطنية"
-        android:inputType="textEmailAddress"
+        android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <EditText
-        android:id="@+id/email"
+        android:id="@+id/password"
         android:layout_width="286dp"
         android:layout_height="53dp"
         android:layout_marginTop="15dp"
@@ -34,7 +34,7 @@
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/name" />
+        app:layout_constraintTop_toBottomOf="@+id/uid" />
 
     <TextView
         android:id="@+id/ForgotPassword"
@@ -43,8 +43,8 @@
         android:text="نسيت كلمة المرور؟"
         android:textColor="@color/blue"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/email"
-        app:layout_constraintTop_toBottomOf="@+id/email" />
+        app:layout_constraintEnd_toEndOf="@+id/password"
+        app:layout_constraintTop_toBottomOf="@+id/password" />
 
     <Button
         android:id="@+id/login"
@@ -60,7 +60,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/email" />
+        app:layout_constraintTop_toBottomOf="@+id/password" />
 
     <Button
         android:id="@+id/reg"

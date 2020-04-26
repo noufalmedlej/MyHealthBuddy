@@ -364,6 +364,10 @@ public class CreateRequest extends AppCompatActivity {
                 Intent intentsearch=new Intent(CreateRequest.this, Profile.class);
                 startActivity(intentsearch);
                 break;
+            case R.id.nav_share:
+                Intent intent = new Intent(CreateRequest.this, ViewRecordtoShare.class);
+                startActivity(intent);
+                break;
         }
     }
 

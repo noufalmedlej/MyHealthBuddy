@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="350dp"
+    android:layout_height="50dp"
+    app:cardCornerRadius="5dp"
+    android:layout_margin="5dp"
+    android:layout_marginRight="15dp"
+    android:layout_marginLeft="15dp"
+
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="9dp"
+            android:layout_height="50dp"
+            android:background="#C98DCF"
+            android:clickable="false"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/test"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:layout_weight="1.8"
+            android:text="test(unit)"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="1dp"
+            android:background="@color/G"
+            android:clickable="false"
+            />
+
+        <TextView
+            android:id="@+id/result"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="100.00"
+            android:textSize="18sp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+
+            />
+
+        <Button
+            android:id="@+id/button9"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/G"
+            android:layout_marginLeft="1dp"
+            android:clickable="false"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/result" />
+
+        <TextView
+            android:id="@+id/normalMin"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="100.00"
+            android:gravity="center"
+            android:textSize="18sp"
+            />
+
+        <TextView
+            android:id="@+id/ii"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" - "
+            android:gravity="center"
+            android:textSize="18sp"
+            />
+
+
+        <TextView
+            android:id="@+id/normalMax"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:text="100.00"
+            android:textSize="18sp" />
+
+        <ImageButton
+            android:id="@+id/deleteBT"
+            android:layout_width="19dp"
+            android:layout_height="19dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/x" />
+
+
+    </LinearLayout>
+
+
+
+
+
+    <!--
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="9dp"
+            android:layout_height="match_parent"
+            android:background="#C98DCF"
+            android:clickable="false"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/test"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:text="test(unit)"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@+id/button3"
+            app:layout_constraintStart_toEndOf="@+id/button3"
+            app:layout_constraintTop_toTopOf="@+id/button3" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="1dp"
+            android:background="@color/G"
+            android:clickable="false"
+            app:layout_constraintStart_toEndOf="@+id/test"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+
+        <TextView
+            android:id="@+id/result"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="100.00"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@+id/test"
+            app:layout_constraintEnd_toStartOf="@+id/button9"
+            app:layout_constraintStart_toEndOf="@+id/button2" />
+
+        <Button
+            android:id="@+id/button9"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/G"
+            android:layout_marginLeft="1dp"
+            android:clickable="false"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/result" />
+
+        <TextView
+            android:id="@+id/normalMin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="100.00"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@+id/result"
+            app:layout_constraintEnd_toEndOf="@+id/button7"
+            app:layout_constraintStart_toEndOf="@+id/button9" />
+
+        <Button
+            android:id="@+id/button7"
+            android:layout_width="1dp"
+            android:layout_marginLeft="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/G"
+            android:clickable="false"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/normalMin" />
+
+
+        <TextView
+            android:id="@+id/normalMax"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="100.00"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@+id/normalMin"
+            app:layout_constraintEnd_toStartOf="@+id/deleteBT"
+            app:layout_constraintStart_toEndOf="@+id/button7" />
+
+        <ImageButton
+            android:id="@+id/deleteBT"
+            android:layout_width="19dp"
+            android:layout_height="19dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/x"
+            app:layout_constraintBottom_toBottomOf="@+id/normalMax"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/normalMax" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="407dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    -->
+</androidx.cardview.widget.CardView>
