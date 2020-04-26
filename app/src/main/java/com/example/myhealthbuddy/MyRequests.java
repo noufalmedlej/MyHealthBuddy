@@ -9,6 +9,7 @@ public class MyRequests {
     public String doctor_uid;
     public String request_date;
     public String declined_date;
+    public String completion_date;
 
     public MyRequests(){
 
@@ -19,6 +20,15 @@ public class MyRequests {
         this.doctor_id = doctor_id;
         this.patient_id = patient_id;
         this.type = type;
+
+    }
+
+    public String getCompletion_date() {
+        return completion_date;
+    }
+
+    public void setCompletion_date(String completion_date) {
+        this.completion_date = completion_date;
     }
 
     public String getDeclined_date() {

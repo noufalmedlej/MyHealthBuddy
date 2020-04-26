@@ -18,17 +18,25 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.onesignal.OneSignal;
 
 public class HomePage extends AppCompatActivity {
 
     ImageView img;
     BottomNavigationView bottomnav;
     CardView Mypills,MyDoc,MyBloodTests,Myx_Rays,MyVital,Myreports;
+    FirebaseAuth mAuth;
 
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     setContentView(R.layout.homepage);
+
+        // OneSignal Initialization
+        OneSignal.startInit(this)
+                .inFocusDisplaying(OneSignal.OSInFocusDisplayOption.Notification)
+                .unsubscribeWhenNotificationsAreDisabled(true)
+                .init();
 
 
     final TextView name= findViewById(R.id.name);
@@ -44,9 +52,12 @@ public class HomePage extends AppCompatActivity {
             }
     });
 
+        mAuth=FirebaseAuth.getInstance();
+
 
 
     String current= FirebaseAuth.getInstance().getCurrentUser().getUid();
+        OneSignal.sendTag("User_uid",mAuth.getUid().toString());
    DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Patients").child(current).child("name");
    ref.addValueEventListener(new ValueEventListener() {
        @Override

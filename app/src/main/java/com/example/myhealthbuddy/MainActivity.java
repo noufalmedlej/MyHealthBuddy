@@ -32,11 +32,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.content_main);
 
-        // OneSignal Initialization
-        OneSignal.startInit(this)
-                .inFocusDisplaying(OneSignal.OSInFocusDisplayOption.Notification)
-                .unsubscribeWhenNotificationsAreDisabled(true)
-                .init();
+
         FirebaseOptions options = new FirebaseOptions.Builder()
                 .setProjectId("mockup-8ca7f")
                 .setApplicationId("1:255823988018:android:d1a0bd9c52ae1f1cca432b")
@@ -71,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
         }
         else
         {
-            OneSignal.sendTag("User_uid",mAuth.getUid().toString());
+
             CheckUserExistence();
         }
     }

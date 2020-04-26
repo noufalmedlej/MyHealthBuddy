@@ -97,12 +97,11 @@ public class Authenticate extends AppCompatActivity{
                             Intent intent = getIntent();
                             Bundle extras = intent.getExtras();
                             String username = extras.getString("name");
-                            String password = extras.getString("p1");
                             String password2 = extras.getString("p2");
                             String email = extras.getString("email");
                             String phone = extras.getString("phone");
                             String nid = extras.getString("NID");
-                            CreateUserAccount(email,nid,password,username,phone);
+                            CreateUserAccount(email,nid,password2,username,phone);
 
                         } else {
                             Toast.makeText(Authenticate.this, "رمز التحقق غير صحيح", Toast.LENGTH_LONG).show();

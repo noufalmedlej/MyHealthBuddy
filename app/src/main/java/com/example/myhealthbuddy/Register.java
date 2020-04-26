@@ -41,12 +41,10 @@ public class Register extends AppCompatActivity {
         setContentView(R.layout.content_main);
 
         UserEmail = findViewById(R.id.email);
-        userPassword = findViewById(R.id.pass);
         userPassword2 = findViewById(R.id.pass2);
         userName = findViewById(R.id.name);
         UserNID = findViewById(R.id.ID);
         UserPhone = findViewById(R.id.phone);
-
         regBtn = findViewById(R.id.regBtn);
         login = findViewById(R.id.loginn);
         login.setOnClickListener(new View.OnClickListener() {
@@ -61,7 +59,6 @@ public class Register extends AppCompatActivity {
             public void onClick(View v) {
 
                 final String Email = UserEmail.getText().toString();
-                final String Password= userPassword.getText().toString();
                 final String Password2= userPassword2.getText().toString();
                 final String Name =userName.getText().toString();
                 final String NID = UserNID.getText().toString();
@@ -69,13 +66,13 @@ public class Register extends AppCompatActivity {
 
 
 
-                if( Email.isEmpty() || Password.isEmpty() || Password2.isEmpty() || !Password.equals(Password2)){
+                if( Email.isEmpty() || Password2.isEmpty() || Name.isEmpty()||NID.isEmpty()||phone.isEmpty()){
                     showMessage("يرجى التأكد من بياناتك");
                     return;
 
                 }
-                if ( Password.length()<8 ||isValid(Password)){
-                    userPassword.setError("يجب ان لا يقل الرمز السري عن 8 رموز ويحتوي على ارقام وحروف ");
+                if ( Password2.length()<8 ||!isValid(Password2)){
+                    userPassword.setError("يجب ان لا يقل الرمز السري عن 8 رموز ويحتوي على ارقام وحروف كبيرة وصغيرة ");
                     userPassword.requestFocus();
                     return;
                 }
@@ -111,7 +108,6 @@ public class Register extends AppCompatActivity {
                                     extras.putString("NID", NID);
                                     extras.putString("name", Name);
                                     extras.putString("email", Email);
-                                    extras.putString("p1", Password);
                                     extras.putString("p2", Password2);
                                     intent.putExtras(extras);
                                     startActivity(intent);

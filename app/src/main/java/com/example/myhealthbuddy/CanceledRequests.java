@@ -159,7 +159,7 @@ public class CanceledRequests extends Fragment {
 
         public void setDeclined_date(String declined_date) {
             TextView declined=(TextView)mView.findViewById(R.id.display_reqordec);
-            declined.setText("Declined at:");
+            declined.setText("تاريخ الغاء الطلب:");
             TextView rdate=(TextView)mView.findViewById(R.id.display_request_daterequest);
             rdate.setText(declined_date);
         }
