@@ -9,7 +9,6 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.SearchView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -113,7 +112,7 @@ public class ViewRecordtoShare extends AppCompatActivity {
 
 
                 // get selected
-                Intent intent =new Intent(ViewRecordtoShare.this,ChooseDocToShareWith.class);
+                Intent intent =new Intent(ViewRecordtoShare.this, SearchHCP.class);
                 if(CkList.size()>0){
                 intent.putExtra("list",CkList);
                 startActivity(intent); }
@@ -127,56 +126,6 @@ public class ViewRecordtoShare extends AppCompatActivity {
 
 
     }
-
-
-
-    public String GetHospitalName(String rid){
-
-
-        DoctorRef=  FirebaseDatabase.getInstance().getReference().child("Records").child(rid);
-        DoctorRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                HospitalID= dataSnapshot.child("did").getValue().toString();
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-
-
-         PatientRef=FirebaseDatabase.getInstance().getReference().child("Doctors");
-        PatientRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                HospitalID=dataSnapshot.child(HospitalID).child("hospital").getValue().toString();
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-
-
-        HospitalRef= FirebaseDatabase.getInstance().getReference().child("Hospitals").child(HospitalID);
-        HospitalRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                 HospitalName =dataSnapshot.child("Name").getValue().toString();
-               // recordViweHolder.setHospitalName(HospitalName);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-        return HospitalName;
-    }
-
 
     private void UserMenuSelector(MenuItem item) {
         switch (item.getItemId()){
