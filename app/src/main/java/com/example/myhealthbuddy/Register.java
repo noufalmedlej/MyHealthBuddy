@@ -73,15 +73,12 @@ public class Register extends AppCompatActivity {
                     return;
 
                 }
-                if ( Password.length()<8 ||!isValid(Password)){
+                if ( !isValid(Password,Password2)){
                     userPassword.setError("يجب ان لا يقل الرمز السري عن 8 رموز ويحتوي على ارقام وحروف كبيرة وصغيرة ");
                     userPassword.requestFocus();
                     return;
                 }
-                if (!(Password.equals(Password2))){
-                    showMessage("الرمز السري غير متطابق");
-                    return;
-                }
+
 
                 if (phone.isEmpty()|| phone.length()<9 || phone.length()>9) {
                     UserPhone.setError("رقم الجوال غير صحيح");
@@ -173,7 +170,7 @@ public class Register extends AppCompatActivity {
 
     }
 
-    public static boolean isValid(String passwordhere) {
+    public static boolean isValid(String passwordhere, String passwordhere2) {
 
         Pattern UpperCasePatten = Pattern.compile("[A-Z ]");
         Pattern lowerCasePatten = Pattern.compile("[a-z ]");
@@ -191,6 +188,13 @@ public class Register extends AppCompatActivity {
         if (!digitCasePatten.matcher(passwordhere).find()) {
             flag=false;
         }
+        if (passwordhere.length()<8){
+            flag=false;
+        }
+        if (!(passwordhere.equals(passwordhere2))){
+            flag=false;
+        }
+
 
         return flag;
 
