@@ -182,7 +182,6 @@ public class ChooseDocToShareWith extends AppCompatActivity {
                                             id = ds.getKey();
                                             if (!Ids.contains(id)) {
                                                 Ids.add(id);
-                                                //GetHospitalName(record.getKey());
                                                 HCP.uid=ds.getKey();
                                                 HCPArrayList.add(HCP);
                                             }
@@ -240,7 +239,6 @@ public class ChooseDocToShareWith extends AppCompatActivity {
                                             id = doc.getKey();
                                             if (!Ids.contains(id)) {
                                                 Ids.add(id);
-                                                //GetHospitalName(record.getKey());
                                                 HCP.uid=doc.getKey();
                                                 HCPArrayList.add(HCP);
                                             }
