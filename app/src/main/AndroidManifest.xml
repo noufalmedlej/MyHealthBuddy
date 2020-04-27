@@ -26,7 +26,7 @@
         <activity android:name=".ViewAllTypes" />
         <activity android:name=".MyHCPs" />
         <activity android:name=".ShareRecord" />
-        <activity android:name=".ChooseDocToShareWith" />
+        <activity android:name=".SearchHCP" />
         <activity android:name=".Register" />
         <activity android:name=".SigninActivity" />
         <activity android:name=".HomePage" />

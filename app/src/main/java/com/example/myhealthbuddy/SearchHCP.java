@@ -20,7 +20,6 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -32,7 +31,7 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-public class ChooseDocToShareWith extends AppCompatActivity {
+public class SearchHCP extends AppCompatActivity {
 
 
     private ImageButton searchbtn;
@@ -71,7 +70,7 @@ public class ChooseDocToShareWith extends AppCompatActivity {
     RecyclerView myRecycler = (RecyclerView) findViewById(R.id.HCPresult);
         myRecycler.setLayoutManager(new LinearLayoutManager(this));
         myRecycler.setAdapter(new SampleRecycler());
-        Browse();
+        BrowseMyHCP();
 
         SearchResultList.setLayoutManager(new LinearLayoutManager(this));
         searchbtn.setOnClickListener(new View.OnClickListener() {
@@ -79,7 +78,7 @@ public class ChooseDocToShareWith extends AppCompatActivity {
         public void onClick(View v) {
             String SearchBoxInput = searchInpuText.getText().toString();
 
-                SearchMethod(SearchBoxInput);
+            SearchForHCP(SearchBoxInput);
 
 
 
@@ -96,7 +95,7 @@ public class ChooseDocToShareWith extends AppCompatActivity {
                     || event.getAction() == KeyEvent.ACTION_DOWN
                     || event.getAction() == KeyEvent.KEYCODE_ENTER) {
                 String SearchBoxInput = searchInpuText.getText().toString();
-                SearchMethod(SearchBoxInput);
+                SearchForHCP(SearchBoxInput);
                 return true;
 
             }
@@ -108,7 +107,7 @@ public class ChooseDocToShareWith extends AppCompatActivity {
 
 
 
-    public void SearchMethod(String SearchBoxInput) {
+    public void SearchForHCP(String SearchBoxInput) {
         if (SearchBoxInput.length() == 7 ) {
             Toast.makeText(this, "جاري البحث..", Toast.LENGTH_LONG).show();
             Query searchHCPInfiQuere = DoctorRef.orderByChild("id").startAt(SearchBoxInput).endAt(SearchBoxInput + "\uf8ff");
@@ -133,7 +132,7 @@ public class ChooseDocToShareWith extends AppCompatActivity {
                         @Override
                         public void onClick(View v) {
                             String HCPuId= getRef(i).getKey();
-                            Intent intent = new Intent(ChooseDocToShareWith.this, ShareRecord.class);
+                            Intent intent = new Intent(SearchHCP.this, ShareRecord.class);
                             intent.putExtra("HCPuID", HCPuId);
                             intent.putExtra("HCPID",HCPID);
                             intent.putExtra("HCPName",module.getName());
@@ -155,7 +154,7 @@ public class ChooseDocToShareWith extends AppCompatActivity {
 
 
 
-    public void Browse() {
+    public void BrowseMyHCP() {
 
         final ArrayList<HCPsResult> HCPArrayList= new ArrayList<>();
         final ArrayList<String> Ids= new ArrayList<>();
@@ -182,7 +181,6 @@ public class ChooseDocToShareWith extends AppCompatActivity {
                                             id = ds.getKey();
                                             if (!Ids.contains(id)) {
                                                 Ids.add(id);
-                                                //GetHospitalName(record.getKey());
                                                 HCP.uid=ds.getKey();
                                                 HCPArrayList.add(HCP);
                                             }
@@ -192,12 +190,12 @@ public class ChooseDocToShareWith extends AppCompatActivity {
                                 }
 
                             }
-                            mAdapter = new HCPAdapter(ChooseDocToShareWith.this, HCPArrayList);
+                            mAdapter = new HCPAdapter(SearchHCP.this, HCPArrayList);
                             mAdapter.setOnItemClickListener(new HCPAdapter.OnItemClickListener(){
 
                                 @Override
                                 public void onItemClick(String HCPID,String Name,String HCPuId) {
-                                    Intent intent = new Intent(ChooseDocToShareWith.this, ShareRecord.class);
+                                    Intent intent = new Intent(SearchHCP.this, ShareRecord.class);
                                     intent.putExtra("HCPuID", HCPuId);
                                     intent.putExtra("HCPID",HCPID);
                                     intent.putExtra("HCPName",Name);
@@ -240,7 +238,6 @@ public class ChooseDocToShareWith extends AppCompatActivity {
                                             id = doc.getKey();
                                             if (!Ids.contains(id)) {
                                                 Ids.add(id);
-                                                //GetHospitalName(record.getKey());
                                                 HCP.uid=doc.getKey();
                                                 HCPArrayList.add(HCP);
                                             }
@@ -252,12 +249,12 @@ public class ChooseDocToShareWith extends AppCompatActivity {
 
                             }
 
-                            mAdapter = new HCPAdapter(ChooseDocToShareWith.this, HCPArrayList);
+                            mAdapter = new HCPAdapter(SearchHCP.this, HCPArrayList);
                             mAdapter.setOnItemClickListener(new HCPAdapter.OnItemClickListener(){
 
                                 @Override
                                 public void onItemClick(String HCPID,String Name,String HCPuId) {
-                                    Intent intent = new Intent(ChooseDocToShareWith.this, ShareRecord.class);
+                                    Intent intent = new Intent(SearchHCP.this, ShareRecord.class);
                                     intent.putExtra("HCPuID", HCPuId);
                                     intent.putExtra("HCPID",HCPID);
                                     intent.putExtra("HCPName",Name);

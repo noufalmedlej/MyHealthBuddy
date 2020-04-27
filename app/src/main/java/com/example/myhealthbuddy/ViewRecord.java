@@ -121,7 +121,7 @@ public class ViewRecord extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                         patientN.setText(dataSnapshot.child("name").getValue().toString());
                         patientID.setText(dataSnapshot.child("national_id").getValue().toString());
-                        if(dataSnapshot.child("gender").getValue().toString().equals("female"))
+                        if(dataSnapshot.child("gender").getValue().toString().equals("Female"))
                             patientG.setText("أنثى");
                         else patientG.setText("ذكر");
                     }
