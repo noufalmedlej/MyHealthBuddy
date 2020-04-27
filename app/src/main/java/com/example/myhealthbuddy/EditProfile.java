@@ -79,10 +79,10 @@ public class EditProfile extends AppCompatActivity {
 
                         editprofilename.setText(name);
                         editbirthdate.setText(date);
-                        if (gender.equals("male")){
+                        if (gender.equals("Male")){
                             male.setChecked(true);
                         }
-                        if (gender.equals("female")){
+                        if (gender.equals("Female")){
                             female.setChecked(true);
                         }
                     }
@@ -118,9 +118,9 @@ public class EditProfile extends AppCompatActivity {
                     String name = editprofilename.getText().toString();
                     String gender="";
                     if (male.isChecked())
-                        gender="male";
+                        gender="Male";
                     if (female.isChecked())
-                        gender="female";
+                        gender="Female";
                     String date=editbirthdate.getText().toString();
                     HashMap hivesmap = new HashMap();
                     hivesmap.put("name", name);

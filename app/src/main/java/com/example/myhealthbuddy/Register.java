@@ -27,7 +27,7 @@ public class Register extends AppCompatActivity {
 
 
     public EditText UserEmail,UserNID, userPassword, userPassword2,userName,UserPhone;
-    public boolean flag=false;
+    public boolean flag;
 
     private Button regBtn;
     private PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallbacks;
@@ -41,6 +41,7 @@ public class Register extends AppCompatActivity {
         setContentView(R.layout.content_main);
 
         UserEmail = findViewById(R.id.email);
+        userPassword = findViewById(R.id.pass);
         userPassword2 = findViewById(R.id.pass2);
         userName = findViewById(R.id.name);
         UserNID = findViewById(R.id.ID);
@@ -59,6 +60,7 @@ public class Register extends AppCompatActivity {
             public void onClick(View v) {
 
                 final String Email = UserEmail.getText().toString();
+                final String Password= userPassword.getText().toString();
                 final String Password2= userPassword2.getText().toString();
                 final String Name =userName.getText().toString();
                 final String NID = UserNID.getText().toString();
@@ -71,9 +73,13 @@ public class Register extends AppCompatActivity {
                     return;
 
                 }
-                if ( Password2.length()<8 ||!isValid(Password2)){
+                if ( Password.length()<8 ||!isValid(Password)){
                     userPassword.setError("يجب ان لا يقل الرمز السري عن 8 رموز ويحتوي على ارقام وحروف كبيرة وصغيرة ");
                     userPassword.requestFocus();
+                    return;
+                }
+                if (!(Password.equals(Password2))){
+                    showMessage("الرمز السري غير متطابق");
                     return;
                 }
 
@@ -108,13 +114,14 @@ public class Register extends AppCompatActivity {
                                     extras.putString("NID", NID);
                                     extras.putString("name", Name);
                                     extras.putString("email", Email);
-                                    extras.putString("p2", Password2);
+                                    extras.putString("p2", Password);
                                     intent.putExtras(extras);
                                     startActivity(intent);
                                     break;
                                 }}
                         }
-
+                        if (!flag)
+                            showMessage("يرجى التأكد من ان بياناتك مطابقة للبيانات المسجلة في الأحوال المدنية");
                     }
 
                     @Override
@@ -122,8 +129,7 @@ public class Register extends AppCompatActivity {
                         showMessage("يرجى التأكد من ان بياناتك مطابقة للبيانات المسجلة في الأحوال المدنية");
                     }
                 });
-                if (!flag)
-                    showMessage("يرجى التأكد من ان بياناتك مطابقة للبيانات المسجلة في الأحوال المدنية");
+
             }});
 
 

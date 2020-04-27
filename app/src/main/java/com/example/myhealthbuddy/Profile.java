@@ -72,7 +72,10 @@ public class Profile extends AppCompatActivity {
                 phone.setText(dataSnapshot.child("phone").getValue().toString());
                 nid.setText(dataSnapshot.child("national_id").getValue().toString());
                 date.setText(dataSnapshot.child("birthdate").getValue().toString());
-                gender.setText(dataSnapshot.child("gender").getValue().toString());
+                if (dataSnapshot.child("gender").getValue().toString().equals("Male"))
+                gender.setText("ذكر");
+                if (dataSnapshot.child("gender").getValue().toString().equals("Female"))
+                    gender.setText("أنثى");
             }
 
             @Override

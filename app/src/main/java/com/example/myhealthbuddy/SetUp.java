@@ -33,6 +33,7 @@ public class SetUp extends AppCompatActivity {
     private TextView dat;
     String currentUserId;
     private String date,gender;
+    private RadioButton male,female;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,13 +44,8 @@ public class SetUp extends AppCompatActivity {
         currentUserId=mAuth.getCurrentUser().getUid();
         UsersRef= FirebaseDatabase.getInstance().getReference().child("Patients").child(currentUserId);
 
-        RadioButton male=(RadioButton)findViewById(R.id.male);
-        RadioButton female=(RadioButton)findViewById(R.id.female);
-        if(male.isChecked())
-            gender="male";
-        else
-        if(female.isChecked())
-            gender="female";
+        male=(RadioButton)findViewById(R.id.male);
+        female=(RadioButton)findViewById(R.id.female);
         save=(Button) findViewById(R.id.save);
         dat=(TextView)findViewById(R.id.date);
         dat.setOnClickListener(new View.OnClickListener() {
@@ -96,7 +92,11 @@ public class SetUp extends AppCompatActivity {
 
     private void SaveAccountSetupInformation(){
 
-
+        if(male.isChecked())
+            gender="Male";
+        else
+        if(female.isChecked())
+            gender="Female";
         if(TextUtils.isEmpty(date)){
             Toast.makeText(this, "الرجاء ادخال تاريخ الميلاد", Toast.LENGTH_SHORT).show();
         }
