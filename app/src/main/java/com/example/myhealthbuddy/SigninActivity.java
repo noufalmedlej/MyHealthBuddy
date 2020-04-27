@@ -40,7 +40,7 @@ public class SigninActivity  extends AppCompatActivity {
         uid = findViewById(R.id.uid);
         Pass = findViewById(R.id.password);
         login = findViewById(R.id.login);
-forgotpass=findViewById(R.id.ForgotPassword);
+        forgotpass=findViewById(R.id.forget);
 
         regBtn = findViewById(R.id.reg);
         regBtn.setOnClickListener(new View.OnClickListener() {
