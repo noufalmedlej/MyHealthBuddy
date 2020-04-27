@@ -64,9 +64,13 @@ public class SigninActivity  extends AppCompatActivity {
 
             final String ID =uid.getText().toString();
             final String Password = Pass.getText().toString();
-
-            if( ID.isEmpty() || Password.isEmpty()||ID.length()!=10){
-                showMessage("Please Verify All Field");
+// check for empty fields
+            if( !notEmpty(ID,Password)){
+                return;
+            }
+            //check id
+            if( !NationalIDValid(ID)){
+                return;
             }
             else{
                 signin(ID,Password);
@@ -139,5 +143,29 @@ String email="";
 
     private void showMessage(String text) {
         Toast.makeText(getApplicationContext(), text,Toast.LENGTH_LONG).show();
+    }
+    public boolean notEmpty(String NID,String password){
+        boolean flag=true;
+        if( password.isEmpty()||NID.isEmpty()){
+            showMessage("يرجى تعبئة جميع الخانات");
+            flag=false;
+        }
+        return false;
+    }
+    public boolean NationalIDValid(String NID) {
+        boolean flag = true;
+        //length
+        if (NID.length() < 10 || NID.length() > 10) {
+            uid.setError("يحب ان يتكون رقم الهوية الوطنية من 10 خانات");
+            uid.requestFocus();
+            flag = false;
+        }
+        // check for non numeric
+        if ( !NID.matches("[0-9]+")) {
+            uid.setError("يجب ان لايحتوي رقم الهوية الوطنية على رموز");
+            uid.requestFocus();
+            flag=false;
+        }
+        return flag;
     }
 }

@@ -26,7 +26,7 @@ public class Register extends AppCompatActivity {
 
 
 
-    public EditText UserEmail,UserNID, userPassword, userPassword2,userName,UserPhone;
+    public  EditText UserEmail,UserNID, userPassword, userPassword2,userName,UserPhone;
     public boolean flag;
 
     private Button regBtn;
@@ -67,26 +67,22 @@ public class Register extends AppCompatActivity {
                 final String phone= UserPhone.getText().toString();
 
 
-
-                if( Email.isEmpty() || Password2.isEmpty() || Name.isEmpty()||NID.isEmpty()||phone.isEmpty()){
-                    showMessage("يرجى التأكد من بياناتك");
+//check for empty fields
+                if( !notEmpty(Email,Name,NID, phone,Password, Password2)){
                     return;
-
                 }
+                // check password
                 if ( !isValid(Password,Password2)){
-                    userPassword.setError("يجب ان لا يقل الرمز السري عن 8 رموز ويحتوي على ارقام وحروف كبيرة وصغيرة ");
-                    userPassword.requestFocus();
                     return;
                 }
 
-
-                if (phone.isEmpty()|| phone.length()<9 || phone.length()>9) {
-                    UserPhone.setError("رقم الجوال غير صحيح");
-                    UserPhone.requestFocus();
+// check phone
+                if (!phoneValid(phone)) {
                     return;
                 }
-                if ( NID.isEmpty() || NID.length()<10 || NID.length()>10 ){
-                    UserNID.setError("رقم الهوية الوطنية غير صحيح");
+                // check NID
+                if (!NationalIDValid(NID)){
+                    return;
                 }
 
 
@@ -169,8 +165,8 @@ public class Register extends AppCompatActivity {
         finish();
 
     }
-
-    public static boolean isValid(String passwordhere, String passwordhere2) {
+// test password
+    public boolean isValid(String passwordhere, String passwordhere2) {
 
         Pattern UpperCasePatten = Pattern.compile("[A-Z ]");
         Pattern lowerCasePatten = Pattern.compile("[a-z ]");
@@ -179,19 +175,14 @@ public class Register extends AppCompatActivity {
         boolean flag=true;
 
 
-        if (!UpperCasePatten.matcher(passwordhere).find()) {
+        if (!UpperCasePatten.matcher(passwordhere).find()||!lowerCasePatten.matcher(passwordhere).find()||!digitCasePatten.matcher(passwordhere).find()||passwordhere.length()<8) {
+            userPassword.setError("يجب ان لا يقل الرمز السري عن 8 رموز ويحتوي على ارقام وحروف كبيرة وصغيرة ");
+            userPassword.requestFocus();
             flag=false;
         }
-        if (!lowerCasePatten.matcher(passwordhere).find()) {
-            flag=false;
-        }
-        if (!digitCasePatten.matcher(passwordhere).find()) {
-            flag=false;
-        }
-        if (passwordhere.length()<8){
-            flag=false;
-        }
+
         if (!(passwordhere.equals(passwordhere2))){
+            showMessage("الرمز السري غير متطابق");
             flag=false;
         }
 
@@ -200,7 +191,53 @@ public class Register extends AppCompatActivity {
 
     }
 
+    //test empty fields
+    public boolean notEmpty(String Email, String Name, String NID, String phone,String password, String password2){
+        boolean flag=true;
+if( Email.isEmpty() || password2.isEmpty() || password.isEmpty()|| Name.isEmpty()||NID.isEmpty()||phone.isEmpty()){
+        showMessage("يرجى تعبئة جميع الخانات");
+flag=false;
+}
+        return false;
+    }
+
+    public boolean phoneValid(String phone){
+        boolean flag=true;
+    //length
+       if ( phone.length()<9 || phone.length()>9) {
+            UserPhone.setError("يحب ان يتكون رقم الجوال من 9 خانات");
+            UserPhone.requestFocus();
+       flag=false;
+    }
+       // start with 5
+        if ( !phone.startsWith("5")) {
+            UserPhone.setError("يحب ان يبدأ رقم الجوال ب5");
+            UserPhone.requestFocus();
+            flag=false;
+        }
+        // check for non numeric
+        if ( !phone.matches("[0-9]+")) {
+            UserPhone.setError("يجب ان لايحتوي رقم الجوال على رموز");
+            UserPhone.requestFocus();
+            flag=false;
+        }
+        return flag;
 
 }
-
-
+    public boolean NationalIDValid(String NID) {
+        boolean flag = true;
+        //length
+        if (NID.length() < 10 || NID.length() > 10) {
+            UserNID.setError("يحب ان يتكون رقم الهوية الوطنية من 10 خانات");
+            UserNID.requestFocus();
+            flag = false;
+        }
+        // check for non numeric
+        if ( !NID.matches("[0-9]+")) {
+            UserNID.setError("يجب ان لايحتوي رقم الوية الوطنية على رموز");
+            UserNID.requestFocus();
+            flag=false;
+        }
+        return flag;
+    }
+    }
