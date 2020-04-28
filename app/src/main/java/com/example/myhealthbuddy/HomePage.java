@@ -152,6 +152,11 @@ public class HomePage extends AppCompatActivity {
                 Intent intentsearch=new Intent(HomePage.this, Profile.class);
                 startActivity(intentsearch);
                 break;
+
+            case R.id.nav_not:
+                Intent intentnot=new Intent(HomePage.this, ViewRecordsNotificatins.class);
+                startActivity(intentnot);
+                break;
         }
     }
 }

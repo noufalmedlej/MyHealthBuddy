@@ -196,9 +196,9 @@ public class Register extends AppCompatActivity {
         boolean flag=true;
 if( Email.isEmpty() || password2.isEmpty() || password.isEmpty()|| Name.isEmpty()||NID.isEmpty()||phone.isEmpty()){
         showMessage("يرجى تعبئة جميع الخانات");
-flag=false;
+        flag=false;
 }
-        return false;
+        return flag;
     }
 
     public boolean phoneValid(String phone){
@@ -234,7 +234,7 @@ flag=false;
         }
         // check for non numeric
         if ( !NID.matches("[0-9]+")) {
-            UserNID.setError("يجب ان لايحتوي رقم الوية الوطنية على رموز");
+            UserNID.setError("يجب ان لايحتوي رقم الهوية الوطنية على رموز");
             UserNID.requestFocus();
             flag=false;
         }

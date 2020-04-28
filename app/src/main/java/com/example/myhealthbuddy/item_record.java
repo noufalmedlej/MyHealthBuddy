@@ -36,12 +36,14 @@ public class item_record  {
 
     }
 
-    public String getDateCreated() {
-        return dateCreated;
-    }
+
 
     public void setDateCreated(String date) {
         this.dateCreated = dateCreated;
+    }
+
+    public String getDateCreated() {
+        return dateCreated;
     }
 
     public String getFile() {
