@@ -6,6 +6,22 @@
     android:layout_height="match_parent"
     tools:context=".ViewRecordsNotificatins">
 
+    <TextView
+        android:id="@+id/nonotif"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/bottom_navigation"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+
+        android:text="لا توجد إشعارات"
+        android:textSize="24sp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <include
         android:id="@+id/ToolBar"
         layout="@layout/toolbar"
@@ -39,7 +55,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:gravity="center"
-        android:text="التنبيهات"
+        android:text="إشعارات"
         android:textColor="#794D71"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="@+id/ToolBar"

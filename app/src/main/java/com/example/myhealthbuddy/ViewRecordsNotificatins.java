@@ -30,6 +30,7 @@ public class ViewRecordsNotificatins extends AppCompatActivity {
     FirebaseAuth mAuth;
     Query RecordRef;
     private DatabaseReference PatientRef,HospitalRef,Recordsref;
+    View nonot;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,8 +65,30 @@ public class ViewRecordsNotificatins extends AppCompatActivity {
         linearLayoutManager.setStackFromEnd(true);
         notificationList.setLayoutManager(linearLayoutManager);
 
+        nonot=findViewById(R.id.nonotif);
+
+
+
 
         RecordRef = FirebaseDatabase.getInstance().getReference().child("Records").orderByChild("pid").equalTo(currentPatient);
+
+
+        RecordRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                if(dataSnapshot.getChildrenCount()==0){//no notii
+                    notificationList.setVisibility(View.INVISIBLE);
+                    nonot.setVisibility(View.VISIBLE);
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
         FirebaseRecyclerAdapter<item_record,NotificationsViewHolder> firebaseRecyclerAdapter =
                 new FirebaseRecyclerAdapter<item_record, NotificationsViewHolder>(item_record.class,R.layout.record_item,NotificationsViewHolder.class,RecordRef) {
