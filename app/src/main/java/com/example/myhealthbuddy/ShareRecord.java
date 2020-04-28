@@ -80,7 +80,7 @@ public class ShareRecord extends AppCompatActivity {
 
 
         //share and Cancel button
-        share= findViewById(R.id.sharebtn);
+        share= findViewById(R.id.next);
         cancel=findViewById(R.id.CancelShare);
 
         share.setOnClickListener(new View.OnClickListener() {

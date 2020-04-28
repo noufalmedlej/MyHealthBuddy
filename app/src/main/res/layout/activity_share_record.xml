@@ -7,152 +7,154 @@
     tools:context=".ShareRecord"
     android:background="#ffffff">
 
-
     <include
         android:id="@+id/PreviewToolBar"
         layout="@layout/toolbar"
-        android:layout_width="409dp"
-        android:layout_height="170dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView19"
+        android:id="@+id/textView21"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="معاينة "
-        android:textColor="#794D71"
-        android:textSize="30sp"
+        android:text="معاينة بيانات المشاركة"
+        android:textColor="@color/purple"
+        android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/PreviewToolBar"
-        app:layout_constraintEnd_toEndOf="@+id/PreviewToolBar"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="@+id/PreviewToolBar"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.325" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="354dp"
-        android:layout_height="518dp"
+        android:layout_marginTop="50dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         app:cardCornerRadius="4dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="518dp"
-        android:layout_gravity="center_horizontal|center_vertical"
-        android:orientation="vertical"
-        android:padding="17dp"
-        android:gravity="center">
-
-
-        <TextView
-            android:id="@+id/hcpnameText"
-            android:layout_width="200dp"
-            android:layout_height="40dp"
-            android:gravity="right"
-            android:padding="10dp"
-            android:text="اسم مقدم الرعاية الصحية: "
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/hcpName"
-            android:layout_width="230dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/login_style"
-            android:ems="10"
-            android:padding="10dp"
-            android:focusable="false"
-            android:gravity="center|top"
-            android:inputType="none"
-            android:text="HCPName"
-            android:textColor="@android:color/black"
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/HCPText"
-            android:layout_width="200dp"
-            android:layout_height="40dp"
-            android:padding="10dp"
-            android:text="رقم مقدم الرعايه الصحيه:  "
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/hcpnameText" />
-
-        <TextView
-            android:id="@+id/HCPID"
-            android:layout_width="236dp"
-            android:layout_height="wrap_content"
-            android:background="@drawable/login_style"
-            android:ems="10"
-            android:focusable="false"
-            android:gravity="center"
-            android:inputType="none"
-            android:text="ID"
-            android:textColor="@android:color/black"
-            android:textSize="18sp" />
-
-    <TextView
-        android:id="@+id/RecordsIDText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="right"
-        android:text="الوصفة/ الوصفات:"
-        android:textSize="18sp" />
-
-    <TextView
-        android:id="@+id/RecordsID"
-        android:layout_width="238dp"
-        android:layout_height="wrap_content"
-        android:background="@drawable/login_style"
-        android:ems="10"
-        android:focusable="false"
-        android:gravity="center|top"
-        android:inputType="none"
-        android:text="records ID"
-        android:textColor="@android:color/black"
-        android:textSize="18sp" />
+        app:layout_constraintTop_toBottomOf="@+id/PreviewToolBar">
 
 
         <LinearLayout
-            android:layout_width="311dp"
-            android:layout_height="146dp"
-            android:layout_marginTop="20dp"
-            android:gravity="center_horizontal|center_vertical"
-            android:orientation="horizontal">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="17dp">
 
-            <Button
-                android:id="@+id/CancelShare"
-                android:layout_width="150dp"
-                android:layout_height="53dp"
-                android:background="@drawable/login_btn"
-                android:text="الغاء"
-                android:textAllCaps="true"
-                android:textColor="#ffffff"
-                android:textSize="18dp"
-                android:textStyle="bold" />
 
-            <Button
-                android:id="@+id/sharebtn"
-                android:layout_width="150dp"
-                android:layout_height="53dp"
-                android:background="@drawable/login_btn"
-                android:text="مشاركة"
-                android:textAllCaps="true"
-                android:textColor="#ffffff"
-                android:textSize="18dp"
-                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/hcpnameText"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:gravity="right"
+                android:padding="10dp"
+                android:text="اسم مقدم الرعاية الصحية: "
+                android:textColor="@color/purple"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/hcpName"
+                android:layout_width="230dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/login_style"
+                android:ems="10"
+                android:focusable="false"
+                android:gravity="center|top"
+                android:inputType="none"
+                android:padding="10dp"
+                android:text="HCPName"
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/HCPText"
+                android:layout_width="200dp"
+                android:layout_height="40dp"
+                android:padding="10dp"
+                android:text="رقم مقدم الرعايه الصحيه:  "
+                android:textColor="@color/purple"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/hcpnameText" />
+
+            <TextView
+                android:id="@+id/HCPID"
+                android:layout_width="236dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/login_style"
+                android:ems="10"
+                android:focusable="false"
+                android:gravity="center"
+                android:inputType="none"
+                android:text="ID"
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/RecordsIDText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:text="التقارير:"
+                android:textColor="@color/purple"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/RecordsID"
+                android:layout_width="238dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/login_style"
+                android:ems="10"
+                android:focusable="false"
+                android:gravity="center|top"
+                android:inputType="none"
+                android:text="records ID"
+                android:textColor="@android:color/black"
+                android:textSize="18sp" />
 
 
         </LinearLayout>
-    </LinearLayout>
     </androidx.cardview.widget.CardView>
 
+    <Button
+        android:id="@+id/next"
+        android:layout_width="286dp"
+        android:layout_marginTop="15dp"
+        android:layout_height="53dp"
+        android:background="@drawable/buttonshape"
+        android:text="مشاركة"
+        android:textAllCaps="false"
+        android:textColor="#ffffff"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
+    <Button
+        android:id="@+id/CancelShare"
+        android:layout_width="286dp"
+        android:layout_height="53dp"
+        app:layout_goneMarginTop="15dp"
+        android:background="@drawable/cancelbutton"
+        android:text="إلغاء"
+        android:layout_marginTop="10dp"
+        android:textAllCaps="false"
+        android:textColor="#ffffff"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/next" />
 </androidx.constraintlayout.widget.ConstraintLayout>

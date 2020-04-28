@@ -73,8 +73,8 @@ public class ViewAllTypes extends AppCompatActivity {
             case 3: NoResult.setText("لايوجد أشعة ");
                 PageTitel.setText("الأشعة");
                 break;
-            case 4: NoResult.setText("لايوجد علامات حيوية ");
-                PageTitel.setText("العلامات الحيوية");
+            case 4: NoResult.setText("لايوجد مؤشرات حيوية ");
+                PageTitel.setText("المؤشرات الحيوية");
 
                 break;
             case 5: NoResult.setText("لايوجد تقارير طبية ");

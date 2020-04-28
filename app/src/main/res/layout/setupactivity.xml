@@ -8,7 +8,7 @@
     tools:context=".CreateRequest">
 
     <include
-        android:id="@+id/viewRequestToolbar"
+        android:id="@+id/PreviewToolBar"
         layout="@layout/toolbar"
         android:layout_width="match_parent"
         android:layout_height="40dp"
@@ -26,7 +26,7 @@
         app:cardCornerRadius="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/viewRequestToolbar">
+        app:layout_constraintTop_toBottomOf="@+id/PreviewToolBar">
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -38,7 +38,7 @@
 
 
             <RadioGroup
-                android:id="@+id/radioGroup"
+                android:id="@+id/editgender"
                 android:layout_width="306dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="7dp"
@@ -58,7 +58,7 @@
                     android:text="الجنس:"
                     android:textColor="@color/purple"
                     android:textSize="22sp"
-                    app:layout_constraintBottom_toTopOf="@+id/radioGroup"
+                    app:layout_constraintBottom_toTopOf="@+id/editgender"
                     app:layout_constraintTop_toBottomOf="@+id/viewHiveToolBar"
                     tools:layout_editor_absoluteX="43dp" />
 
@@ -92,7 +92,7 @@
                     android:textSize="22sp"
 
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+                    app:layout_constraintTop_toBottomOf="@+id/editgender" />
 
 
             </RadioGroup>
@@ -103,16 +103,16 @@
                 android:layout_height="21dp"
                 android:layout_margin="7dp"
                 app:layout_constraintBottom_toTopOf="@+id/DocId"
-                app:layout_constraintEnd_toEndOf="@+id/radioGroup"
+                app:layout_constraintEnd_toEndOf="@+id/editgender"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/radioGroup"
+                app:layout_constraintTop_toBottomOf="@+id/editgender"
                 app:layout_constraintVertical_bias="0.705"
                 app:srcCompat="@drawable/calendarr" />
 
 
             <TextView
-                android:id="@+id/dateV"
+                android:id="@+id/editdate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="00/00/0000"
@@ -126,7 +126,7 @@
 
 
             <Button
-                android:id="@+id/save"
+                android:id="@+id/editbutton"
                 android:layout_width="286dp"
                 android:layout_height="53dp"
                 android:background="@drawable/buttonshape"
@@ -139,7 +139,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.504"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/dateV" />
+                app:layout_constraintTop_toBottomOf="@+id/editdate" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -156,7 +156,7 @@
         android:textColor="#794D71"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/viewRequestToolbar"
+        app:layout_constraintBottom_toBottomOf="@+id/PreviewToolBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

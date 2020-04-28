@@ -21,11 +21,13 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.onesignal.OneSignal;
 public class MainActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private DatabaseReference UsersRef;
+    TextView Forgotpass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,10 +53,19 @@ public class MainActivity extends AppCompatActivity {
         mAuth=FirebaseAuth.getInstance();
         UsersRef= FirebaseDatabase.getInstance().getReference().child("Patients");
 
+/*
+        Forgotpass=(TextView)findViewById(R.id.ForgotPassword);
 
-
-
+        Forgotpass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sendUserToForgotPassword();
+            }
+        });
+ */
     }
+
+
     @Override
     protected void onStart(){
         super.onStart();
@@ -103,5 +114,10 @@ public class MainActivity extends AppCompatActivity {
     private void SendUserToSetUpActivity()
     {
         Toast.makeText(MainActivity.this, "User is recognised but null", Toast.LENGTH_SHORT).show();
+    }
+
+    private void sendUserToForgotPassword(){
+        Intent loginIntent=new Intent(MainActivity.this,ForgetPassword.class);
+        startActivity(loginIntent);
     }
 }

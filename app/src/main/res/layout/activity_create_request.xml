@@ -19,10 +19,23 @@
         app:menu="@menu/bottom_navigation" />
 
     <include
-        android:id="@+id/viewHiveToolBar"
+        android:id="@+id/PreviewToolBar"
         layout="@layout/toolbar"
-        android:layout_width="415dp"
-        android:layout_height="144dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView21"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="إرسال طلب"
+        android:textColor="@color/purple"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/PreviewToolBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -30,18 +43,18 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         android:layout_width="354dp"
+        android:layout_marginTop="25dp"
         android:layout_height="518dp"
         android:orientation="vertical"
         app:cardCornerRadius="4dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/PreviewToolBar">
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="354dp"
-            android:layout_height="524dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal|center_vertical"
             android:orientation="vertical"
             android:padding="17dp">
@@ -49,17 +62,18 @@
 
             <TextView
                 android:id="@+id/date"
+                android:textColor="@color/purple"
+                android:textSize="22dp"
                 android:layout_width="128dp"
                 android:layout_height="28dp"
                 android:text="نوع التقرير:"
-                android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.993"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <RadioGroup
-                android:id="@+id/radioGroup"
+                android:id="@+id/editgender"
                 android:layout_width="302dp"
                 android:layout_height="164dp"
                 android:layout_margin="7dp"
@@ -73,10 +87,18 @@
                     android:layout_height="wrap_content"
                     android:checked="true"
                     android:gravity="right"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"
+                    android:layoutDirection="rtl"
+                    android:layout_gravity="end"
                     android:text="مؤشرات حيوية" />
 
                 <RadioButton
                     android:id="@+id/pres"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"
+                    android:layoutDirection="rtl"
+                    android:layout_gravity="end"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="right"
@@ -87,6 +109,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="right"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"
+                    android:layoutDirection="rtl"
+                    android:layout_gravity="end"
                     android:text="أشعة" />
 
                 <RadioButton
@@ -94,13 +120,21 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="right"
-                    android:text="تحليل مختبر" />
+                    android:textSize="18sp"
+                    android:textColor="@color/black"
+                    android:layoutDirection="rtl"
+                    android:layout_gravity="end"
+                    android:text="تحاليل الدم" />
 
                 <RadioButton
                     android:id="@+id/mreport"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="right"
+                    android:textSize="18sp"
+                    android:textColor="@color/black"
+                    android:layoutDirection="rtl"
+                    android:layout_gravity="end"
                     android:text="تقرير" />
             </RadioGroup>
 
@@ -113,9 +147,10 @@
                 android:layout_marginEnd="104dp"
                 android:layout_marginRight="104dp"
                 android:text="اختر تاريخ الموعد"
+                android:textColor="@color/black"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+                app:layout_constraintTop_toBottomOf="@+id/editgender" />
 
             <ImageView
                 android:id="@+id/choosedatebtn"
@@ -123,11 +158,9 @@
                 android:layout_height="21dp"
                 android:layout_margin="7dp"
                 android:layout_marginTop="32dp"
-                android:layout_marginEnd="84dp"
-                android:layout_marginRight="84dp"
                 app:layout_constraintBottom_toTopOf="@+id/DocId"
-                app:layout_constraintEnd_toStartOf="@+id/Date"
-                app:layout_constraintTop_toBottomOf="@+id/radioGroup"
+                app:layout_constraintStart_toEndOf="@+id/Date"
+                app:layout_constraintTop_toBottomOf="@+id/editgender"
                 app:srcCompat="@drawable/calendarr" />
 
             <EditText
@@ -140,6 +173,7 @@
                 android:ems="10"
                 android:hint="رقم الطبيب"
                 android:inputType="textPersonName"
+                android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/Date" />
@@ -153,44 +187,32 @@
                 android:background="@drawable/login_style"
                 android:ems="10"
                 android:hint="ملاحظات"
+                android:textColor="@color/black"
                 android:inputType="textPersonName"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/DocId" />
 
+
             <Button
-                android:id="@+id/sendreq"
+                android:id="@+id/next"
                 android:layout_width="286dp"
                 android:layout_height="53dp"
-                android:layout_margin="7dp"
-                android:background="@drawable/login_btn"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/buttonshape"
                 android:text="إرسال الطلب"
-                android:textAllCaps="true"
+                android:textAllCaps="false"
                 android:textColor="#ffffff"
                 android:textSize="18dp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.496"
+                app:layout_constraintHorizontal_bias="0.504"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/Notes" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
-    <TextView
-        android:id="@+id/textView21"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="إرسال طلب"
-        android:textColor="#794D71"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/cardView"
-        app:layout_constraintEnd_toEndOf="@+id/viewHiveToolBar"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.706" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

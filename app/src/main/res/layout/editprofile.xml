@@ -19,116 +19,161 @@
         app:layout_constraintTop_toTopOf="parent"
         app:menu="@menu/bottom_navigation" />
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar2"
+
+    <include
+        android:id="@+id/PreviewToolBar"
+        layout="@layout/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="64dp"
-        android:background="@color/NoufColor2"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
+        android:layout_height="40dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/editbutton"
-        android:layout_width="328dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="440dp"
-        android:text="تعديل معلومات الحساب"
-        android:background="@drawable/login_btn"
-        android:textAllCaps="true"
-        android:textColor="#ffffff"
-        android:textSize="18dp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/logout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar2"
-        app:layout_constraintVertical_bias="0.25" />
-
-    <EditText
-        android:id="@+id/editname"
-        android:layout_width="328dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="152dp"
-        android:background="@drawable/sginin_style"
-        android:ems="10"
-        android:hint="الأسم"
-        android:inputType="textEmailAddress"
-        app:layout_constraintBottom_toTopOf="@+id/editbutton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar2"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <RadioGroup
-        android:id="@+id/editgender"
-        android:layout_width="328dp"
-        android:layout_height="90dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="152dp"
-        android:background="@drawable/sginin_style"
-        android:ems="10"
-        android:inputType="textEmailAddress"
-        app:layout_constraintBottom_toTopOf="@+id/editbutton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.023"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar2"
-        app:layout_constraintVertical_bias="0.35">
-
-        <RadioButton
-            android:id="@+id/male"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:gravity="left"
-            android:text="ذكر" />
-
-        <RadioButton
-            android:id="@+id/female"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="left"
-            android:text="أنثى" />
-    </RadioGroup>
-
-
-    <EditText
-        android:id="@+id/editdate"
-        android:layout_width="328dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="152dp"
-        android:background="@drawable/sginin_style"
-        android:ems="10"
-        android:hint="تاريخ الميلاد"
-        app:layout_constraintBottom_toTopOf="@+id/editbutton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.023"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar2"
-        app:layout_constraintVertical_bias="0.71" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/textView21"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="تعديل معلومات الحساب"
-        android:textColor="#FFFFFF"
+        android:text="تحرير معلومات الحساب"
+        android:textColor="#794D71"
         android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/PreviewToolBar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="@+id/toolbar2"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+
+    ---
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:orientation="vertical"
+        android:padding="17dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/PreviewToolBar">
+
+        <EditText
+            android:id="@+id/editname"
+            android:layout_width="300dp"
+            android:textColor="@color/black"
+            android:layout_height="53dp"
+            android:background="@drawable/login_style"
+            android:ems="10"
+            android:hint="الاسم"
+            app:layout_constraintEnd_toEndOf="@+id/editgender"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <RadioGroup
+            android:id="@+id/editgender"
+            android:layout_width="306dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="7dp"
+            android:gravity="right"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editname">
+
+            <TextView
+                android:id="@+id/gender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginEnd="2dp"
+                android:layout_marginRight="2dp"
+                android:gravity="right"
+                android:text="الجنس:"
+                android:textColor="@color/purple"
+                android:textSize="22sp"
+                app:layout_constraintBottom_toTopOf="@+id/editgender"
+                app:layout_constraintTop_toBottomOf="@+id/viewHiveToolBar"
+                tools:layout_editor_absoluteX="43dp" />
+
+            <RadioButton
+                android:id="@+id/male"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:checked="true"
+                android:layoutDirection="rtl"
+                android:text="ذكر"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:id="@+id/female"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layoutDirection="rtl"
+                android:text="أنثى"
+                android:textColor="@color/black"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="تاريخ الميلاد:"
+                android:textColor="@color/purple"
+                android:textSize="22sp"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editgender" />
+
+
+        </RadioGroup>
+
+        <ImageView
+            android:id="@+id/choosedatebtn"
+            android:layout_width="26dp"
+            android:layout_height="21dp"
+            android:layout_margin="7dp"
+            app:layout_constraintBottom_toTopOf="@+id/DocId"
+            app:layout_constraintEnd_toEndOf="@+id/editgender"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editgender"
+            app:layout_constraintVertical_bias="0.705"
+            app:srcCompat="@drawable/calendarr" />
+
+
+        <TextView
+            android:id="@+id/editdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:text="00/00/0000"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="@+id/choosedatebtn"
+            app:layout_constraintEnd_toStartOf="@+id/choosedatebtn"
+            app:layout_constraintTop_toTopOf="@+id/choosedatebtn" />
+
+
+        <Button
+            android:id="@+id/editbutton"
+            android:layout_width="286dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/buttonshape"
+            android:text="حفظ"
+            android:textAllCaps="false"
+            android:textColor="#ffffff"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.504"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editdate" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

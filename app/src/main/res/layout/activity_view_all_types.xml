@@ -5,11 +5,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ViewAllTypes">
+
     <include
-        android:id="@+id/viewRecordsToolBar"
+        android:id="@+id/PreviewToolBar"
         layout="@layout/toolbar"
-        android:layout_width="413dp"
-        android:layout_height="82dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/Titele"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="عنوان الصفحة"
+        android:textColor="@color/purple"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/PreviewToolBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -18,11 +32,13 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/BloodTestList"
         android:layout_width="406dp"
+        android:layout_marginTop="20dp"
         android:layout_height="556dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/PreviewToolBar" />
+
+
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
@@ -39,26 +55,17 @@
         android:id="@+id/NoBloodTests"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="لايوجد تحاليل "
-        android:textSize="24sp"
+        android:text="لايوجد تقارير "
+        android:textColor="@color/purple"
+        android:textSize="26dp"
         android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="@+id/BloodTestList"
+        android:layout_marginBottom="400dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/BloodTestList" />
+        app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:id="@+id/Titele"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:text="عنوان الصفحة"
-        android:textColor="#794D71"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

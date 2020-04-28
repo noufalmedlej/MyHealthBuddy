@@ -1,14 +1,20 @@
 package com.example.myhealthbuddy;
 
+import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -40,6 +46,11 @@ public class EditProfile extends AppCompatActivity {
     private String currentUser;
     private RadioButton male,female;
     FirebaseUser currentuser;
+    TextView birthdate;
+
+    private ImageView chosedate;
+    private DatePickerDialog.OnDateSetListener mDatasetListner;
+    private String date;
 
 
     @Override
@@ -57,7 +68,8 @@ public class EditProfile extends AppCompatActivity {
         });
         currentuser = FirebaseAuth.getInstance().getCurrentUser();
         editprofilename = (EditText) findViewById(R.id.editname);
-        editbirthdate = (EditText) findViewById(R.id.editdate);
+
+        birthdate=findViewById(R.id.editdate);
         male = (RadioButton) findViewById(R.id.male);
         female=(RadioButton) findViewById(R.id.female);
 
@@ -78,7 +90,8 @@ public class EditProfile extends AppCompatActivity {
 
 
                         editprofilename.setText(name);
-                        editbirthdate.setText(date);
+                        birthdate.setText(date);
+
                         if (gender.equals("Male")){
                             male.setChecked(true);
                         }
@@ -95,6 +108,31 @@ public class EditProfile extends AppCompatActivity {
 
             }
         });
+
+        chosedate=(ImageView)findViewById(R.id.choosedatebtn);
+        chosedate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Calendar cal=Calendar.getInstance();
+                int year=cal.get(Calendar.YEAR);
+                int month=cal.get(Calendar.MONTH);
+                int day=cal.get(Calendar.DAY_OF_MONTH);
+
+                DatePickerDialog dialog=new DatePickerDialog(EditProfile.this,android.R.style.Theme_DeviceDefault_Dialog_MinWidth,mDatasetListner,year,month,day);
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dialog.show();
+
+            }
+        });
+
+        mDatasetListner=new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                month=month+1;
+                date=dayOfMonth+"/"+month+"/"+year;
+                birthdate.setText(date);
+            }
+        };
 
 
         editbutton.setOnClickListener(new View.OnClickListener() {

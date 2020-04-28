@@ -12,7 +12,9 @@
         layout="@layout/toolbar"
         android:layout_width="418dp"
         android:layout_height="125dp"
-        tools:layout_editor_absoluteX="-3dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.cardview.widget.CardView
         android:layout_width="350dp"
@@ -43,7 +45,7 @@
                 android:layout_marginLeft="5dp"
                 android:background="#ffffffff"
                 android:ems="10"
-                android:hint="   رقم مقدم الرعاية الصحيه .."
+                android:hint="   رقم مقدم الرعاية الصحية.."
                 android:imeOptions="actionSearch"
                 android:inputType="textPersonName"
                 android:lines="1"
@@ -68,7 +70,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="88dp"
         android:text="اختر مقدم الرعاية الصحية"
-        android:textColor="#794D71"
+        android:textColor="@color/purple"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/recordShareList"
         app:layout_constraintEnd_toEndOf="parent"
@@ -83,7 +85,7 @@
         android:layout_height="613dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentLeft="true"
-        app:layout_constraintBottom_toBottomOf="parent"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.47"
         app:layout_constraintStart_toStartOf="parent"
@@ -91,19 +93,19 @@
         app:layout_constraintTop_toBottomOf="@+id/viewHiveToolBar"
         app:layout_constraintVertical_bias="0.483" />
 
+
     <TextView
         android:id="@+id/NoResult2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="140dp"
         android:text="لايوجد أطباء "
-        android:textSize="24sp"
+        android:textColor="@color/purple"
+        android:textSize="26dp"
+        android:visibility="invisible"
+        android:layout_marginBottom="400dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.484"
-        app:layout_constraintStart_toStartOf="@+id/HCPresult"
-        app:layout_constraintTop_toTopOf="@+id/HCPresult"
-        android:visibility="invisible"/>
-
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

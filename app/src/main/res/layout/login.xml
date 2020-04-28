@@ -47,7 +47,7 @@
         app:layout_constraintTop_toBottomOf="@+id/password" />
 
     <Button
-        android:id="@+id/login"
+        android:id="@+id/next"
         android:layout_width="286dp"
         android:layout_height="53dp"
         android:layout_marginTop="40dp"
@@ -63,7 +63,7 @@
         app:layout_constraintTop_toBottomOf="@+id/password" />
 
     <Button
-        android:id="@+id/reg"
+        android:id="@+id/CancelShare"
         android:layout_width="286dp"
         android:layout_height="53dp"
         android:background="@drawable/cancelbutton"
@@ -76,7 +76,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login" />
+        app:layout_constraintTop_toBottomOf="@+id/next" />
 
     <ImageView
         android:id="@+id/imageView"

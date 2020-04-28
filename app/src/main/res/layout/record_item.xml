@@ -123,7 +123,7 @@
             android:text="اسم مقدم الرعاية الصحية"
             android:textAlignment="viewEnd"
 
-            android:textColor="#000000"
+
             android:textSize="14sp" />
 
         <TextView
@@ -145,7 +145,7 @@
             android:gravity="end"
             android:text="الرقم "
             android:textAlignment="viewEnd"
-            android:textColor="#000000"
+
             android:textSize="14sp" />
 
         <TextView
@@ -165,7 +165,7 @@
             android:layout_marginRight="78dp"
             android:layout_marginBottom="29dp"
             android:text="النوع "
-            android:textColor="#000000"
+
             android:textSize="14sp" />
 
         <TextView
@@ -187,7 +187,7 @@
             android:gravity="end"
             android:text="اسم المريض "
             android:textAlignment="viewEnd"
-            android:textColor="#050000"
+
             android:textSize="14sp" />
 
         <TextView
@@ -217,7 +217,7 @@
             android:layout_alignParentRight="true"
             android:layout_marginEnd="1dp"
             android:layout_marginRight="1dp"
-            android:background="#794D71"
+            android:background="@color/purple"
             android:clickable="false" />
 
         <TextView

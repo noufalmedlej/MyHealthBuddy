@@ -1,6 +1,5 @@
 package com.example.myhealthbuddy;
 import android.app.DatePickerDialog;
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -46,7 +45,7 @@ public class SetUp extends AppCompatActivity {
 
         male=(RadioButton)findViewById(R.id.male);
         female=(RadioButton)findViewById(R.id.female);
-        save=(Button) findViewById(R.id.save);
+        save=(Button) findViewById(R.id.editbutton);
         dat=(TextView)findViewById(R.id.date);
         dat.setOnClickListener(new View.OnClickListener() {
             @Override

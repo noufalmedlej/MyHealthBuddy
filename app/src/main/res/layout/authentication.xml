@@ -9,88 +9,99 @@
     tools:context=".Authenticate">
 
     <include
-        android:id="@+id/viewHiveToolBar"
+        android:id="@+id/PreviewToolBar"
         layout="@layout/toolbar"
-        android:layout_width="413dp"
-        android:layout_height="82dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/textView21"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="التحقق"
+        android:textColor="@color/purple"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/PreviewToolBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/code"
-        android:layout_width="300dp"
-        android:layout_height="53dp"
-        android:layout_marginBottom="384dp"
-        android:background="@drawable/sginin_style"
-        android:ems="10"
-        android:hint="الرمز"
-        android:inputType="textEmailAddress"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.558"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/viewHiveToolBar"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <Button
-        android:id="@+id/check"
-        android:text="تحقق"
+        android:id="@+id/mailll"
         android:layout_width="286dp"
         android:layout_height="53dp"
-        android:layout_margin="7dp"
-        android:background="@drawable/login_btn"
-        android:textAllCaps="true"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/login_style"
+        android:cursorVisible="false"
+        android:ems="10"
+        android:textColor="@color/black"
+        android:gravity="right"
+        android:hint="الرمز"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView19" />
+
+
+    <Button
+        android:id="@+id/reset"
+        android:layout_width="286dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/buttonshape"
+        android:text="التحقق"
+        android:textAllCaps="false"
         android:textColor="#ffffff"
         android:textSize="18dp"
         android:textStyle="bold"
-
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.573" />
+        app:layout_constraintTop_toBottomOf="@+id/mailll" />
 
     <ProgressBar
         android:id="@+id/progressbar"
         style="?android:attr/progressBarStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/code"
+        android:layout_below="@+id/mailll"
         android:layout_centerHorizontal="true"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.532"
-        android:visibility="gone"/>
+        app:layout_constraintVertical_bias="0.532" />
 
     <TextView
         android:id="@+id/textView18"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:text="تم ارسال رمز الى رقم الجوال المربوط بالهوية الوطنية."
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView19"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:text="تم إرسال الرمز إلى رقم الجوال المرتبط بالهوية الوطنية."
+        android:textColor="@color/purple"
+        android:textSize="22dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/viewHiveToolBar"
-        app:layout_constraintVertical_bias="0.458" />
+        app:layout_constraintTop_toBottomOf="@+id/PreviewToolBar" />
 
 
     <TextView
         android:id="@+id/textView19"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="68dp"
-        android:text="يرجى ادخاله للتحقق من صحة بياناتك"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/code"
+        android:layout_marginTop="15dp"
+        android:text="يرجى إدخال الرمز المرسل للتحقق من صحة بياناتك"
+        android:textColor="@color/black"
+        android:textSize="14dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView18" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

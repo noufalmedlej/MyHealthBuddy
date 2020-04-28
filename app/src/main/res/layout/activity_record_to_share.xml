@@ -7,10 +7,23 @@
     tools:context=".ViewRecordtoShare">
 
     <include
-        android:id="@+id/ToolBar"
+        android:id="@+id/PreviewToolBar"
         layout="@layout/toolbar"
-        android:layout_width="413dp"
-        android:layout_height="82dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView21"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="اختر التقارير التي تود مشاركتها"
+        android:textColor="@color/purple"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/PreviewToolBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -30,58 +43,43 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recordShareList"
-        android:layout_width="388dp"
+        android:layout_width="match_parent"
         android:layout_height="519dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.478"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.429" />
+        app:layout_constraintTop_toBottomOf="@+id/PreviewToolBar" />
+
 
     <Button
         android:id="@+id/next"
-        android:layout_width="302dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        android:background="@drawable/login_btn"
-        android:text="التالي"
+        android:layout_width="286dp"
+        android:layout_height="53dp"
+        android:background="@drawable/buttonshape"
+        android:text="مشاركة"
+        android:textAllCaps="false"
         android:textColor="#ffffff"
-
-        android:textSize="18sp"
+        android:textSize="18dp"
         android:textStyle="bold"
+        android:layout_marginBottom="12dp"
         app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recordShareList"
-        app:layout_constraintVertical_bias="0.714" />
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="اختر التقارير التي تود مشاركتها"
-        android:textColor="#794D71"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/recordShareList"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/viewHiveToolBar"
-        app:layout_constraintVertical_bias="0.426" />
+
 
     <TextView
         android:id="@+id/NoResult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="256dp"
+        android:text="لايوجد تقارير"
+        android:textColor="@color/purple"
+        android:textSize="26dp"
         android:visibility="invisible"
-        android:text="لايوجد تقارير "
-        app:layout_constraintEnd_toEndOf="@+id/recordShareList"
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="@+id/recordShareList"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        android:layout_marginBottom="400dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

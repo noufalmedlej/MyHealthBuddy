@@ -37,8 +37,8 @@ public class Authenticate extends AppCompatActivity{
         mAuth = FirebaseAuth.getInstance();
 
         progressBar = findViewById(R.id.progressbar);
-        check= findViewById(R.id.check);
-        Code = findViewById(R.id.code);
+        check= findViewById(R.id.reset);
+        Code = findViewById(R.id.mailll);
         Intent intent = getIntent();
         Bundle extras = intent.getExtras();
         // String username = extras.getString("name");

@@ -63,7 +63,7 @@ public class CreateRequest extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_request);
 
-        sendreq=(Button)findViewById(R.id.sendreq);
+        sendreq=(Button)findViewById(R.id.next);
         docId=(EditText)findViewById(R.id.DocId);
         dat=(TextView)findViewById(R.id.Date);
         not=(EditText)findViewById(R.id.Notes);

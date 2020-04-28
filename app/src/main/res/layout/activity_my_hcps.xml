@@ -7,10 +7,23 @@
     tools:context=".MyHCPs">
 
     <include
-        android:id="@+id/MyHCPToolBar"
+        android:id="@+id/PreviewToolBar"
         layout="@layout/toolbar"
-        android:layout_width="413dp"
-        android:layout_height="82dp"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView21"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="أطبائي"
+        android:textColor="@color/purple"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/PreviewToolBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -29,37 +42,30 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/MyHCPsresult"
+        android:layout_marginTop="20dp"
         android:layout_width="413dp"
         android:layout_height="601dp"
-        android:layout_marginTop="3dp"
         app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/MyHCPToolBar" />
+        app:layout_constraintTop_toBottomOf="@+id/PreviewToolBar" />
+
+
 
     <TextView
         android:id="@+id/Noresult"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="188dp"
-        android:text="لايوجد اطباء "
-        android:textSize="24sp"
+        android:text="لايوجد أطباء "
+        android:textColor="@color/purple"
+        android:textSize="26dp"
+        android:visibility="invisible"
+        android:layout_marginBottom="400dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/MyHCPsresult"
-        android:visibility="invisible"/>
+        app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:id="@+id/textView10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="أطبائي "
-        android:textColor="#794D71"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="@+id/MyHCPToolBar"
-        app:layout_constraintTop_toTopOf="@+id/MyHCPToolBar" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -16,7 +16,7 @@
         app:menu="@menu/bottom_navigation" />
 
     <include
-        android:id="@+id/viewRequestToolbar"
+        android:id="@+id/PreviewToolBar"
         layout="@layout/toolbar"
         android:layout_width="match_parent"
         android:layout_height="40dp"
@@ -34,7 +34,7 @@
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/gridLayout"
         app:layout_constraintEnd_toEndOf="@+id/gridLayout"
-        app:layout_constraintTop_toBottomOf="@+id/viewRequestToolbar" />
+        app:layout_constraintTop_toBottomOf="@+id/PreviewToolBar" />
 
     <TextView
         android:id="@+id/name"
@@ -234,7 +234,7 @@
         app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/viewRequestToolbar">
+        app:layout_constraintTop_toBottomOf="@+id/PreviewToolBar">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/pillscard"
@@ -299,7 +299,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="تحاليل المختبر"
+                    android:text="تحاليل  الدم"
                     android:textAlignment="center" />
             </LinearLayout>
 
