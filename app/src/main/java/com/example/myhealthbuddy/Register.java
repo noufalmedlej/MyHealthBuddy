@@ -41,7 +41,7 @@ public class Register extends AppCompatActivity {
         userPassword = findViewById(R.id.pass);
         userPassword2 = findViewById(R.id.pass2);
         userName = findViewById(R.id.name);
-        UserNID = findViewById(R.id.email);
+        UserNID = findViewById(R.id.ID);
         UserPhone = findViewById(R.id.phone);
         regBtn = findViewById(R.id.regBtn);
         login = findViewById(R.id.loginn);
@@ -77,6 +77,7 @@ public class Register extends AppCompatActivity {
                 if (!phoneValid(phone)) {
                     return;
                 }
+
                 // check NID
                 if (!NationalIDValid(NID)){
                     return;
@@ -86,7 +87,7 @@ public class Register extends AppCompatActivity {
 
 
 
-                final String phonee="+966"+phone;
+                final String phonee="+966"+phone.substring(1);
                 DatabaseReference authentication= FirebaseDatabase.getInstance("https://mockup-8ca7f.firebaseio.com").getReference().child("info");
                 authentication.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
@@ -171,17 +172,32 @@ public class Register extends AppCompatActivity {
 
         boolean flag=true;
 
-
-        if (!UpperCasePatten.matcher(passwordhere).find()||!lowerCasePatten.matcher(passwordhere).find()||!digitCasePatten.matcher(passwordhere).find()||passwordhere.length()<8) {
-            userPassword.setError("يجب ان لا يقل الرمز السري عن 8 رموز ويحتوي على ارقام وحروف كبيرة وصغيرة ");
-            userPassword.requestFocus();
+        if (!passwordhere.equals(passwordhere2)) {
             flag=false;
-        }
-
-        if (!(passwordhere.equals(passwordhere2))){
             showMessage("الرمز السري غير متطابق");
-            flag=false;
         }
+        else {
+            if (!UpperCasePatten.matcher(passwordhere).find()) {
+                flag = false;
+            }
+            if (!lowerCasePatten.matcher(passwordhere).find()) {
+                flag = false;
+            }
+            if (!digitCasePatten.matcher(passwordhere).find()) {
+                flag = false;
+            }
+            if (passwordhere.length() < 8) {
+                flag = false;
+            }
+
+
+            if (flag == false) {
+                userPassword.setError("يجب ان لا يقل الرمز السري عن 8 رموز ويحتوي على ارقام وحروف كبيرة وصغيرة ");
+                userPassword.requestFocus();
+
+            }
+        }
+
 
 
         return flag;
@@ -201,14 +217,14 @@ if( Email.isEmpty() || password2.isEmpty() || password.isEmpty()|| Name.isEmpty(
     public boolean phoneValid(String phone){
         boolean flag=true;
     //length
-       if ( phone.length()<9 || phone.length()>9) {
-            UserPhone.setError("يحب ان يتكون رقم الجوال من 9 خانات");
+       if ( phone.length()<10 || phone.length()>10) {
+            UserPhone.setError("يحب ان يتكون رقم الجوال من 10 خانات");
             UserPhone.requestFocus();
        flag=false;
     }
        // start with 5
-        if ( !phone.startsWith("5")) {
-            UserPhone.setError("يحب ان يبدأ رقم الجوال ب5");
+        if ( !phone.substring(0,2).equals("05")) {
+            UserPhone.setError("يحب ان يبدأ رقم الجوال ب05");
             UserPhone.requestFocus();
             flag=false;
         }
@@ -231,7 +247,7 @@ if( Email.isEmpty() || password2.isEmpty() || password.isEmpty()|| Name.isEmpty(
         }
         // check for non numeric
         if ( !NID.matches("[0-9]+")) {
-            UserNID.setError("يجب ان لايحتوي رقم الهوية الوطنية على رموز");
+            UserNID.setError("يجب ان لا يحتوي رقم الهوية الوطنية على رموز");
             UserNID.requestFocus();
             flag=false;
         }
