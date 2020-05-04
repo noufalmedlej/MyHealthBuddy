@@ -194,6 +194,16 @@ public class ViewRecord extends AppCompatActivity {
                 Intent intentsearch=new Intent(ViewRecord.this, Profile.class);
                 startActivity(intentsearch);
                 break;
+
+            case R.id.nav_home:
+                Intent intentHome = new Intent(ViewRecord.this, HomePage.class);
+                startActivity(intentHome);
+                break;
+
+            case R.id.nav_not:
+                Intent intentnot = new Intent(ViewRecord.this, ViewRecordsNotificatins.class);
+                startActivity(intentnot);
+                break;
         }
     }
 

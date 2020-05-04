@@ -90,6 +90,7 @@ public class CreateRequest extends AppCompatActivity {
 
                 DatePickerDialog dialog=new DatePickerDialog(CreateRequest.this,android.R.style.Theme_DeviceDefault_Dialog_MinWidth,mDatasetListner,year,month,day);
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dialog.getDatePicker().setMaxDate(System.currentTimeMillis());
                 dialog.show();
 
             }
@@ -367,6 +368,11 @@ public class CreateRequest extends AppCompatActivity {
             case R.id.nav_share:
                 Intent intent = new Intent(CreateRequest.this, ViewRecordtoShare.class);
                 startActivity(intent);
+                break;
+
+            case R.id.nav_not:
+                Intent intentnot=new Intent(CreateRequest.this, ViewRecordsNotificatins.class);
+                startActivity(intentnot);
                 break;
         }
     }

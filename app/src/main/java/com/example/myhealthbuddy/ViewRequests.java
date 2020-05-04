@@ -84,6 +84,11 @@ public class ViewRequests extends AppCompatActivity {
                 Intent intentsearch=new Intent(ViewRequests.this, Profile.class);
                 startActivity(intentsearch);
                 break;
+
+            case R.id.nav_not:
+                Intent intentnot = new Intent(ViewRequests.this, ViewRecordsNotificatins.class);
+                startActivity(intentnot);
+                break;
         }
     }
 }

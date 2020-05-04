@@ -330,6 +330,17 @@ public class ViewBloodTest extends AppCompatActivity {
                 Intent intentsearch=new Intent(ViewBloodTest.this, Profile.class);
                 startActivity(intentsearch);
                 break;
+
+
+            case R.id.nav_home:
+                Intent intentHome = new Intent(ViewBloodTest.this, HomePage.class);
+                startActivity(intentHome);
+                break;
+
+            case R.id.nav_not:
+                Intent intentnot = new Intent(ViewBloodTest.this, ViewRecordsNotificatins.class);
+                startActivity(intentnot);
+                break;
         }
     }
 }

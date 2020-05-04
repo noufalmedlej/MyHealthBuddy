@@ -202,6 +202,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="12dp"
+                        android:layout_marginRight="12dp"
                         android:gravity="right"
                         android:text="Gender"
                         android:textColor="@color/black"
@@ -259,15 +260,17 @@
 
                     <TextView
                         android:id="@+id/doctorsSpecialty"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="192dp"
-                        android:layout_marginLeft="192dp"
+                        android:layout_width="258dp"
+                        android:layout_height="26dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginLeft="16dp"
                         android:gravity="right"
                         android:text="Speciality"
                         android:textColor="#000000"
                         android:textSize="18sp"
                         app:layout_constraintBottom_toTopOf="@+id/hospitalName"
+                        app:layout_constraintEnd_toStartOf="@+id/textViewsss"
+                        app:layout_constraintHorizontal_bias="0.0"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/doctorName" />
 
@@ -376,14 +379,18 @@
 
                     <TextView
                         android:id="@+id/testDate"
-                        android:layout_width="match_parent"
+                        android:layout_width="360dp"
                         android:layout_height="wrap_content"
+                        android:gravity="end"
                         android:text="testDate"
-                        android:layout_gravity="end"
+                        android:textAlignment="viewEnd"
                         android:textColor="@color/black"
                         android:textSize="18sp"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/testDateL" />
+                        app:layout_constraintTop_toBottomOf="@+id/testDateL"
+
+
+                        />
 
                     <TextView
                         android:id="@+id/findingsL"
@@ -398,10 +405,11 @@
 
                     <TextView
                         android:id="@+id/findings"
-                        android:layout_width="match_parent"
+                        android:layout_width="357dp"
                         android:layout_height="wrap_content"
-                        android:text="Findings"
                         android:gravity="end"
+                        android:textAlignment="viewEnd"
+                        android:text="Findings"
                         android:textColor="@color/black"
                         android:textSize="18sp"
                         app:layout_constraintStart_toStartOf="parent"
@@ -420,10 +428,12 @@
 
                     <TextView
                         android:id="@+id/impression"
-                        android:layout_width="match_parent"
+                        android:layout_width="357dp"
                         android:layout_height="wrap_content"
+
                         android:text="Impression"
                         android:gravity="end"
+                        android:textAlignment="viewEnd"
                         android:textColor="@color/black"
                         android:textSize="18sp"
                         app:layout_constraintStart_toStartOf="parent"
@@ -444,14 +454,15 @@
 
                     <TextView
                         android:id="@+id/note"
-                        android:layout_width="match_parent"
+                        android:layout_width="360dp"
                         android:layout_height="wrap_content"
-                        android:text="Notes....."
                         android:gravity="end"
-                        android:textColor="@color/black"
+                        android:text="Notes....."
+                        android:textAlignment="viewEnd"
+                        android:textColor="#000000"
                         android:textSize="18sp"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/noteL" />
+                        app:layout_constraintTop_toBottomOf="@+id/notesL"/>
 
                 </LinearLayout>
 

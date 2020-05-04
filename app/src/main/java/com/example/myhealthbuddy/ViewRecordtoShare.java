@@ -102,7 +102,7 @@ public class ViewRecordtoShare extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Toast.makeText(ViewRecordtoShare.this, "Some thong went wrong ",Toast.LENGTH_SHORT).show();
+                Toast.makeText(ViewRecordtoShare.this, "لقد حدث خطأ ",Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -129,8 +129,8 @@ public class ViewRecordtoShare extends AppCompatActivity {
 
     private void UserMenuSelector(MenuItem item) {
         switch (item.getItemId()){
-            case R.id.nav_home:
-                Intent intent = new Intent(ViewRecordtoShare.this, HomePage.class);
+            case R.id.nav_share:
+                Intent intent = new Intent(ViewRecordtoShare.this, ViewRecordtoShare.class);
                 startActivity(intent);
                 break;
 
@@ -142,6 +142,11 @@ public class ViewRecordtoShare extends AppCompatActivity {
             case R.id.nav_person:
                 Intent intentsearch=new Intent(ViewRecordtoShare.this, Profile.class);
                 startActivity(intentsearch);
+                break;
+
+            case R.id.nav_not:
+                Intent intentnot=new Intent(ViewRecordtoShare.this, ViewRecordsNotificatins.class);
+                startActivity(intentnot);
                 break;
         }
     }

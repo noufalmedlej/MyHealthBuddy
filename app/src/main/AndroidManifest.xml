@@ -37,6 +37,7 @@
         <activity android:name=".ViewRequests" />
         <activity android:name=".Authenticate" />
         <activity android:name=".ViewRecordtoShare" />
+        <activity android:name=".ViewRequestDetails" />
         <activity android:name=".Settings" />
         <activity android:name=".EditProfile" />
         <activity android:name=".SetUp" />

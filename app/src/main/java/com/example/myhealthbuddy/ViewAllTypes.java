@@ -208,6 +208,16 @@ public class ViewAllTypes extends AppCompatActivity {
                 Intent intentsearch=new Intent(ViewAllTypes.this, Profile.class);
                 startActivity(intentsearch);
                 break;
+
+            case R.id.nav_home:
+                Intent intentHome = new Intent(ViewAllTypes.this, HomePage.class);
+                startActivity(intentHome);
+                break;
+
+            case R.id.nav_not:
+                Intent intentnot = new Intent(ViewAllTypes.this, ViewRecordsNotificatins.class);
+                startActivity(intentnot);
+                break;
         }
     }
 

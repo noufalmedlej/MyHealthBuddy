@@ -382,8 +382,9 @@
                         android:id="@+id/testDate"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:gravity="end"
                         android:text="Medication"
-                        android:gravity="right"
+                        android:textAlignment="textEnd"
                         android:textColor="#000000"
                         android:textSize="18sp"
                         app:layout_constraintStart_toStartOf="parent"
@@ -403,9 +404,11 @@
 
                     <TextView
                         android:id="@+id/findings"
-                        android:layout_width="match_parent"
+                        android:layout_width="358dp"
                         android:layout_height="wrap_content"
+                        android:gravity="end"
                         android:text="Dose"
+                        android:textAlignment="textEnd"
                         android:textColor="#000000"
                         android:textSize="18sp"
                         app:layout_constraintStart_toStartOf="parent"
@@ -425,9 +428,11 @@
 
                     <TextView
                         android:id="@+id/impression"
-                        android:layout_width="match_parent"
+                        android:layout_width="360dp"
                         android:layout_height="wrap_content"
+                        android:gravity="end"
                         android:text="Time"
+                        android:textAlignment="textEnd"
                         android:textColor="#000000"
                         android:textSize="18sp"
                         app:layout_constraintStart_toStartOf="parent"
@@ -448,9 +453,11 @@
 
                     <TextView
                         android:id="@+id/duration"
-                        android:layout_width="match_parent"
+                        android:layout_width="360dp"
                         android:layout_height="wrap_content"
+                        android:gravity="end"
                         android:text="Duration"
+                        android:textAlignment="textEnd"
                         android:textColor="#000000"
                         android:textSize="18sp"
                         app:layout_constraintStart_toStartOf="parent"
@@ -470,9 +477,11 @@
 
                     <TextView
                         android:id="@+id/note"
-                        android:layout_width="386dp"
+                        android:layout_width="360dp"
                         android:layout_height="wrap_content"
+                        android:gravity="end"
                         android:text="Notes....."
+                        android:textAlignment="textEnd"
                         android:textColor="#000000"
                         android:textSize="18sp"
                         app:layout_constraintStart_toStartOf="parent"
@@ -490,6 +499,7 @@
                 android:background="?attr/selectableItemBackground"
                 android:drawableRight="@drawable/attachpurple"
                 android:gravity="right"
+
                 android:minHeight="1dp"
                 android:text="معاينة الملف "
                 android:textAllCaps="false"

@@ -198,6 +198,17 @@ public class ViewVitalSigns extends AppCompatActivity {
                 Intent intentsearch=new Intent(ViewVitalSigns.this, Profile.class);
                 startActivity(intentsearch);
                 break;
+
+
+            case R.id.nav_home:
+                Intent intentHome = new Intent(ViewVitalSigns.this, HomePage.class);
+                startActivity(intentHome);
+                break;
+
+            case R.id.nav_not:
+                Intent intentnot = new Intent(ViewVitalSigns.this, ViewRecordsNotificatins.class);
+                startActivity(intentnot);
+                break;
         }
     }
 

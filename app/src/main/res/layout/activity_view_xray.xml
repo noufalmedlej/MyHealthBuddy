@@ -374,15 +374,17 @@
 
                     <TextView
                         android:id="@+id/testDate"
-                        android:layout_width="match_parent"
+                        android:layout_width="360dp"
                         android:layout_height="wrap_content"
+                        android:gravity="end"
                         android:text="testDate"
-                        android:layout_gravity="end"
                         android:textAlignment="viewEnd"
                         android:textColor="@color/black"
                         android:textSize="18sp"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/testDateL" />
+                        app:layout_constraintTop_toBottomOf="@+id/testDateL"
+
+                        />
 
                     <TextView
                         android:id="@+id/findingsL"
@@ -397,10 +399,11 @@
 
                     <TextView
                         android:id="@+id/findings"
-                        android:layout_width="match_parent"
+                        android:layout_width="360dp"
                         android:layout_height="wrap_content"
-                        android:text="Findings"
                         android:gravity="end"
+                        android:text="Findings"
+                        android:textAlignment="viewEnd"
                         android:textColor="@color/black"
                         android:textSize="18sp"
                         app:layout_constraintStart_toStartOf="parent"
@@ -419,10 +422,11 @@
 
                     <TextView
                         android:id="@+id/impression"
-                        android:layout_width="match_parent"
+                        android:layout_width="357dp"
                         android:layout_height="wrap_content"
-                        android:text="Impression"
                         android:gravity="end"
+                        android:text="Impression"
+                        android:textAlignment="viewEnd"
                         android:textColor="@color/black"
                         android:textSize="18sp"
                         app:layout_constraintStart_toStartOf="parent"
@@ -443,14 +447,15 @@
 
                     <TextView
                         android:id="@+id/note"
-                        android:layout_width="match_parent"
+                        android:layout_width="360dp"
                         android:layout_height="wrap_content"
-                        android:text="Notes....."
                         android:gravity="end"
-                        android:textColor="@color/black"
+                        android:text="Notes....."
+                        android:textAlignment="viewEnd"
+                        android:textColor="#000000"
                         android:textSize="18sp"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/noteL" />
+                        app:layout_constraintTop_toBottomOf="@+id/notesL" />
 
                 </LinearLayout>
 

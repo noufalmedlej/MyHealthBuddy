@@ -201,6 +201,15 @@ public class MyHCPs extends AppCompatActivity {
                 Intent intentsearch=new Intent(MyHCPs.this, Profile.class);
                 startActivity(intentsearch);
                 break;
+            case R.id.nav_home:
+                Intent intenthome=new Intent(MyHCPs.this, HomePage.class);
+                startActivity(intenthome);
+                break;
+
+            case R.id.nav_not:
+                Intent intentnot=new Intent(MyHCPs.this, ViewRecordsNotificatins.class);
+                startActivity(intentnot);
+                break;
         }
     }
 }
