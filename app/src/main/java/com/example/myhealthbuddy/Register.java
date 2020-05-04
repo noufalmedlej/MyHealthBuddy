@@ -84,28 +84,12 @@ public class Register extends AppCompatActivity {
                 if (!NationalIDValid(NID)){
                     return;
                 }
-                // to check if the NID is already in use
-                DatabaseReference ref= FirebaseDatabase.getInstance().getReference().child("Patients");
-                ref.addListenerForSingleValueEvent(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                        for (DataSnapshot postsnapshot : dataSnapshot.getChildren()) {
-                            String key1 = postsnapshot.getKey();
-                            if ((dataSnapshot.child(key1).child("national_id").getValue().equals(NID))){
-                                UserNID.setError("رقم الهوية الوطنية مستخدم");
-                                exists=true;
-                                return;
-                            }}
-                    }
 
 
-
-                    @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
-                    }
-                });
-                if (exists==true)
+                if (NationalIDnew(NID)){
+                    UserNID.setError("رقم الهوية الوطنية مستخدم");
                     return;
+                }
 
 
 
@@ -276,4 +260,27 @@ if( Email.isEmpty() || password2.isEmpty() || password.isEmpty()|| Name.isEmpty(
         }
         return flag;
     }
+    public boolean NationalIDnew(final String NID) {
+
+exists= false;
+        // to check if the NID is already in use
+        DatabaseReference ref= FirebaseDatabase.getInstance().getReference().child("Patients");
+        ref.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                for (DataSnapshot postsnapshot : dataSnapshot.getChildren()) {
+                    String key1 = postsnapshot.getKey();
+                    if ((dataSnapshot.child(key1).child("national_id").getValue().equals(NID))){
+                       exists = true;
+                        break;
+                    }}
+            }
+
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+            }
+        });
+    return exists;}
     }

@@ -161,8 +161,11 @@ public class EditProfile extends AppCompatActivity {
                         gender="Female";
                     String date=editbirthdate.getText().toString();
                     HashMap hivesmap = new HashMap();
+                    if (!name.isEmpty())
                     hivesmap.put("name", name);
+                    if (date!=null)
                     hivesmap.put("birthdate", date);
+                    if (!gender.isEmpty())
                     hivesmap.put("gender", gender);
 
                     editprofRef.updateChildren(hivesmap).addOnCompleteListener(new OnCompleteListener() {
