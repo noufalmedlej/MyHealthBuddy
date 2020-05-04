@@ -37,7 +37,7 @@ public class ViewRequestDetails extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_view_request_details);
+        setContentView(R.layout.arabicreqdetails);
 
 
 
@@ -90,16 +90,16 @@ public class ViewRequestDetails extends AppCompatActivity {
 
 
                     if(type.equals("Medical Report")){
-                        RequestPic.setImageResource(R.drawable.report);
+                        RequestPic.setImageResource(R.drawable.medicalhistory);
                     }
                     if(type.equals("Radiology Report")){
-                        RequestPic.setImageResource(R.drawable.nuclear);
+                        RequestPic.setImageResource(R.drawable.skeleton);
                     }
                     if(type.equals("Prescription")){
-                        RequestPic.setImageResource(R.drawable.pills);
+                        RequestPic.setImageResource(R.drawable.pills1);
                     }
                     if(type.equals("Vital Signs")){
-                        RequestPic.setImageResource(R.drawable.cardiogram);
+                        RequestPic.setImageResource(R.drawable.heartbeat);
                     }
 
                     DocRef.child(dataSnapshot.child("doctor_uid").getValue().toString()).addValueEventListener(new ValueEventListener() {
