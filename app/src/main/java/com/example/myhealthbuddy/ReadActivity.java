@@ -6,79 +6,62 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.DownloadManager;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageButton;
-
-import com.google.android.gms.common.util.IOUtils;
+import android.widget.Button;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DatabaseReference;
-
 import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
-
 import javax.net.ssl.HttpsURLConnection;
-
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.app.DownloadManager;
-import android.content.Context;
-import android.net.Uri;
-import android.os.Bundle;
-import android.app.ProgressDialog;
-import android.os.AsyncTask;
-import android.view.View;
-import android.widget.ImageButton;
-
-
+import android.widget.TextView;
 import com.github.barteksc.pdfviewer.PDFView;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
-
-//import org.apache.commons.io.IOUtils;
-
-import java.io.BufferedInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.URL;
-
-import javax.net.ssl.HttpsURLConnection;
-
+import org.apache.commons.io.IOUtils;
 import static android.os.Environment.DIRECTORY_DOWNLOADS;
-
 
 public class ReadActivity extends AppCompatActivity {
     PDFView pdf;
     String url,recordIDٍ;
-    ImageButton export;
+    Button export;
     DatabaseReference mData;
     StorageReference storageReference;
     StorageReference ref;
+    BottomNavigationView bottomnav;
+    TextView tv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_read);
 
+        bottomnav =  findViewById(R.id.bottom_navigation);
+        bottomnav.setSelectedItemId(R.id.nav_home);
+        bottomnav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                UserMenuSelector(menuItem);
+                return false;
+            }
+        });
+
+
         pdf=findViewById(R.id.pdfView);
         url=getIntent().getExtras().get("url").toString();
         recordIDٍ=getIntent().getExtras().get("recordID").toString();
 
 
+        tv=findViewById(R.id.textView);
+        tv.setText("Record "+recordIDٍ+" PDF");
         export=findViewById(R.id.export);
         export.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -112,6 +95,7 @@ public class ReadActivity extends AppCompatActivity {
 
     private void download(Context context, String fileName, String fileExtension, String destinationDirectory, String url) {
 
+
         DownloadManager downloadManager = (DownloadManager) context.getSystemService(Context.DOWNLOAD_SERVICE);
         Uri uri = Uri.parse(url);
         DownloadManager.Request request = new DownloadManager.Request(uri);
@@ -124,7 +108,9 @@ public class ReadActivity extends AppCompatActivity {
     }
 
 
-    class RetrievePDFbyte extends AsyncTask<String,Void,byte[]> {
+
+
+    class RetrievePDFbyte extends AsyncTask<String,Void,byte[]>{
         ProgressDialog progressDialog;
         protected void onPreExecute()
         {
@@ -162,6 +148,35 @@ public class ReadActivity extends AppCompatActivity {
             progressDialog.dismiss();
         }
 
+    }
+
+    private void UserMenuSelector(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.nav_share:
+                Intent intent = new Intent(ReadActivity.this, ViewRecordtoShare.class);
+                startActivity(intent);
+                break;
+
+            case R.id.nav_request:
+                Intent intentrequest=new Intent(ReadActivity.this, ViewRequests.class);
+                startActivity(intentrequest);
+                break;
+
+            case R.id.nav_person:
+                Intent intentsearch=new Intent(ReadActivity.this, Profile.class);
+                startActivity(intentsearch);
+                break;
+
+            case R.id.nav_not:
+                Intent intentnot=new Intent(ReadActivity.this, ViewRecordsNotificatins.class);
+                startActivity(intentnot);
+                break;
+            case R.id.nav_home:
+                Intent intenthome=new Intent(ReadActivity.this, HomePage.class);
+                startActivity(intenthome);
+                break;
+
+        }
     }
 
 

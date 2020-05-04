@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ViewRecord">
+    tools:context=".ViewRequestDetails">
 
     <include
         android:id="@+id/viewHiveToolBar"
@@ -19,7 +19,7 @@
         android:id="@+id/textView22"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="معاينة التقرير "
+        android:text="معاينة الطلب  "
         android:textColor="@color/purple"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/viewHiveToolBar"
@@ -43,178 +43,42 @@
             android:layout_height="wrap_content">
 
 
-
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/eee"
-                android:layout_width="229dp"
-                android:layout_height="21dp"
+                android:layout_width="192dp"
+                android:layout_height="19dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
 
                 <TextView
-                    android:id="@+id/creationDate"
+                    android:id="@+id/page_request_requestdate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="52dp"
-                    android:layout_marginLeft="52dp"
                     android:layout_marginTop="2dp"
                     android:text="00-month-2020 "
                     android:textColor="@color/grey"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toStartOf="@+id/textView32"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.0" />
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
                     android:id="@+id/textView32"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="1dp"
-                    android:layout_marginEnd="2dp"
-                    android:layout_marginRight="2dp"
-                    android:text="تم انشاؤها في "
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginRight="16dp"
+                    android:text="تم انشاؤه في "
                     android:textColor="@color/grey"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.0" />
 
-                <TextView
-                    android:id="@+id/creationTime"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-
-                    android:layout_marginTop="2dp"
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginRight="10dp"
-                    android:text="00:00"
-                    android:textColor="@color/grey"
-                    app:layout_constraintEnd_toStartOf="@+id/creationDate"
-                    app:layout_constraintTop_toTopOf="parent" />
-
 
             </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-            <TextView
-                android:id="@+id/textView1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:layout_marginEnd="12dp"
-                android:layout_marginRight="12dp"
-                android:gravity="center"
-                android:text="المريض"
-                android:textColor="@color/purple"
-                android:textSize="18sp"
-                app:layout_constraintEnd_toEndOf="@+id/frameLayout"
-                app:layout_constraintTop_toBottomOf="@+id/eee" />
-
-            <FrameLayout
-                android:id="@+id/frameLayout"
-                android:layout_width="380dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:background="@drawable/bourder"
-                android:padding="5dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView1">
-
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    tools:layout_editor_absoluteX="5dp"
-                    tools:layout_editor_absoluteY="5dp">
-
-                    <TextView
-                        android:id="@+id/textView19"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:layout_marginEnd="12dp"
-                        android:layout_marginRight="12dp"
-                        android:text="الاسم :"
-                        android:gravity="end"
-                        android:textAlignment="textEnd"
-                        android:textColor="@color/purple"
-                        android:textSize="18sp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:id="@+id/patientName"
-                        android:layout_width="288dp"
-                        android:layout_height="24dp"
-                        android:layout_marginTop="4dp"
-                        android:layout_marginEnd="20dp"
-                        android:layout_marginRight="20dp"
-                        android:gravity="right"
-                        android:text="Name"
-                        android:textColor="@color/black"
-                        android:textSize="18sp"
-                        app:layout_constraintEnd_toStartOf="@+id/textView19"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <TextView
-                        android:id="@+id/textView21"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="1dp"
-                        android:layout_marginEnd="14dp"
-                        android:layout_marginRight="14dp"
-                        android:text="رقم الهويه:"
-                        android:textColor="@color/purple"
-                        android:textSize="18sp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView19" />
-
-                    <TextView
-                        android:id="@+id/patientID"
-                        android:layout_width="129dp"
-                        android:layout_height="22dp"
-                        android:layout_marginEnd="24dp"
-                        android:layout_marginRight="24dp"
-                        android:gravity="right"
-                        android:text="ID"
-                        android:textColor="@color/black"
-                        android:textSize="18sp"
-                        app:layout_constraintEnd_toStartOf="@+id/textView21"
-                        app:layout_constraintTop_toTopOf="@+id/textView21" />
-
-                    <TextView
-                        android:id="@+id/textView29"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="13dp"
-                        android:layout_marginRight="13dp"
-                        android:gravity="right"
-                        android:text="الجنس:"
-                        android:textColor="@color/purple"
-                        android:textSize="18sp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView21" />
-
-                    <TextView
-                        android:id="@+id/gender"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="12dp"
-                        android:layout_marginRight="12dp"
-                        android:gravity="right"
-                        android:text="Gender"
-                        android:textColor="@color/black"
-                        android:textSize="18sp"
-                        app:layout_constraintEnd_toStartOf="@+id/textView29"
-                        app:layout_constraintTop_toBottomOf="@+id/patientID" />
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-            </FrameLayout>
-
 
             <TextView
                 android:id="@+id/textView26"
@@ -224,7 +88,7 @@
                 android:layout_marginEnd="4dp"
                 android:layout_marginRight="4dp"
                 android:gravity="center"
-                android:text="التقرير "
+                android:text="الطلب  "
                 android:textColor="@color/purple"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="@+id/frameLayout2"
@@ -232,8 +96,8 @@
 
             <FrameLayout
                 android:id="@+id/frameLayout3"
-                android:layout_width="382dp"
-                android:layout_height="124dp"
+                android:layout_width="384dp"
+                android:layout_height="174dp"
                 android:layout_marginTop="5dp"
                 android:background="@drawable/bourder"
                 android:padding="5dp"
@@ -253,18 +117,42 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="right"
-                        android:text="تاريخ التقرير :"
+                        android:text="تاريخ الموعد  :"
                         android:textColor="@color/purple"
                         android:textSize="18sp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
-                        android:id="@+id/testDate"
+                        android:id="@+id/page_request_apDate"
                         android:layout_width="358dp"
                         android:layout_height="wrap_content"
                         android:gravity="end"
                         android:text="testDate"
+                        android:textAlignment="viewEnd"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/testDateL" />
+
+
+                    <TextView
+                        android:id="@+id/testTypeL"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:text="نوع التقرير  :"
+                        android:textColor="@color/purple"
+                        android:textSize="18sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/page_request_type"
+                        android:layout_width="358dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:text="testType"
                         android:textAlignment="viewEnd"
                         android:textColor="@color/black"
                         android:textSize="18sp"
@@ -284,7 +172,7 @@
                         app:layout_constraintTop_toBottomOf="@+id/duration" />
 
                     <TextView
-                        android:id="@+id/note"
+                        android:id="@+id/page_request_note"
                         android:layout_width="360dp"
                         android:layout_height="wrap_content"
                         android:gravity="end"
@@ -298,20 +186,33 @@
                 </LinearLayout>
 
             </FrameLayout>
+
+            <ImageView
+                android:id="@+id/page_request_pic"
+                android:layout_width="99dp"
+                android:layout_height="84dp"
+                android:layout_marginStart="152dp"
+                android:layout_marginLeft="152dp"
+                android:layout_marginTop="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.031"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/eee"
+                app:srcCompat="@drawable/blooddonation" />
+
             <TextView
                 android:id="@+id/textView25"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_gravity="end"
                 android:layout_marginEnd="12dp"
                 android:layout_marginRight="12dp"
-                android:textAlignment="viewEnd"
-                android:layout_gravity="end"
                 android:text="مقدم الرعاية الصحية"
+                android:textAlignment="viewEnd"
                 android:textColor="@color/purple"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="@+id/frameLayout2"
-                app:layout_constraintTop_toBottomOf="@+id/frameLayout" />
+                app:layout_constraintTop_toBottomOf="@+id/page_request_pic" />
 
             <FrameLayout
                 android:id="@+id/frameLayout2"
@@ -345,22 +246,22 @@
 
 
                     <TextView
-                        android:id="@+id/doctorsSpecialty"
+                        android:id="@+id/page_request_ID"
                         android:layout_width="273dp"
                         android:layout_height="26dp"
                         android:layout_marginStart="8dp"
                         android:layout_marginLeft="8dp"
                         android:gravity="right"
-                        android:text="Speciality"
+                        android:text="ID"
                         android:textColor="#000000"
                         android:textSize="18sp"
-                        app:layout_constraintBottom_toTopOf="@+id/hospitalName"
+                        app:layout_constraintBottom_toTopOf="@+id/doctorsSpecialty"
                         app:layout_constraintEnd_toStartOf="@+id/textViewsss"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/doctorName" />
+                        app:layout_constraintTop_toBottomOf="@+id/page_request_name1" />
 
                     <TextView
-                        android:id="@+id/doctorName"
+                        android:id="@+id/page_request_name1"
                         android:layout_width="295dp"
                         android:layout_height="23dp"
                         android:layout_marginTop="4dp"
@@ -370,7 +271,7 @@
                         android:text="Name"
                         android:textColor="#000000"
                         android:textSize="18sp"
-                        app:layout_constraintBottom_toTopOf="@+id/doctorsSpecialty"
+                        app:layout_constraintBottom_toTopOf="@+id/page_request_ID"
                         app:layout_constraintEnd_toStartOf="@+id/ftextv"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -380,41 +281,11 @@
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="16dp"
                         android:layout_marginRight="16dp"
-                        android:text="التخصص :"
+                        android:text="الرقم :"
                         android:textColor="@color/purple"
                         android:textSize="18sp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/ftextv" />
-
-                    <TextView
-                        android:id="@+id/textView24"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginEnd="16dp"
-                        android:layout_marginRight="16dp"
-                        android:text="المستشفى:"
-                        android:textColor="@color/purple"
-                        android:textSize="18sp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textViewsss" />
-
-                    <TextView
-                        android:id="@+id/hospitalName"
-                        android:layout_width="269dp"
-                        android:layout_height="23dp"
-                        android:layout_marginStart="162dp"
-                        android:layout_marginLeft="162dp"
-                        android:layout_marginEnd="13dp"
-                        android:layout_marginRight="13dp"
-                        android:gravity="right"
-                        android:text="hospitalName"
-                        android:textColor="#000000"
-                        android:textSize="18sp"
-                        app:layout_constraintEnd_toStartOf="@+id/textView24"
-                        app:layout_constraintHorizontal_bias="0.968"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/doctorsSpecialty" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -422,29 +293,14 @@
 
 
             <Button
-                android:id="@+id/attachmentView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:background="?attr/selectableItemBackground"
-                android:drawableLeft="@drawable/attachpurple"
-                android:minHeight="1dp"
-                android:text="معاينة الملف"
-                android:textAllCaps="false"
-                android:textColor="@color/grey"
-                android:textSize="16sp"
-                app:layout_constraintStart_toStartOf="@+id/frameLayout3"
-                app:layout_constraintTop_toBottomOf="@+id/frameLayout2" />
-
-            <Button
-                android:id="@+id/done"
+                android:id="@+id/page_request_cancelanddelete"
 
                 android:layout_width="300dp"
                 android:layout_height="49dp"
 
                 android:layout_margin="20dp"
-                android:background="@drawable/cancelbutton"
-                android:text="إنهاء"
+                android:background="@drawable/login_btn"
+                android:text="حذف الطلب "
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="18sp"

@@ -22,7 +22,7 @@
         android:layout_gravity="center"
         app:cardCornerRadius="5dp"
         app:contentPadding="1dp"
-      android:layout_marginBottom="9dp"
+        android:layout_marginBottom="9dp"
         app:layout_constraintBottom_toBottomOf="@+id/viewHiveToolBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

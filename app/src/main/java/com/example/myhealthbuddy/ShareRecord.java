@@ -151,9 +151,11 @@ public class ShareRecord extends AppCompatActivity {
 
                     sharRef.child(key).addListenerForSingleValueEvent(new ValueEventListener() {
                         @Override
-                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot){
                             if(dataSnapshot.exists()){
-                                Toast.makeText(ShareRecord.this, "لقد قمت بمشاركه احد هذه التقارير بالفعل ", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(ShareRecord.this, "لقد قمت بمشاركة " +recordId+" مع مقدم الرعاية الصحية مسبقاً", Toast.LENGTH_SHORT).show();
+                                Intent i =new Intent(ShareRecord.this, ViewRecordtoShare.class);
+                                startActivity(i);
                                 return;
 
                             }
@@ -162,7 +164,7 @@ public class ShareRecord extends AppCompatActivity {
                                     @Override
                                     public void onComplete(@NonNull Task task) {
                                         if(task.isSuccessful()){
-                                            Toast.makeText(ShareRecord.this, "تمت مشاركة التقارير", Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(ShareRecord.this, "تمت مشاركة التقارير", Toast.LENGTH_LONG).show();
                                             sendNotification(HCPuID);
                                             sendUserToMainActivity();
                                         }

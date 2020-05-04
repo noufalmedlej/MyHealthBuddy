@@ -198,6 +198,15 @@ public class ViewXRay extends AppCompatActivity {
                 Intent intentsearch=new Intent(ViewXRay.this, Profile.class);
                 startActivity(intentsearch);
                 break;
+
+            case R.id.nav_home:
+               finish();
+                break;
+
+            case R.id.nav_not:
+                Intent intentnot = new Intent(ViewXRay.this, ViewRecordsNotificatins.class);
+                startActivity(intentnot);
+                break;
         }
     }
 

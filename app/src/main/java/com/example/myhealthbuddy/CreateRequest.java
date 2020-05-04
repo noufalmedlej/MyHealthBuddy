@@ -90,6 +90,7 @@ public class CreateRequest extends AppCompatActivity {
 
                 DatePickerDialog dialog=new DatePickerDialog(CreateRequest.this,android.R.style.Theme_DeviceDefault_Dialog_MinWidth,mDatasetListner,year,month,day);
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dialog.getDatePicker().setMaxDate(System.currentTimeMillis());
                 dialog.show();
 
             }
@@ -183,6 +184,10 @@ public class CreateRequest extends AppCompatActivity {
         SimpleDateFormat currentDate=new SimpleDateFormat("dd/MM/yyyy");
         final String Datecreated=currentDate.format(calfordate.getTime());
 
+        Calendar orderdate=Calendar.getInstance();
+        SimpleDateFormat dateorder=new SimpleDateFormat("yyyy-MM-dd");
+        final String date_order =dateorder.format(orderdate.getTime());
+
         patientRef.child(currentUser).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -224,6 +229,7 @@ public class CreateRequest extends AppCompatActivity {
                     reqmap.put("patient_uid",currentUser);
                     reqmap.put("doctor_uid",doctoruid);
                     reqmap.put("request_date",Datecreated);
+                    reqmap.put("order_date",date_order);
 
 
 
@@ -367,6 +373,11 @@ public class CreateRequest extends AppCompatActivity {
             case R.id.nav_share:
                 Intent intent = new Intent(CreateRequest.this, ViewRecordtoShare.class);
                 startActivity(intent);
+                break;
+
+            case R.id.nav_not:
+                Intent intentnot=new Intent(CreateRequest.this, ViewRecordsNotificatins.class);
+                startActivity(intentnot);
                 break;
         }
     }

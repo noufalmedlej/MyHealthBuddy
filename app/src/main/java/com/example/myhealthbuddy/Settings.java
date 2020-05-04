@@ -50,13 +50,30 @@ public class Settings extends AppCompatActivity {
 }});}
 
     private void UserMenuSelector(MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.nav_person:
-                Intent intentsearchh=new Intent(Settings.this, Profile.class);
-                startActivity(intentsearchh);
+        switch (item.getItemId()) {
+
+
+            case R.id.nav_share:
+                Intent intent = new Intent(Settings.this, ViewRecordtoShare.class);
+                startActivity(intent);
                 break;
+
+            case R.id.nav_request:
+                Intent intentrequest = new Intent(Settings.this, ViewRequests.class);
+                startActivity(intentrequest);
+                break;
+
             case R.id.nav_home:
-                Intent intentsearch=new Intent(Settings.this, HomePage.class);
+                Intent intentsearch = new Intent(Settings.this, HomePage.class);
                 startActivity(intentsearch);
-                break;}}}
+                break;
+
+            case R.id.nav_not:
+                Intent intentnot = new Intent(Settings.this, ViewRecordsNotificatins.class);
+                startActivity(intentnot);
+                break;
+        }
+
+    }
+}
 

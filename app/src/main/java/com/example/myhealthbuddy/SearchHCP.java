@@ -46,12 +46,12 @@ public class SearchHCP extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_choose_doc_to_share_with);
+        setContentView(R.layout.activity_search_hcp);
 
 
-    allSharesRef = FirebaseDatabase.getInstance().getReference().child("Share");
-    DoctorRef = FirebaseDatabase.getInstance().getReference().child("Doctors");
-    RecordsRef = FirebaseDatabase.getInstance().getReference().child("Records");
+    //allSharesRef = FirebaseDatabase.getInstance().getReference().child("Share");
+   // DoctorRef = FirebaseDatabase.getInstance().getReference().child("Doctors");
+    //RecordsRef = FirebaseDatabase.getInstance().getReference().child("Records");
     mAuth = FirebaseAuth.getInstance();
     currentUserid = mAuth.getCurrentUser().getUid();
 
@@ -159,37 +159,35 @@ public class SearchHCP extends AppCompatActivity {
         final ArrayList<HCPsResult> HCPArrayList= new ArrayList<>();
         final ArrayList<String> Ids= new ArrayList<>();
 
+        DoctorRef=FirebaseDatabase.getInstance().getReference().child("Doctors");
 
         DoctorRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull final DataSnapshot dataSnapshot2) {
                 if (dataSnapshot2.exists()) {
-
-                    allSharesRef.orderByChild("patient_uid").startAt(currentUserid).endAt(currentUserid + "\uf8ff");
-                    allSharesRef.addValueEventListener(new ValueEventListener() {
-
-
+                    RecordFromRecords(dataSnapshot2,Ids,HCPArrayList);
+                    /*allSharesRef = FirebaseDatabase.getInstance().getReference().child("Share");
+                    Query paitentShare=allSharesRef.orderByChild("patient_uid").equalTo(currentUserid + "\uf8ff");
+                    paitentShare.addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot1) {
-                            if (dataSnapshot1.exists()) {
-                                String id;
+                            String id;
+                            HCPsResult HCP;
+                            for (DataSnapshot docs : dataSnapshot2.getChildren()) {
                                 for (DataSnapshot share : dataSnapshot1.getChildren()) {
-                                    for (DataSnapshot ds : dataSnapshot2.getChildren()) {
-                                        HCPsResult HCP;
-                                        if (ds.getKey().equals(share.child("hcp_uid").getValue().toString())) {
-                                            HCP = ds.getValue(HCPsResult.class);
-                                            id = ds.getKey();
-                                            if (!Ids.contains(id)) {
+                                        String did=docs.getKey();
+                                        if (share.child("share_id").equals(currentUserid+did)){
+                                            HCP = docs.getValue(HCPsResult.class);
+                                            id = docs.getKey();
+                                            //if (!Ids.contains(id)) {
                                                 Ids.add(id);
-                                                HCP.uid=ds.getKey();
+                                                HCP.uid=docs.getKey();
                                                 HCPArrayList.add(HCP);
-                                            }
+                                            //}
                                         }
                                     }
 
                                 }
-
-                            }
                             mAdapter = new HCPAdapter(SearchHCP.this, HCPArrayList);
                             mAdapter.setOnItemClickListener(new HCPAdapter.OnItemClickListener(){
 
@@ -204,7 +202,7 @@ public class SearchHCP extends AppCompatActivity {
                                     startActivity(intent);
                                 }
                             });
-                            SearchResultList.setAdapter(mAdapter);
+                           SearchResultList.setAdapter(mAdapter);
                             if (HCPArrayList.size() == 0) {
                                 NoresultHCP.setVisibility(View.VISIBLE);
 
@@ -216,80 +214,10 @@ public class SearchHCP extends AppCompatActivity {
                         public void onCancelled(@NonNull DatabaseError databaseError) {
 
                         }
-                    });
-
-
-                    // from recods
-
-                    RecordsRef.orderByChild("pid").startAt(currentUserid).endAt(currentUserid + "\uf8ff");
-                    RecordsRef.addValueEventListener(new ValueEventListener() {
-
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot dataSnapshot1) {
-
-                            if (dataSnapshot1.exists()) {
-                                String id;
-                                for (DataSnapshot records : dataSnapshot1.getChildren()) {
-
-                                    for (DataSnapshot doc : dataSnapshot2.getChildren()) {
-                                        HCPsResult HCP;
-                                        if (doc.getKey().equals(records.child("did").getValue().toString())) {
-                                            HCP = doc.getValue(HCPsResult.class);
-                                            id = doc.getKey();
-                                            if (!Ids.contains(id)) {
-                                                Ids.add(id);
-                                                HCP.uid=doc.getKey();
-                                                HCPArrayList.add(HCP);
-                                            }
-                                        }
-                                    }
-
-                                }
-
-
-                            }
-
-                            mAdapter = new HCPAdapter(SearchHCP.this, HCPArrayList);
-                            mAdapter.setOnItemClickListener(new HCPAdapter.OnItemClickListener(){
-
-                                @Override
-                                public void onItemClick(String HCPID,String Name,String HCPuId) {
-                                    Intent intent = new Intent(SearchHCP.this, ShareRecord.class);
-                                    intent.putExtra("HCPuID", HCPuId);
-                                    intent.putExtra("HCPID",HCPID);
-                                    intent.putExtra("HCPName",Name);
-                                    ArrayList<item_record>  CkList=(ArrayList<item_record> ) getIntent().getExtras().get("list");
-                                    intent.putExtra("list",CkList);
-                                    startActivity(intent);
-                                }
-                            });
-                            SearchResultList.setAdapter(mAdapter);
-                            if (HCPArrayList.size() == 0) {
-                                NoresultHCP.setVisibility(View.VISIBLE);
-
-                            } else NoresultHCP.setVisibility(View.INVISIBLE);
-
-
-                        }
-
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                        }
-                    });
-
+                    });*/
 
                 }
             }
-
-
-
-            // from request NOT sure
-
-
-
-
-
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
@@ -299,9 +227,71 @@ public class SearchHCP extends AppCompatActivity {
         });
     }
 
+    private void RecordFromRecords(final DataSnapshot dataSnapshot2,final  ArrayList<String> Ids, final ArrayList<HCPsResult> HCPArrayList) {
+        RecordsRef = FirebaseDatabase.getInstance().getReference().child("Records");
+        Query DocRecord= RecordsRef.orderByChild("pid").startAt(currentUserid).endAt(currentUserid + "\uf8ff");
+        DocRecord.addValueEventListener(new ValueEventListener() {
+
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot1) {
+
+                if (dataSnapshot1.exists()) {
+                    String id;
+                    for (DataSnapshot records : dataSnapshot1.getChildren()) {
+
+                        for (DataSnapshot doc : dataSnapshot2.getChildren()) {
+                            HCPsResult HCP;
+                            if (doc.getKey().equals(records.child("did").getValue().toString())) {
+                                HCP = doc.getValue(HCPsResult.class);
+                                id = doc.getKey();
+                                if (!Ids.contains(id)) {
+                                    Ids.add(id);
+                                    HCP.uid=doc.getKey();
+                                    HCPArrayList.add(HCP);
+                                }
+                            }
+                        }
+
+                    }
 
 
-public static class SearchViweHolder extends RecyclerView.ViewHolder {
+                }
+
+                mAdapter = new HCPAdapter(SearchHCP.this, HCPArrayList);
+                mAdapter.setOnItemClickListener(new HCPAdapter.OnItemClickListener(){
+
+                    @Override
+                    public void onItemClick(String HCPID,String Name,String HCPuId) {
+                        Intent intent = new Intent(SearchHCP.this, ShareRecord.class);
+                        intent.putExtra("HCPuID", HCPuId);
+                        intent.putExtra("HCPID",HCPID);
+                        intent.putExtra("HCPName",Name);
+                        ArrayList<item_record>  CkList=(ArrayList<item_record> ) getIntent().getExtras().get("list");
+                        intent.putExtra("list",CkList);
+                        startActivity(intent);
+                    }
+                });
+                SearchResultList.setAdapter(mAdapter);
+                if (HCPArrayList.size() == 0) {
+                    NoresultHCP.setVisibility(View.VISIBLE);
+
+                } else NoresultHCP.setVisibility(View.INVISIBLE);
+
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+
+
+    }
+
+
+    public static class SearchViweHolder extends RecyclerView.ViewHolder {
     View mViwe;
 
 

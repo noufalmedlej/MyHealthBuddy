@@ -48,7 +48,7 @@ public class Profile extends AppCompatActivity {
                 startActivity(intt);
             }
         });
-        ImageButton edit= findViewById(R.id.editbut);
+        ImageButton edit = findViewById(R.id.editbut);
         edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -56,13 +56,13 @@ public class Profile extends AppCompatActivity {
                 startActivity(toedit);
             }
         });
-        final TextView name= findViewById(R.id.nameee);
-        final TextView mail= findViewById(R.id.mailview);
-        final TextView phone= findViewById(R.id.phoneview);
-        final TextView nid= findViewById(R.id.nid);
-        final TextView date= findViewById(R.id.dateview);
-        final TextView gender= findViewById(R.id.genderview);
-        String current= FirebaseAuth.getInstance().getCurrentUser().getUid();
+        final TextView name = findViewById(R.id.nameee);
+        final TextView mail = findViewById(R.id.mailview);
+        final TextView phone = findViewById(R.id.phoneview);
+        final TextView nid = findViewById(R.id.nid);
+        final TextView date = findViewById(R.id.dateview);
+        final TextView gender = findViewById(R.id.genderview);
+        String current = FirebaseAuth.getInstance().getCurrentUser().getUid();
         DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("Patients").child(current);
         ref.addValueEventListener(new ValueEventListener() {
             @Override
@@ -73,7 +73,7 @@ public class Profile extends AppCompatActivity {
                 nid.setText(dataSnapshot.child("national_id").getValue().toString());
                 date.setText(dataSnapshot.child("birthdate").getValue().toString());
                 if (dataSnapshot.child("gender").getValue().toString().equals("Male"))
-                gender.setText("ذكر");
+                    gender.setText("ذكر");
                 if (dataSnapshot.child("gender").getValue().toString().equals("Female"))
                     gender.setText("أنثى");
             }
@@ -85,23 +85,32 @@ public class Profile extends AppCompatActivity {
         });
 
     }
-    private void UserMenuSelector(MenuItem item) {
-        switch (item.getItemId()){
 
+    private void UserMenuSelector(MenuItem item) {
+        switch (item.getItemId()) {
             case R.id.nav_share:
                 Intent intent = new Intent(Profile.this, ViewRecordtoShare.class);
                 startActivity(intent);
                 break;
 
             case R.id.nav_request:
-                Intent intentrequest=new Intent(Profile.this, ViewRequests.class);
+                Intent intentrequest = new Intent(Profile.this, ViewRequests.class);
                 startActivity(intentrequest);
                 break;
 
             case R.id.nav_home:
-                Intent intentsearch=new Intent(Profile.this, HomePage.class);
+                Intent intentsearch = new Intent(Profile.this, HomePage.class);
                 startActivity(intentsearch);
                 break;
+
+            case R.id.nav_not:
+                Intent intentnot = new Intent(Profile.this, ViewRecordsNotificatins.class);
+                startActivity(intentnot);
+                break;
         }
+
     }
 }
+
+
+

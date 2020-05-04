@@ -23,6 +23,18 @@ public class RegisterTest {
         Register newacc=new Register();
         boolean result=newacc.NationalIDValid(Nid);
         assertEquals(true,result);
+    }
 
+    @Test
+    public void notEmpty() {
+        String Email="Raghad@gmail.com";
+        String Name="Raghad";
+        String NID="";
+        String phone="0501122332";
+        String password="ASqw123456";
+        String password2="ASqw123456";
+        Register newacc=new Register();
+        boolean result=newacc.notEmpty(Email,  Name,  NID,  phone, password, password2);
+        assertFalse(result);
     }
 }
