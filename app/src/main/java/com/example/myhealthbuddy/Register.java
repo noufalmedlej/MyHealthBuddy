@@ -32,6 +32,8 @@ public class Register extends AppCompatActivity {
     DatabaseReference Userref;
     private FirebaseAuth mAuth;
     private String Currentuser;
+    boolean exists;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -82,7 +84,28 @@ public class Register extends AppCompatActivity {
                 if (!NationalIDValid(NID)){
                     return;
                 }
+                // to check if the NID is already in use
+                DatabaseReference ref= FirebaseDatabase.getInstance().getReference().child("Patients");
+                ref.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        for (DataSnapshot postsnapshot : dataSnapshot.getChildren()) {
+                            String key1 = postsnapshot.getKey();
+                            if ((dataSnapshot.child(key1).child("national_id").getValue().equals(NID))){
+                                UserNID.setError("رقم الهوية الوطنية مستخدم");
+                                exists=true;
+                                return;
+                            }}
+                    }
 
+
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+                    }
+                });
+                if (exists==true)
+                    return;
 
 
 
