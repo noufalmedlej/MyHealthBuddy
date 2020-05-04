@@ -110,11 +110,11 @@ String email="";
                 public void onComplete(@NonNull Task<AuthResult> task) {
 
                     if(task.isSuccessful()){
-                        showMessage("logged in succefully");
+                        showMessage("تم تسجيل دخولك بنجاح");
                         SendUserToMainActivity();
                     }
                     else {
-                        showMessage("something went wrong");
+                        showMessage("حدث خطأ");
                         // showMessage(task.getException().getMessage());
                     }
 
@@ -149,7 +149,7 @@ String email="";
             showMessage("يرجى تعبئة جميع الخانات");
             flag=false;
         }
-        return false;
+        return flag;
     }
     public boolean NationalIDValid(String NID) {
         boolean flag = true;

@@ -222,7 +222,7 @@ if( Email.isEmpty() || password2.isEmpty() || password.isEmpty()|| Name.isEmpty(
             UserPhone.requestFocus();
        flag=false;
     }
-       // start with 5
+       // start with 05
         if ( !phone.substring(0,2).equals("05")) {
             UserPhone.setError("يحب ان يبدأ رقم الجوال ب05");
             UserPhone.requestFocus();
