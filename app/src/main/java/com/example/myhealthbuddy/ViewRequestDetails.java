@@ -6,8 +6,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.method.ScrollingMovementMethod;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -16,6 +18,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -32,12 +35,14 @@ public class ViewRequestDetails extends AppCompatActivity {
     ImageView RequestPic;
     String RequestKey,Type,reqdate;
     DatabaseReference Request,PatientsRef,declinedRequest,DocRef;
+    BottomNavigationView bottomnav;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.arabicreqdetails);
+        setContentView(R.layout.activity_view_request_details);
 
 
 
@@ -58,6 +63,16 @@ public class ViewRequestDetails extends AppCompatActivity {
         Type=getIntent().getExtras().get("Type").toString();
         RequestKey = getIntent().getExtras().get("RequestKey").toString();
 
+
+        bottomnav =  findViewById(R.id.bottom_navigation);
+        //bottomnav.setSelectedItemId(R.id.nav_home);
+        bottomnav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+                UserMenuSelector(menuItem);
+                return false;
+            }
+        });
 
 
         Request= FirebaseDatabase.getInstance().getReference().child("Requests").child(Type).child(RequestKey);
@@ -162,5 +177,32 @@ public class ViewRequestDetails extends AppCompatActivity {
         alertDialog.show();
 
 
+    }
+    private void UserMenuSelector(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.nav_share:
+                Intent intent = new Intent(ViewRequestDetails.this, ViewRecordtoShare.class);
+                startActivity(intent);
+                break;
+
+            case R.id.nav_request:
+                Intent intentrequest=new Intent(ViewRequestDetails.this, ViewRequests.class);
+                startActivity(intentrequest);
+                break;
+
+            case R.id.nav_person:
+                Intent intentsearch=new Intent(ViewRequestDetails.this, Profile.class);
+                startActivity(intentsearch);
+                break;
+            case R.id.nav_home:
+                Intent intenthome=new Intent(ViewRequestDetails.this, HomePage.class);
+                startActivity(intenthome);
+                break;
+
+            case R.id.nav_not:
+                Intent intentnot=new Intent(ViewRequestDetails.this, ViewRecordsNotificatins.class);
+                startActivity(intentnot);
+                break;
+        }
     }
 }

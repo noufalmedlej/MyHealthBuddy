@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".ViewBloodTest">
 
+
     <include
         android:id="@+id/viewHiveToolBar"
         layout="@layout/toolbar"
@@ -19,7 +20,7 @@
         android:id="@+id/textView22"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="View Blood Test"
+        android:text="معاينة التحليل "
         android:textColor="@color/purple"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/viewHiveToolBar"
@@ -98,8 +99,6 @@
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
-            <!--            done   -->
-
             <TextView
                 android:id="@+id/textView1"
                 android:layout_width="wrap_content"
@@ -215,6 +214,7 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </FrameLayout>
             <!--            done   -->
+
 
 
             <TextView
@@ -342,11 +342,10 @@
                 android:id="@+id/textView26"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="التقرير "
+                android:layout_marginTop="12dp"
+                android:gravity="center"
+                android:text="التقرير"
                 android:textColor="@color/purple"
-                android:layout_gravity="end"
-                android:textAlignment="textEnd"
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="@+id/frameLayout3"
                 app:layout_constraintTop_toBottomOf="@+id/frameLayout2" />
@@ -355,9 +354,9 @@
                 android:id="@+id/frameLayout3"
                 android:layout_width="380dp"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
                 android:background="@drawable/bourder"
                 android:padding="5dp"
-                android:layout_marginTop="5dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView26">
@@ -373,8 +372,8 @@
                         android:id="@+id/testDateL"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="تاريخ التقرير:"
-                        android:layout_gravity="right"
+                        android:gravity="right"
+                        android:text="تاريخ التحليل :"
                         android:textColor="@color/purple"
                         android:textSize="18sp"
                         app:layout_constraintStart_toStartOf="parent"
@@ -382,11 +381,11 @@
 
                     <TextView
                         android:id="@+id/testDate"
-                        android:layout_width="match_parent"
-                        android:layout_gravity="end"
-                        android:textAlignment="textEnd"
+                        android:layout_width="357dp"
                         android:layout_height="wrap_content"
+                        android:gravity="end"
                         android:text="testDate"
+                        android:textAlignment="textEnd"
                         android:textColor="@color/black"
                         android:textSize="18sp"
                         app:layout_constraintStart_toStartOf="parent"
@@ -401,16 +400,17 @@
                         android:text="ملاحظات :"
                         android:textColor="@color/purple"
                         android:textSize="18sp"
+                        android:gravity="right"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/duration" />
 
                     <TextView
                         android:id="@+id/note"
-                        android:layout_width="match_parent"
+                        android:layout_width="360dp"
                         android:layout_height="wrap_content"
-                        android:layout_gravity="end"
-                        android:textAlignment="textEnd"
+                        android:gravity="end"
                         android:text="Notes....."
+                        android:textAlignment="textEnd"
                         android:textColor="@color/black"
                         android:textSize="18sp"
                         app:layout_constraintStart_toStartOf="parent"
@@ -421,28 +421,27 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="6dp"
-                        android:layout_gravity="right"
-                        android:text="النتائج:"
+                        android:text="النتائج :"
+                        android:gravity="right"
                         android:textColor="@color/purple"
                         android:textSize="18sp"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/duration" />
 
 
-
                     <androidx.cardview.widget.CardView
                         android:id="@+id/card"
                         android:layout_width="350dp"
                         android:layout_height="30dp"
+                        android:layout_gravity="center"
                         android:layout_margin="5dp"
                         android:orientation="vertical"
                         app:cardCornerRadius="5dp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/textView6"
 
 
-                        android:layout_gravity="center">
+                        app:layout_constraintTop_toBottomOf="@+id/textView6">
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -457,7 +456,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="4dp"
                                 android:layout_weight="1.6"
-                                android:text="اسم الإختبار "
+                                android:text=" إسم التحليل "
                                 android:textColor="@color/black"
                                 android:textSize="16sp" />
 
@@ -468,7 +467,7 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:gravity="center"
-                                android:text="النتيجه"
+                                android:text="النتيجه "
                                 android:textColor="@color/black"
                                 android:textSize="16sp" />
 
@@ -483,16 +482,17 @@
                                 android:textColor="@color/black"
                                 android:textSize="16sp" />
 
+
                         </LinearLayout>
 
-                        <androidx.recyclerview.widget.RecyclerView
-                            android:id="@+id/recy"
-                            android:layout_width="350dp"
-                            android:layout_height="wrap_content"
-                            />
+
 
                     </androidx.cardview.widget.CardView>
 
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recy"
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp" />
                 </LinearLayout>
 
             </FrameLayout>
@@ -504,7 +504,7 @@
                 android:background="?attr/selectableItemBackground"
                 android:drawableLeft="@drawable/attachpurple"
                 android:minHeight="1dp"
-                android:text="معاينة الملف"
+                android:text=" View File"
                 android:textAllCaps="false"
                 android:textColor="@color/grey"
                 android:textSize="16sp"
@@ -514,11 +514,13 @@
 
             <Button
                 android:id="@+id/done"
+
                 android:layout_width="300dp"
                 android:layout_height="49dp"
+
                 android:layout_margin="20dp"
                 android:background="@drawable/cancelbutton"
-                android:text="إنهاء"
+                android:text="Done"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 android:textSize="18sp"
@@ -534,16 +536,30 @@
     </ScrollView>
 
 
-
-   <com.google.android.material.bottomnavigation.BottomNavigationView
+    <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="55dp"
-        android:background="?android:attr/windowBackground"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0"
         app:menu="@menu/bottom_navigation" />
+
+
+
+
+    <ImageView
+        android:id="@+id/editbloodtest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:layout_marginRight="15dp"
+        android:background="?android:attr/windowBackground"
+        app:layout_constraintBottom_toBottomOf="@+id/viewHiveToolBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/docfemale" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

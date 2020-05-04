@@ -140,20 +140,24 @@
 
                 <TextView
                     android:id="@+id/nid"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="nid"
-                    android:textColor="@color/black"
+                    android:layout_width="320dp"
+                    android:layout_height="30dp"
                     android:layout_marginLeft="15dp"
+                    android:text="nid"
+                    android:gravity="end"
+                    android:textAlignment="viewEnd"
+                    android:textColor="@color/black"
                     android:textSize="18dp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textv1" />
 
                 <TextView
                     android:id="@+id/mailview"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="317dp"
+                    android:layout_height="31dp"
                     android:text="email"
+                    android:gravity="end"
+                    android:textAlignment="viewEnd"
                     android:textColor="@color/black"
                     android:textSize="18dp"
                     app:layout_constraintStart_toStartOf="@+id/nid"
@@ -161,9 +165,11 @@
 
                 <TextView
                     android:id="@+id/phoneview"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="316dp"
+                    android:layout_height="28dp"
                     android:text="phone"
+                    android:gravity="end"
+                    android:textAlignment="viewEnd"
                     android:textColor="@color/black"
                     android:textSize="18dp"
                     app:layout_constraintStart_toStartOf="@+id/mailview"
@@ -171,21 +177,25 @@
 
                 <TextView
                     android:id="@+id/dateview"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="316dp"
+                    android:layout_height="28dp"
                     android:text="date"
                     android:textColor="@color/black"
                     android:textSize="18dp"
+                    android:gravity="end"
+                    android:textAlignment="viewEnd"
                     app:layout_constraintStart_toStartOf="@+id/phoneview"
                     app:layout_constraintTop_toBottomOf="@+id/textv4" />
 
                 <TextView
                     android:id="@+id/genderview"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="320dp"
+                    android:layout_height="24dp"
                     android:text="gender"
                     android:textColor="@color/black"
                     android:textSize="18dp"
+                    android:gravity="end"
+                    android:textAlignment="viewEnd"
                     app:layout_constraintStart_toStartOf="@+id/dateview"
                     app:layout_constraintTop_toBottomOf="@+id/textv5" />
 

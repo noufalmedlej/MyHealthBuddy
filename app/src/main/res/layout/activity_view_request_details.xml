@@ -6,213 +6,186 @@
     android:layout_height="match_parent"
     tools:context=".ViewRequestDetails">
 
-    <ScrollView
+    <include
+        android:id="@+id/viewHiveToolBar"
+        layout="@layout/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="88dp">
+        android:layout_height="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView22"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="معاينة الطلب  "
+        android:textColor="@color/purple"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/viewHiveToolBar"
+        app:layout_constraintEnd_toEndOf="@+id/viewHiveToolBar"
+        app:layout_constraintStart_toStartOf="@+id/viewHiveToolBar"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/bottom_navigation"
+
+
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/viewHiveToolBar">
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content">
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/eee"
+                android:layout_width="192dp"
+                android:layout_height="19dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+
+                <TextView
+                    android:id="@+id/page_request_requestdate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="00-month-2020 "
+                    android:textColor="@color/grey"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView32"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="1dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginRight="16dp"
+                    android:text="تم انشاؤه في "
+                    android:textColor="@color/grey"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.0" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <TextView
-                android:id="@+id/page_request_requestdate"
-                android:layout_width="74dp"
+                android:id="@+id/textView26"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentLeft="true"
-                android:layout_gravity="right"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginRight="4dp"
                 android:gravity="center"
-                android:text="Date"
-                android:textSize="12sp"
-                android:textStyle="bold"
+                android:text="الطلب  "
+                android:textColor="@color/purple"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="@+id/frameLayout2"
+                app:layout_constraintTop_toBottomOf="@+id/frameLayout2" />
+
+            <FrameLayout
+                android:id="@+id/frameLayout3"
+                android:layout_width="384dp"
+                android:layout_height="174dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/bourder"
+                android:padding="5dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/page_request_pic" />
+                app:layout_constraintTop_toBottomOf="@+id/textView26">
 
-            <Button
-                android:id="@+id/page_request_cancelanddelete"
-                android:layout_width="286dp"
-                android:layout_height="53dp"
-                android:layout_marginTop="28dp"
-                android:background="@drawable/login_btn"
-                android:text="Delete Request"
-                android:textAllCaps="true"
-                android:textColor="#ffffff"
-                android:textSize="18dp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.496"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/page_request_note" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    tools:layout_editor_absoluteX="5dp"
+                    tools:layout_editor_absoluteY="5dp">
 
-            <include
-                android:id="@+id/PreviewToolBar"
-                layout="@layout/toolbar"
-                android:layout_width="413dp"
-                android:layout_height="82dp" />
+                    <TextView
+                        android:id="@+id/testDateL"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:text="تاريخ الموعد  :"
+                        android:textColor="@color/purple"
+                        android:textSize="18sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/page_request_name1"
-                android:layout_width="363dp"
-                android:layout_height="49dp"
-                android:background="@drawable/login_style"
-                android:ems="10"
-                android:focusable="false"
-                android:gravity="center"
-                android:inputType="none"
-                android:text="Name"
-                android:textColor="@android:color/black"
-                android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="@+id/textView14"
-                app:layout_constraintTop_toBottomOf="@+id/textView14" />
+                    <TextView
+                        android:id="@+id/page_request_apDate"
+                        android:layout_width="358dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:text="testDate"
+                        android:textAlignment="viewEnd"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/testDateL" />
 
-            <TextView
-                android:id="@+id/page_request_ID"
-                android:layout_width="363dp"
-                android:layout_height="49dp"
-                android:background="@drawable/login_style"
-                android:ems="10"
-                android:focusable="false"
-                android:gravity="center"
-                android:inputType="none"
-                android:text="ID"
-                android:textColor="@android:color/black"
-                android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="@+id/textView15"
-                app:layout_constraintTop_toBottomOf="@+id/textView15" />
 
-            <TextView
-                android:id="@+id/page_request_type"
-                android:layout_width="363dp"
-                android:layout_height="49dp"
-                android:background="@drawable/login_style"
-                android:ems="10"
-                android:focusable="false"
-                android:gravity="center"
-                android:inputType="none"
-                android:text="Type"
-                android:textColor="@android:color/black"
-                android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="@+id/textView16"
-                app:layout_constraintTop_toBottomOf="@+id/textView16" />
+                    <TextView
+                        android:id="@+id/testTypeL"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:text="نوع التقرير  :"
+                        android:textColor="@color/purple"
+                        android:textSize="18sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/page_request_apDate"
-                android:layout_width="363dp"
-                android:layout_height="49dp"
-                android:background="@drawable/login_style"
-                android:ems="10"
-                android:focusable="false"
-                android:gravity="center"
-                android:inputType="none"
-                android:text="Appointment Date"
-                android:textColor="@android:color/black"
-                android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="@+id/textView16"
-                app:layout_constraintTop_toBottomOf="@+id/textView18" />
+                    <TextView
+                        android:id="@+id/page_request_type"
+                        android:layout_width="358dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:text="testType"
+                        android:textAlignment="viewEnd"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/testDateL" />
 
-            <TextView
-                android:id="@+id/page_request_note"
-                android:layout_width="365dp"
-                android:layout_height="77dp"
-                android:background="@drawable/login_style"
-                android:ems="10"
-                android:focusable="false"
-                android:gravity="center"
-                android:inputType="none"
-                android:scrollbars="vertical"
-                android:text="None"
-                android:textColor="@android:color/black"
-                android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="@+id/display_reqordec"
-                app:layout_constraintTop_toBottomOf="@+id/display_reqordec" />
+                    <TextView
+                        android:id="@+id/noteL"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:layout_marginTop="6dp"
+                        android:text="ملاحظات"
+                        android:textColor="@color/purple"
+                        android:textSize="18sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/duration" />
 
-            <TextView
-                android:id="@+id/textView14"
-                android:layout_width="130dp"
-                android:layout_height="25dp"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginStart="24dp"
-                android:layout_marginLeft="24dp"
-                android:layout_marginTop="32dp"
-                android:layout_toEndOf="@+id/display_request_image"
-                android:layout_toRightOf="@+id/display_request_image"
-                android:text="Doctor Name: "
-                android:textColor="#131010"
-                android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/page_request_pic" />
+                    <TextView
+                        android:id="@+id/page_request_note"
+                        android:layout_width="360dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:text="Notes....."
+                        android:textAlignment="viewEnd"
+                        android:textColor="#000000"
+                        android:textSize="18sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/notesL" />
 
-            <TextView
-                android:id="@+id/textView15"
-                android:layout_width="130dp"
-                android:layout_height="25dp"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginStart="24dp"
-                android:layout_marginLeft="24dp"
-                android:layout_marginTop="20dp"
-                android:layout_toEndOf="@+id/display_request_image"
-                android:layout_toRightOf="@+id/display_request_image"
-                android:text="Doctor ID: "
-                android:textColor="#131010"
-                android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/page_request_name1" />
+                </LinearLayout>
 
-            <TextView
-                android:id="@+id/textView16"
-                android:layout_width="130dp"
-                android:layout_height="25dp"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginStart="24dp"
-                android:layout_marginLeft="24dp"
-                android:layout_marginTop="20dp"
-                android:layout_toEndOf="@+id/display_request_image"
-                android:layout_toRightOf="@+id/display_request_image"
-                android:text="Request Type:"
-                android:textColor="#131010"
-                android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/page_request_ID" />
-
-            <TextView
-                android:id="@+id/textView18"
-                android:layout_width="185dp"
-                android:layout_height="27dp"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginStart="24dp"
-                android:layout_marginLeft="24dp"
-                android:layout_marginTop="20dp"
-                android:layout_toEndOf="@+id/display_request_image"
-                android:layout_toRightOf="@+id/display_request_image"
-                android:text="Appointment Date:"
-                android:textColor="#131010"
-                android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/page_request_type" />
-
-            <TextView
-                android:id="@+id/display_reqordec"
-                android:layout_width="130dp"
-                android:layout_height="25dp"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginStart="24dp"
-                android:layout_marginLeft="24dp"
-                android:layout_marginTop="20dp"
-                android:layout_toEndOf="@+id/display_request_image"
-                android:layout_toRightOf="@+id/display_request_image"
-                android:text="Notes:"
-                android:textColor="#131010"
-                android:textSize="18sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/page_request_apDate" />
+            </FrameLayout>
 
             <ImageView
                 android:id="@+id/page_request_pic"
@@ -220,13 +193,137 @@
                 android:layout_height="84dp"
                 android:layout_marginStart="152dp"
                 android:layout_marginLeft="152dp"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.025"
+                app:layout_constraintHorizontal_bias="0.031"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/PreviewToolBar"
+                app:layout_constraintTop_toBottomOf="@+id/eee"
                 app:srcCompat="@drawable/blooddonation" />
+
+            <TextView
+                android:id="@+id/textView25"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginEnd="12dp"
+                android:layout_marginRight="12dp"
+                android:text="مقدم الرعاية الصحية"
+                android:textAlignment="viewEnd"
+                android:textColor="@color/purple"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="@+id/frameLayout2"
+                app:layout_constraintTop_toBottomOf="@+id/page_request_pic" />
+
+            <FrameLayout
+                android:id="@+id/frameLayout2"
+                android:layout_width="380dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/bourder"
+                android:padding="5dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView25">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    tools:layout_editor_absoluteX="5dp"
+                    tools:layout_editor_absoluteY="5dp">
+
+                    <TextView
+                        android:id="@+id/ftextv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginEnd="15dp"
+                        android:layout_marginRight="15dp"
+                        android:text="الاسم: "
+                        android:textColor="@color/purple"
+                        android:textSize="18sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <TextView
+                        android:id="@+id/page_request_ID"
+                        android:layout_width="273dp"
+                        android:layout_height="26dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginLeft="8dp"
+                        android:gravity="right"
+                        android:text="ID"
+                        android:textColor="#000000"
+                        android:textSize="18sp"
+                        app:layout_constraintBottom_toTopOf="@+id/doctorsSpecialty"
+                        app:layout_constraintEnd_toStartOf="@+id/textViewsss"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/page_request_name1" />
+
+                    <TextView
+                        android:id="@+id/page_request_name1"
+                        android:layout_width="295dp"
+                        android:layout_height="23dp"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginRight="8dp"
+                        android:gravity="right"
+                        android:text="Name"
+                        android:textColor="#000000"
+                        android:textSize="18sp"
+                        app:layout_constraintBottom_toTopOf="@+id/page_request_ID"
+                        app:layout_constraintEnd_toStartOf="@+id/ftextv"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textViewsss"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginRight="16dp"
+                        android:text="الرقم :"
+                        android:textColor="@color/purple"
+                        android:textSize="18sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/ftextv" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </FrameLayout>
+
+
+            <Button
+                android:id="@+id/page_request_cancelanddelete"
+
+                android:layout_width="300dp"
+                android:layout_height="49dp"
+
+                android:layout_margin="20dp"
+                android:background="@drawable/login_btn"
+                android:text="حذف الطلب "
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="normal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/clayout"
+                app:layout_constraintTop_toBottomOf="@+id/frameLayout3" />
+
+
         </androidx.constraintlayout.widget.ConstraintLayout>
+
     </ScrollView>
 
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:menu="@menu/bottom_navigation" />
 </androidx.constraintlayout.widget.ConstraintLayout>

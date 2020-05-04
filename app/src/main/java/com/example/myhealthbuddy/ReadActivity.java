@@ -23,6 +23,8 @@ import java.io.InputStream;
 import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.github.barteksc.pdfviewer.PDFView;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -75,22 +77,27 @@ public class ReadActivity extends AppCompatActivity {
     }
 
     private void export() {
-        storageReference= FirebaseStorage.getInstance().getReference();
-        ref = storageReference.child("RecordsFiles").child(recordIDٍ+".pdf");
-        ref.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-            @Override
-            public void onSuccess(Uri uri) {
-                String urlfromfb=uri.toString();
+        try {
+            storageReference = FirebaseStorage.getInstance().getReference();
+            ref = storageReference.child("RecordsFiles").child(recordIDٍ + ".pdf");
+            ref.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                @Override
+                public void onSuccess(Uri uri) {
+                    String urlfromfb = uri.toString();
 
-                download(ReadActivity.this,recordIDٍ,".pdf",DIRECTORY_DOWNLOADS,urlfromfb);
+                    download(ReadActivity.this, recordIDٍ, ".pdf", DIRECTORY_DOWNLOADS, urlfromfb);
 
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
 
-            }
-        });
+                }
+            });
+        } catch (Exception e) {
+            Toast.makeText(this,"error",Toast.LENGTH_LONG).show();
+        }
+
     }
 
     private void download(Context context, String fileName, String fileExtension, String destinationDirectory, String url) {
