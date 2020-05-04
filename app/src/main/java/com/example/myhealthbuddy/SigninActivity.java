@@ -61,6 +61,7 @@ public class SigninActivity  extends AppCompatActivity {
         @Override
         public void onClick(View v) {
 
+            login.setVisibility(View.INVISIBLE);
             final String ID =uid.getText().toString();
             final String Password = Pass.getText().toString();
 // check for empty fields
@@ -112,9 +113,11 @@ String email="";
                     if(task.isSuccessful()){
                         showMessage("تم تسجيل دخولك بنجاح");
                         SendUserToMainActivity();
+                        login.setVisibility(View.VISIBLE);
                     }
                     else {
                         showMessage("حدث خطأ");
+                        login.setVisibility(View.VISIBLE);
                         // showMessage(task.getException().getMessage());
                     }
 
@@ -147,6 +150,7 @@ String email="";
         boolean flag=true;
         if( password.isEmpty()||NID.isEmpty()){
             showMessage("يرجى تعبئة جميع الخانات");
+            login.setVisibility(View.VISIBLE);
             flag=false;
         }
         return flag;
@@ -156,12 +160,14 @@ String email="";
         //length
         if (NID.length() < 10 || NID.length() > 10) {
             uid.setError("يحب ان يتكون رقم الهوية الوطنية من 10 خانات");
+            login.setVisibility(View.VISIBLE);
             uid.requestFocus();
             flag = false;
         }
         // check for non numeric
         if ( !NID.matches("[0-9]+")) {
             uid.setError("يجب ان لايحتوي رقم الهوية الوطنية على رموز");
+            login.setVisibility(View.VISIBLE);
             uid.requestFocus();
             flag=false;
         }

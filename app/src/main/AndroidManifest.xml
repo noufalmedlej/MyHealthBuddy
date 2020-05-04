@@ -29,7 +29,7 @@
         <activity android:name=".ShareRecord" />
         <activity android:name=".SearchHCP" />
         <activity android:name=".Register" />
-        <activity android:name=".SigninActivity" />
+        <activity android:name=".MainActivity" />
         <activity android:name=".HomePage" />
         <activity android:name=".Profile" />
         <activity android:name=".CreateRequest" />
@@ -41,7 +41,7 @@
         <activity android:name=".Settings" />
         <activity android:name=".EditProfile" />
         <activity android:name=".SetUp" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".SigninActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
