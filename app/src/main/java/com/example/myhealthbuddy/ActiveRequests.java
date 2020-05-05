@@ -124,10 +124,10 @@ public class ActiveRequests extends Fragment {
         public void setType(String type){
             TextView t=(TextView)mView.findViewById(R.id.display_request_type);
 
-            if(type.equals("Medical Report")){
+            if(type.equals("Other")){
                 t.setText("تقرير");
             }
-            if(type.equals("Radiology Report")){
+            if(type.equals("X-Ray")){
                 t.setText("أشعة");
             }
             if(type.equals("Prescription")){
@@ -136,7 +136,7 @@ public class ActiveRequests extends Fragment {
             if(type.equals("Vital Signs")){
                 t.setText("مؤشرات حيوية");
             }
-            if(type.equals("Lab Report")){
+            if(type.equals("Blood Test")){
                 t.setText("تحليل مختبر");
             }
 

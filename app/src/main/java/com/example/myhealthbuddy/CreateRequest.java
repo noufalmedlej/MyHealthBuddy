@@ -108,6 +108,7 @@ public class CreateRequest extends AppCompatActivity {
 
                 DatePickerDialog dialog=new DatePickerDialog(CreateRequest.this,android.R.style.Theme_DeviceDefault_Dialog_MinWidth,mDatasetListner,year,month,day);
                 dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dialog.getDatePicker().setMaxDate(System.currentTimeMillis());
                 dialog.show();
 
 
@@ -206,13 +207,13 @@ public class CreateRequest extends AppCompatActivity {
                         type="Prescription";
                     else
                     if(radreports.isChecked())
-                        type="Radiology Report";
+                        type="X-Ray";
                     else
                     if(labreport.isChecked())
-                        type="Lab Report";
+                        type="Blood Test";
                     else
                     if(mreports.isChecked())
-                        type="Medical Report";
+                        type="Other";
 
 
                     String patientID=dataSnapshot.child("national_id").getValue().toString();

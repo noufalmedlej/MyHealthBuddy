@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.TextView;
 
@@ -52,12 +53,6 @@ public class ViewRecordsNotificatins extends AppCompatActivity {
         uid=mAuth.getCurrentUser().getUid().toString();
 
 
-        displayNotifications(uid);
-
-    }
-
-    private void displayNotifications(String currentPatient) {
-
         notificationList=(RecyclerView)findViewById(R.id.NotificationList);
         notificationList.setHasFixedSize(true);
         LinearLayoutManager linearLayoutManager=new LinearLayoutManager(this);
@@ -70,7 +65,7 @@ public class ViewRecordsNotificatins extends AppCompatActivity {
 
 
 
-        RecordRef = FirebaseDatabase.getInstance().getReference().child("Records").orderByChild("pid").equalTo(currentPatient);
+        RecordRef = FirebaseDatabase.getInstance().getReference().child("Records").orderByChild("pid").equalTo(uid);
 
 
         RecordRef.addValueEventListener(new ValueEventListener() {
@@ -81,6 +76,9 @@ public class ViewRecordsNotificatins extends AppCompatActivity {
                     notificationList.setVisibility(View.INVISIBLE);
                     nonot.setVisibility(View.VISIBLE);
                 }
+                else {
+                    displayNotifications(uid);
+                }
 
             }
 
@@ -90,10 +88,34 @@ public class ViewRecordsNotificatins extends AppCompatActivity {
             }
         });
 
+
+
+
+    }
+
+    private void displayNotifications(String currentPatient) {
+
+
+
+        Query q=FirebaseDatabase.getInstance().getReference().child("Records").orderByChild("date_order");
+
         FirebaseRecyclerAdapter<item_record,NotificationsViewHolder> firebaseRecyclerAdapter =
-                new FirebaseRecyclerAdapter<item_record, NotificationsViewHolder>(item_record.class,R.layout.record_item,NotificationsViewHolder.class,RecordRef) {
+                new FirebaseRecyclerAdapter<item_record, NotificationsViewHolder>(item_record.class,R.layout.record_item,NotificationsViewHolder.class,q) {
                     @Override
                     protected void populateViewHolder(final NotificationsViewHolder notificationsViewHolder, final item_record records, int i) {
+
+                        final ViewGroup.LayoutParams params = notificationsViewHolder.mView.getLayoutParams();
+                        notificationsViewHolder.mView.setVisibility(View.GONE);
+
+                        params.height = 0;
+                        params.width = 0;
+
+                        if(records.getPid().equals(uid)) {
+                            notificationsViewHolder.mView.setVisibility(View.VISIBLE);
+                            params.width = 1000;
+                            params.height = 400;
+
+
                         notificationsViewHolder.setDoctorName(records.getDoctorName());
                         notificationsViewHolder.setRid(records.getRid());
                         notificationsViewHolder.setType(records.getType());
@@ -103,12 +125,14 @@ public class ViewRecordsNotificatins extends AppCompatActivity {
                         PatientRef.child(records.getPid()).addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                if(dataSnapshot.exists()){
+                                if (dataSnapshot.exists()) {
 
-                                    String Patient_name =dataSnapshot.child("name").getValue().toString();
+                                    String Patient_name = dataSnapshot.child("name").getValue().toString();
 
-                                    notificationsViewHolder.setPatientName(Patient_name);}
+                                    notificationsViewHolder.setPatientName(Patient_name);
+                                }
                             }
+
                             @Override
                             public void onCancelled(@NonNull DatabaseError databaseError) {
                             }
@@ -118,12 +142,14 @@ public class ViewRecordsNotificatins extends AppCompatActivity {
                         HospitalRef.child(records.getHospital()).addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                if(dataSnapshot.exists()){
+                                if (dataSnapshot.exists()) {
 
-                                    String hospital_name =dataSnapshot.child("Name").getValue().toString();
+                                    String hospital_name = dataSnapshot.child("Name").getValue().toString();
 
-                                    notificationsViewHolder.setHospital(hospital_name);}
+                                    notificationsViewHolder.setHospital(hospital_name);
+                                }
                             }
+
                             @Override
                             public void onCancelled(@NonNull DatabaseError databaseError) {
                             }
@@ -137,12 +163,14 @@ public class ViewRecordsNotificatins extends AppCompatActivity {
                         Recordsref.child(Rid).addValueEventListener(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                                if(dataSnapshot.exists()){
+                                if (dataSnapshot.exists()) {
 
-                                    String date =dataSnapshot.child("dateCreated").getValue().toString();
+                                    String date = dataSnapshot.child("dateCreated").getValue().toString();
 
-                                    notificationsViewHolder.setDateCreated(date);}
+                                    notificationsViewHolder.setDateCreated(date);
+                                }
                             }
+
                             @Override
                             public void onCancelled(@NonNull DatabaseError databaseError) {
                             }
@@ -152,25 +180,30 @@ public class ViewRecordsNotificatins extends AppCompatActivity {
                         notificationsViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                switch(records.getType()){
-                                    case 1:   Intent intentPills=new Intent(ViewRecordsNotificatins.this, ViewPrescription.class);
-                                        intentPills.putExtra("Rid",Rid);
+                                switch (records.getType()) {
+                                    case 1:
+                                        Intent intentPills = new Intent(ViewRecordsNotificatins.this, ViewPrescription.class);
+                                        intentPills.putExtra("Rid", Rid);
                                         startActivity(intentPills);
                                         break;
-                                    case 2: Intent intentMyBloodTests = new Intent(ViewRecordsNotificatins.this, ViewBloodTest.class);
-                                        intentMyBloodTests.putExtra("Rid",Rid);
+                                    case 2:
+                                        Intent intentMyBloodTests = new Intent(ViewRecordsNotificatins.this, ViewBloodTest.class);
+                                        intentMyBloodTests.putExtra("Rid", Rid);
                                         startActivity(intentMyBloodTests);
                                         break;
-                                    case 3:  Intent intentMyx_Rays = new Intent(ViewRecordsNotificatins.this, ViewXRay.class);
-                                        intentMyx_Rays.putExtra("Rid",Rid);
+                                    case 3:
+                                        Intent intentMyx_Rays = new Intent(ViewRecordsNotificatins.this, ViewXRay.class);
+                                        intentMyx_Rays.putExtra("Rid", Rid);
                                         startActivity(intentMyx_Rays);
                                         break;
-                                    case 4: Intent intentMyVital = new Intent(ViewRecordsNotificatins.this, ViewVitalSigns.class);
-                                        intentMyVital.putExtra("Rid",Rid);
+                                    case 4:
+                                        Intent intentMyVital = new Intent(ViewRecordsNotificatins.this, ViewVitalSigns.class);
+                                        intentMyVital.putExtra("Rid", Rid);
                                         startActivity(intentMyVital);
                                         break;
-                                    case 5:Intent intentRecord = new Intent(ViewRecordsNotificatins.this, ViewRecord.class);
-                                        intentRecord.putExtra("Rid",Rid);
+                                    case 5:
+                                        Intent intentRecord = new Intent(ViewRecordsNotificatins.this, ViewRecord.class);
+                                        intentRecord.putExtra("Rid", Rid);
                                         startActivity(intentRecord);
                                         break;
                                 }
@@ -178,6 +211,7 @@ public class ViewRecordsNotificatins extends AppCompatActivity {
                         });
 
                     }
+                }
 
                 };
 

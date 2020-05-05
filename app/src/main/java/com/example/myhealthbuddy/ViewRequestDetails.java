@@ -65,7 +65,7 @@ public class ViewRequestDetails extends AppCompatActivity {
 
 
         bottomnav =  findViewById(R.id.bottom_navigation);
-        //bottomnav.setSelectedItemId(R.id.nav_home);
+        bottomnav.setSelectedItemId(R.id.nav_request);
         bottomnav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -104,10 +104,10 @@ public class ViewRequestDetails extends AppCompatActivity {
                         NoteText.setText("None");
 
 
-                    if(type.equals("Medical Report")){
+                    if(type.equals("Other")){
                         RequestPic.setImageResource(R.drawable.medicalhistory);
                     }
-                    if(type.equals("Radiology Report")){
+                    if(type.equals("X-Ray")){
                         RequestPic.setImageResource(R.drawable.skeleton);
                     }
                     if(type.equals("Prescription")){
@@ -116,6 +116,11 @@ public class ViewRequestDetails extends AppCompatActivity {
                     if(type.equals("Vital Signs")){
                         RequestPic.setImageResource(R.drawable.heartbeat);
                     }
+                    if(type.equals("Blood Test")){
+                        RequestPic.setImageResource(R.drawable.blooddonation);
+
+                    }
+
 
                     DocRef.child(dataSnapshot.child("doctor_uid").getValue().toString()).addValueEventListener(new ValueEventListener() {
                         @Override
@@ -149,22 +154,22 @@ public class ViewRequestDetails extends AppCompatActivity {
     }
     private void DeleteRequest(){
         AlertDialog.Builder altb= new AlertDialog.Builder(ViewRequestDetails.this);
-        altb.setMessage("Are you sure you want delete the request?").setCancelable(false)
-                .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+        altb.setMessage("هل متأكد من حذف الطلب؟").setCancelable(false)
+                .setPositiveButton("نعم", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                                             Request.removeValue().addOnCompleteListener(new OnCompleteListener<Void>() {
                                                 @Override
                                                 public void onComplete(@NonNull Task<Void> task) {
                                                     finish();
-                                                    Toast.makeText(getApplicationContext(), "Request deleted", Toast.LENGTH_LONG).show();
+                                                    Toast.makeText(getApplicationContext(), "تم الحذف", Toast.LENGTH_LONG).show();
                                                 }
                                             });
 
 
                     }
                 })
-                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                .setNegativeButton("لا", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.cancel();
@@ -173,7 +178,7 @@ public class ViewRequestDetails extends AppCompatActivity {
                 });
 
         AlertDialog alertDialog=altb.create();
-        alertDialog.setTitle("Cancel Request");
+        alertDialog.setTitle("حذف الطلب");
         alertDialog.show();
 
 
