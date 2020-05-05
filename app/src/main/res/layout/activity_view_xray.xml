@@ -113,7 +113,7 @@
 
             <FrameLayout
                 android:id="@+id/frameLayout"
-                android:layout_width="380dp"
+                android:layout_width="340dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:background="@drawable/bourder"
@@ -227,7 +227,7 @@
 
             <FrameLayout
                 android:id="@+id/frameLayout2"
-                android:layout_width="380dp"
+                android:layout_width="340dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/bourder"
                 android:padding="5dp"
@@ -259,8 +259,8 @@
                         android:id="@+id/doctorsSpecialty"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="192dp"
-                        android:layout_marginLeft="192dp"
+                        android:layout_marginStart="156dp"
+                        android:layout_marginLeft="156dp"
                         android:gravity="right"
                         android:text="Speciality"
                         android:textColor="#000000"
@@ -345,7 +345,7 @@
 
             <FrameLayout
                 android:id="@+id/frameLayout3"
-                android:layout_width="380dp"
+                android:layout_width="340dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:background="@drawable/bourder"

@@ -96,7 +96,7 @@
 
             <FrameLayout
                 android:id="@+id/frameLayout3"
-                android:layout_width="384dp"
+                android:layout_width="340dp"
                 android:layout_height="174dp"
                 android:layout_marginTop="5dp"
                 android:background="@drawable/bourder"
@@ -125,7 +125,7 @@
 
                     <TextView
                         android:id="@+id/page_request_apDate"
-                        android:layout_width="358dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="end"
                         android:text="testDate"
@@ -149,7 +149,7 @@
 
                     <TextView
                         android:id="@+id/page_request_type"
-                        android:layout_width="358dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="end"
                         android:text="testType"
@@ -173,7 +173,7 @@
 
                     <TextView
                         android:id="@+id/page_request_note"
-                        android:layout_width="360dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="end"
                         android:text="Notes....."
@@ -216,7 +216,7 @@
 
             <FrameLayout
                 android:id="@+id/frameLayout2"
-                android:layout_width="380dp"
+                android:layout_width="340dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:background="@drawable/bourder"
@@ -320,10 +320,9 @@
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="55dp"
+        android:background="?android:attr/windowBackground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
         app:menu="@menu/bottom_navigation" />
 </androidx.constraintlayout.widget.ConstraintLayout>

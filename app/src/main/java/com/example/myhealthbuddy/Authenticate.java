@@ -33,7 +33,6 @@ public class Authenticate extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.authentication);
-        FirebaseApp secondary = FirebaseApp.getInstance("secondary");
         mAuth = FirebaseAuth.getInstance();
 
         progressBar = findViewById(R.id.progressbar);

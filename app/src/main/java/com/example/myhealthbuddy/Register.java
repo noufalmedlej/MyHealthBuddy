@@ -88,6 +88,7 @@ public class Register extends AppCompatActivity {
 
                 if (NationalIDnew(NID)){
                     UserNID.setError("رقم الهوية الوطنية مستخدم");
+                    showMessage("رقم الهوية الوطنية مستخدم");
                     return;
                 }
 
@@ -271,7 +272,8 @@ exists= false;
 
                 for (DataSnapshot postsnapshot : dataSnapshot.getChildren()) {
                     String key1 = postsnapshot.getKey();
-                    if ((dataSnapshot.child(key1).child("national_id").getValue().equals(NID))){
+                    if ((dataSnapshot.child(key1).child("national_id").getValue().toString().equals(NID))){
+                        System.out.println(dataSnapshot.child(key1).child("national_id").getValue().toString());
                        exists = true;
                         break;
                     }}

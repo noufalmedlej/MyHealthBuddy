@@ -115,7 +115,7 @@
 
             <FrameLayout
                 android:id="@+id/frameLayout"
-                android:layout_width="380dp"
+                android:layout_width="340dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:background="@drawable/bourder"
@@ -230,7 +230,7 @@
 
             <FrameLayout
                 android:id="@+id/frameLayout2"
-                android:layout_width="380dp"
+                android:layout_width="340dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/bourder"
                 android:padding="5dp"
@@ -260,8 +260,8 @@
 
                     <TextView
                         android:id="@+id/doctorsSpecialty"
-                        android:layout_width="258dp"
-                        android:layout_height="26dp"
+                        android:layout_width="201dp"
+                        android:layout_height="24dp"
                         android:layout_marginStart="16dp"
                         android:layout_marginLeft="16dp"
                         android:gravity="right"
@@ -270,7 +270,7 @@
                         android:textSize="18sp"
                         app:layout_constraintBottom_toTopOf="@+id/hospitalName"
                         app:layout_constraintEnd_toStartOf="@+id/textViewsss"
-                        app:layout_constraintHorizontal_bias="0.0"
+                        app:layout_constraintHorizontal_bias="0.586"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/doctorName" />
 
@@ -350,7 +350,7 @@
 
             <FrameLayout
                 android:id="@+id/frameLayout3"
-                android:layout_width="380dp"
+                android:layout_width="340dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:background="@drawable/bourder"

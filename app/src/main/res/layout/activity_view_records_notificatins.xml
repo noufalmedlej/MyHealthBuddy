@@ -43,7 +43,7 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/NotificationList"
-        android:layout_width="412dp"
+        android:layout_width="0dp"
         android:layout_height="587dp"
         app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
         app:layout_constraintEnd_toEndOf="parent"

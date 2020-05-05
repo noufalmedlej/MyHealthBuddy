@@ -115,7 +115,7 @@
 
             <FrameLayout
                 android:id="@+id/frameLayout"
-                android:layout_width="380dp"
+                android:layout_width="340dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:background="@drawable/bourder"
@@ -233,7 +233,7 @@
 
             <FrameLayout
                 android:id="@+id/frameLayout2"
-                android:layout_width="380dp"
+                android:layout_width="340dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:background="@drawable/bourder"
@@ -264,10 +264,8 @@
 
                     <TextView
                         android:id="@+id/doctorsSpecialty"
-                        android:layout_width="249dp"
-                        android:layout_height="20dp"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginLeft="20dp"
+                        android:layout_width="234dp"
+                        android:layout_height="22dp"
                         android:gravity="right"
                         android:text="Speciality"
                         android:textColor="#000000"
@@ -352,7 +350,7 @@
 
             <FrameLayout
                 android:id="@+id/frameLayout3"
-                android:layout_width="380dp"
+                android:layout_width="340dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:background="@drawable/bourder"
@@ -540,11 +538,10 @@
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="55dp"
+        android:background="?android:attr/windowBackground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
         app:menu="@menu/bottom_navigation" />
 
 
