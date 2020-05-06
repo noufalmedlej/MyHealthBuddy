@@ -94,7 +94,6 @@ public class ViewRequestDetails extends AppCompatActivity {
 
                     RDate.setText(reqdate);
                     String type=dataSnapshot.child("type").getValue().toString();
-                    RequestTypeText.setText(type);
                     String apDate=dataSnapshot.child("date").getValue().toString();
                     AppointmentDateText.setText(apDate);
                     if(dataSnapshot.hasChild("notes")){
@@ -104,20 +103,27 @@ public class ViewRequestDetails extends AppCompatActivity {
                         NoteText.setText("None");
 
 
+
+
                     if(type.equals("Other")){
                         RequestPic.setImageResource(R.drawable.medicalhistory);
+                        RequestTypeText.setText("تقرير");
                     }
                     if(type.equals("X-Ray")){
                         RequestPic.setImageResource(R.drawable.skeleton);
+                        RequestTypeText.setText("تقرير");
                     }
                     if(type.equals("Prescription")){
                         RequestPic.setImageResource(R.drawable.pills1);
+                        RequestTypeText.setText("وصفة طبية");
                     }
                     if(type.equals("Vital Signs")){
                         RequestPic.setImageResource(R.drawable.heartbeat);
+                        RequestTypeText.setText("مؤشرات حيوية");
                     }
                     if(type.equals("Blood Test")){
                         RequestPic.setImageResource(R.drawable.blooddonation);
+                        RequestTypeText.setText("تحليل مختبر");
 
                     }
 
