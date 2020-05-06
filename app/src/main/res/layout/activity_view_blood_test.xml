@@ -146,16 +146,17 @@
 
                     <TextView
                         android:id="@+id/patientName"
-                        android:layout_width="288dp"
-                        android:layout_height="22dp"
+                        android:layout_width="259dp"
+                        android:layout_height="20dp"
                         android:layout_marginTop="4dp"
                         android:layout_marginEnd="20dp"
                         android:layout_marginRight="20dp"
-                        android:gravity="right"
+                        android:gravity="left"
                         android:text="Name"
                         android:textColor="@color/black"
                         android:textSize="18sp"
                         app:layout_constraintEnd_toStartOf="@+id/textView19"
+                        app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <TextView
@@ -165,7 +166,7 @@
                         android:layout_marginTop="1dp"
                         android:layout_marginEnd="14dp"
                         android:layout_marginRight="14dp"
-                        android:text="رقم الهويه:"
+                        android:text="رقم الهوية:"
                         android:textColor="@color/purple"
                         android:textSize="18sp"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -173,11 +174,11 @@
 
                     <TextView
                         android:id="@+id/patientID"
-                        android:layout_width="255dp"
-                        android:layout_height="19dp"
+                        android:layout_width="225dp"
+                        android:layout_height="22dp"
                         android:layout_marginEnd="24dp"
                         android:layout_marginRight="24dp"
-                        android:gravity="right"
+                        android:gravity="right|left"
                         android:text="ID"
                         android:textColor="@color/black"
                         android:textSize="18sp"
@@ -379,7 +380,7 @@
 
                     <TextView
                         android:id="@+id/testDate"
-                        android:layout_width="357dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="end"
                         android:text="testDate"
@@ -404,7 +405,7 @@
 
                     <TextView
                         android:id="@+id/note"
-                        android:layout_width="360dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="end"
                         android:text="Notes....."
@@ -429,7 +430,7 @@
 
                     <androidx.cardview.widget.CardView
                         android:id="@+id/card"
-                        android:layout_width="350dp"
+                        android:layout_width="match_parent"
                         android:layout_height="30dp"
                         android:layout_gravity="center"
                         android:layout_margin="5dp"
@@ -484,13 +485,13 @@
                         </LinearLayout>
 
 
-
                     </androidx.cardview.widget.CardView>
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/recy"
                         android:layout_width="match_parent"
-                        android:layout_height="100dp" />
+                        android:layout_height="100dp"
+                        android:paddingLeft="10dp" />
                 </LinearLayout>
 
             </FrameLayout>
@@ -502,7 +503,7 @@
                 android:background="?attr/selectableItemBackground"
                 android:drawableLeft="@drawable/attachpurple"
                 android:minHeight="1dp"
-                android:text=" View File"
+                android:text="عرض الملف"
                 android:textAllCaps="false"
                 android:textColor="@color/grey"
                 android:textSize="16sp"
